@@ -89,9 +89,13 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,2
   background:var(--teal);box-shadow:0 16px 34px -14px rgba(20,163,163,.9);transition:transform .25s, box-shadow .25s;
 }
 .submit:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(20,163,163,1)}
+.submit:disabled{opacity:.65;cursor:not-allowed;transform:none;box-shadow:0 16px 34px -14px rgba(20,163,163,.9)}
 .submit .arrow{transition:transform .25s}
 .submit:hover .arrow{transform:translateX(4px)}
+.submit:disabled .arrow{transform:none}
 .form-note{margin-top:18px;font-size:12.5px;color:var(--muted)}
+.form-error{display:none;margin-top:14px;padding:12px 14px;border-radius:10px;background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;font-size:13.5px;line-height:1.6}
+.form-error.visible{display:block}
 
 /* Aside */
 .aside-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 30px}
@@ -156,16 +160,9 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:56px 0 28px;font-s
 
     <!-- Form -->
     <div class="form-card">
-      <!--
-        送信先の設定について（副田さん向けメモ）:
-        1. https://formspree.io/ で協会メールアドレス宛のフォームを作成
-        2. 発行されるエンドポイント（例 https://formspree.io/f/abcdwxyz）を下の action= に貼り替え
-        3. 下の _next の URL を本番ドメインの完了ページ/トップに変更（任意）
-        Google フォームを使わず、独自ドメイン内で完結・メール受信できます。
-      -->
-      <form action="https://formspree.io/f/xgojnqbg" method="POST">
+      <!-- Formspree: JS で送信し、完了後に自サイトへリダイレクト（無料プランでも可） -->
+      <form id="contactForm" action="https://formspree.io/f/xgojnqbg" method="POST">
         <input type="hidden" name="_subject" value="【Webサイト】お問い合わせ">
-        <input type="hidden" name="_next" value="https://Keeeeei-Soeda.github.io/healthcare-shadan-hojin/contact.html?sent=1">
         <!-- スパム対策（bot用おとり。人間には非表示） -->
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
@@ -211,7 +208,8 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:56px 0 28px;font-s
           <label for="agree">お預かりした個人情報は、お問い合わせへの対応のみに利用し、適切に管理します。内容に同意のうえ送信します。</label>
         </div>
 
-        <button type="submit" class="submit">送信する <span class="arrow">→</span></button>
+        <button type="submit" class="submit" id="submitBtn">送信する <span class="arrow">→</span></button>
+        <p class="form-error" id="formError" role="alert"></p>
         <p class="form-note">送信後、担当者より順次ご連絡いたします。数日経っても返信がない場合は、お手数ですが下記メールまでご連絡ください。</p>
       </form>
     </div>
@@ -265,7 +263,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:56px 0 28px;font-s
 </footer>
 
 <script>
-// 送信完了メッセージ（Formspreeの _next で ?sent=1 が付いて戻ってきたとき）
+// 送信完了メッセージ（?sent=1 のとき）
 if(new URLSearchParams(location.search).get('sent')==='1'){
   const card=document.querySelector('.form-card');
   if(card){
@@ -277,6 +275,42 @@ if(new URLSearchParams(location.search).get('sent')==='1'){
       '<a href="index.html" style="display:inline-block;margin-top:28px;color:var(--teal);font-weight:700">トップに戻る →</a></div>';
     window.scrollTo({top:0,behavior:'smooth'});
   }
+}else{
+  const form=document.getElementById('contactForm');
+  const submitBtn=document.getElementById('submitBtn');
+  const formError=document.getElementById('formError');
+  const defaultBtnText=submitBtn.innerHTML;
+
+  form.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    formError.classList.remove('visible');
+    formError.textContent='';
+    submitBtn.disabled=true;
+    submitBtn.innerHTML='送信中…';
+
+    const data=new FormData(form);
+    const email=data.get('メールアドレス');
+    if(email) data.set('_replyto',email);
+
+    try{
+      const res=await fetch(form.action,{
+        method:'POST',
+        body:data,
+        headers:{'Accept':'application/json'}
+      });
+      const json=await res.json().catch(()=>({}));
+      if(res.ok){
+        window.location.href='contact.html?sent=1';
+        return;
+      }
+      throw new Error(json.error||'送信に失敗しました。時間をおいて再度お試しください。');
+    }catch(err){
+      formError.textContent=err.message||'送信に失敗しました。時間をおいて再度お試しください。';
+      formError.classList.add('visible');
+      submitBtn.disabled=false;
+      submitBtn.innerHTML=defaultBtnText;
+    }
+  });
 }
 </script>
 </body>
