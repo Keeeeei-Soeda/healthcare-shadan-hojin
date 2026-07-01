@@ -276,10 +276,35 @@ if(new URLSearchParams(location.search).get('sent')==='1'){
     window.scrollTo({top:0,behavior:'smooth'});
   }
 }else{
+  // Google スプレッドシート同期（Apps Script Web App URL。未設定時はスキップ）
+  // セットアップ: docs/google-sheets-sync.md
+  const SHEET_SYNC_URL='https://script.google.com/macros/s/AKfycbw_Mw6DxMjTwShSN3ppdj4jHq-Z3hZV1D5OuJyBeDax-t3L_ORg8ia1cCtTL83yIx0i/exec';
+  const SHEET_SYNC_TOKEN='';
+
   const form=document.getElementById('contactForm');
   const submitBtn=document.getElementById('submitBtn');
   const formError=document.getElementById('formError');
   const defaultBtnText=submitBtn.innerHTML;
+
+  async function syncToSheet(formData){
+    if(!SHEET_SYNC_URL) return;
+    const payload={
+      token:SHEET_SYNC_TOKEN,
+      name:formData.get('お名前')||'',
+      org:formData.get('法人名・所属')||'',
+      email:formData.get('メールアドレス')||'',
+      tel:formData.get('電話番号')||'',
+      topic:formData.get('お問い合わせ種別')||'',
+      message:formData.get('お問い合わせ内容')||'',
+      consent:formData.get('個人情報の取り扱いへの同意')||''
+    };
+    await fetch(SHEET_SYNC_URL,{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify(payload)
+    });
+  }
 
   form.addEventListener('submit',async(e)=>{
     e.preventDefault();
@@ -300,6 +325,7 @@ if(new URLSearchParams(location.search).get('sent')==='1'){
       });
       const json=await res.json().catch(()=>({}));
       if(res.ok){
+        try{await syncToSheet(data);}catch(_){}
         window.location.href='contact.html?sent=1';
         return;
       }

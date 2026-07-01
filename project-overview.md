@@ -46,7 +46,8 @@
 | リポジトリ名 | `healthcare-shadan-hojin` |
 | 公開URL | https://Keeeeei-Soeda.github.io/healthcare-shadan-hojin/ |
 | お問い合わせフォーム | [Formspree](https://formspree.io/)（`https://formspree.io/f/xgojnqbg`） |
-| フォーム送信方式 | JavaScript（fetch）→ 成功時に自サイトの完了画面へリダイレクト |
+| フォーム送信方式 | JavaScript（fetch）→ Formspree（メール）＋ Apps Script（スプレッドシート同期） |
+| スプレッドシート同期 | Google Apps Script（`docs/google-sheets-sync.md` 参照） |
 | 独自ドメイン | 取得後に設定予定 |
 
 ## 成果物
@@ -60,6 +61,8 @@
 | `README.md` | セットアップ・編集手順 |
 | `CHANGELOG.md` | 更新履歴 |
 | `project-overview.md` | 本ファイル（プロジェクト概要） |
+| `google-apps-script/contact-to-sheet.gs` | スプレッドシート同期用 Apps Script |
+| `docs/google-sheets-sync.md` | スプレッドシート同期セットアップ手順 |
 
 ## お問い合わせフォーム（Formspree）
 
@@ -68,6 +71,21 @@
 - 送信者への自動返信（控えメール）は無料プランでは非対応（有料プランの Auto Response が必要）
 - `_replyto` を JS で設定しているため、協会側から返信する際は問い合わせ者のメールアドレスに返信可能
 - 送信完了後は `contact.html?sent=1` で自サイト内の完了メッセージを表示（Formspree 標準ページは経由しない）
+- Google スプレッドシートへの自動記録（Apps Script。URL 設定後に有効化）
+
+## スプレッドシート同期
+
+問い合わせ内容をスプレッドシートに自動追記する仕組みを実装済み（有効化には Google 側のセットアップが必要）。
+
+| ファイル | 内容 |
+|---|---|
+| `google-apps-script/contact-to-sheet.gs` | Apps Script 本体 |
+| `docs/google-sheets-sync.md` | セットアップ手順 |
+
+- スプレッドシート: [国際ヘルスケアAI推進機構_プロジェクトファイル](https://docs.google.com/spreadsheets/d/190L3DfU8S-xpa9-EEyv0FgkUQ8vD6fEgL0lt2rbcVfc/edit)（ID: `190L3DfU8S-xpa9-EEyv0FgkUQ8vD6fEgL0lt2rbcVfc`）
+- 書き込み先シート: `contact_form`
+
+`contact.html` の `SHEET_SYNC_URL` に Web アプリ URL を設定すると同期が開始されます。未設定の間は Formspree のみ動作します。
 
 ## レスポンシブ対応
 
@@ -83,7 +101,7 @@
 - [ ] お問い合わせ先メールアドレスの確定（`contact.html` サイドバー・フッター）
 - [ ] 法人概要（連絡先メール等）の確定
 - [ ] 独自ドメインの取得・DNS設定
-- [ ] Formspree 通知先メールの運用確認（複数宛先が必要な場合は Gmail 転送等で対応）
+- [ ] Google スプレッドシート同期の有効化（Apps Script デプロイ → `SHEET_SYNC_URL` 設定）
 
 ## 今後の流れ
 
