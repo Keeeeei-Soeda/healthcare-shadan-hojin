@@ -292,11 +292,61 @@ body{font-size:calc(16px*var(--tsc))}
 .foot-info dl{font-size:calc(13px*var(--tsc))}
 .copyright{font-size:calc(12px*var(--tsc))}
 
+/* ---------- Business (rich rows) ---------- */
+.biz-rows{display:flex;flex-direction:column;gap:60px;margin-top:64px}
+.biz-row{display:grid;grid-template-columns:1.05fr 1.25fr;gap:52px;align-items:center}
+.biz-row.rev{grid-template-columns:1.25fr 1.05fr}
+.biz-row.rev .biz-ph{order:2}
+.biz-row.rev .biz-tx{order:1}
+.biz-ph{aspect-ratio:4/3;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.biz-tx .num{display:inline-block;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:14px;letter-spacing:.16em;color:var(--teal);margin-bottom:12px}
+.biz-tx h3{font-size:25px;font-weight:900;line-height:1.4}
+.biz-tx h3 .tag{font-size:.62em;color:var(--teal);font-weight:700;margin-left:.5em;letter-spacing:.04em}
+.biz-tx .lead{color:var(--muted);font-size:15px;margin-top:16px}
+.biz-tx ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:11px}
+.biz-tx li{position:relative;padding-left:24px;font-size:14.5px}
+.biz-tx li::before{content:"";position:absolute;left:0;top:12px;width:13px;height:2px;background:var(--teal)}
+.biz-tx .more{display:inline-block;margin-top:22px;color:var(--teal);font-weight:700;font-size:14px}
+.biz-tx .more .arrow{transition:transform .3s;display:inline-block}
+.biz-tx .more:hover .arrow{transform:translateX(5px)}
+
+/* ---------- Three-Star ---------- */
+.threestar{background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);position:relative;overflow:hidden}
+.star-ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:58px}
+.star-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 28px;text-align:center;transition:transform .35s,box-shadow .35s}
+.star-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.star-card .stars{font-size:32px;letter-spacing:5px;line-height:1;color:var(--teal)}
+.star-card .stars i{color:var(--line);font-style:normal}
+.star-card .lv{display:block;font-family:"Zen Kaku Gothic New";text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--muted);font-weight:700;margin:18px 0 12px}
+.star-card p{color:var(--muted);font-size:14px}
+.star-card.feature{background:linear-gradient(150deg,var(--navy),var(--navy-deep));border-color:transparent;box-shadow:var(--shadow);color:#fff}
+.star-card.feature .stars{color:var(--teal-light)}
+.star-card.feature .lv{color:rgba(255,255,255,.72)}
+.star-card.feature p{color:rgba(255,255,255,.85)}
+.ts-domains{margin-top:66px}
+.ts-domains-h{text-align:center;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:20px;margin-bottom:30px}
+.dom-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.dom{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 22px;position:relative}
+.dom::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;background:linear-gradient(var(--teal),var(--teal-light));border-radius:3px}
+.dom .k{display:block;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:16px;margin-bottom:8px}
+.dom p{color:var(--muted);font-size:13.5px}
+.ts-notes{margin-top:56px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 38px;box-shadow:var(--shadow)}
+.ts-notes ul{list-style:none;display:flex;flex-direction:column;gap:15px}
+.ts-notes li{position:relative;padding-left:32px;font-size:15px}
+.ts-notes li::before{content:"★";position:absolute;left:0;top:0;color:var(--teal);font-size:15px}
+.ts-notes li b{color:var(--ink);font-weight:700}
+.ts-notes .btn{margin-top:28px}
+
 /* ---------- Responsive ---------- */
 @media(max-width:900px){
   .about-grid{grid-template-columns:1fr;gap:44px}
   .cards-3,.why-grid,.flow-steps{grid-template-columns:1fr}
   .curr-row,.member-row,.member-row.rev{grid-template-columns:1fr;gap:0}
+  .biz-row,.biz-row.rev{grid-template-columns:1fr;gap:26px}
+  .biz-row.rev .biz-ph{order:1}
+  .biz-row.rev .biz-tx{order:2}
+  .star-ladder,.dom-grid{grid-template-columns:1fr;gap:18px}
+  .ts-notes{padding:28px 24px}
   .curr-ph{aspect-ratio:16/10}
   .member-row{gap:28px}
   .member-row.rev .member-ph{order:1}
@@ -331,6 +381,7 @@ body{font-size:calc(16px*var(--tsc))}
     <nav class="nav-links" id="navLinks">
       <a href="#about">協会について</a>
       <a href="#business">事業内容</a>
+      <a href="#threestar">スリースター</a>
       <a href="#curriculum">研修内容</a>
       <a href="#members">理事紹介</a>
       <a href="#flow">認定制度</a>
@@ -392,28 +443,103 @@ body{font-size:calc(16px*var(--tsc))}
       <h2 class="sec-title">事業内容</h2>
       <p class="sec-lead">医療機関・施設が組織全体でAIを安全に活用できるよう、3つの柱で支援します。目指すのは「全員が参加し、組織全体が変わる」仕組みづくりです。</p>
     </div>
-    <div class="cards-3">
-      <div class="card reveal">
-        <img class="business-ph" src="images/business01.png" alt="研修の様子">
-        <div class="card-body">
-          <h3>研修</h3>
-          <p>AIリテラシー・組織運用・コンプライアンス・ネットリテラシーを軸にした研修を実施。オンライン／現地の双方に対応し、密度の高いプログラムで「使ってよいか分からない」を解消します。</p>
+    <div class="biz-rows">
+
+      <!-- 01 研修 -->
+      <div class="biz-row reveal">
+        <img class="biz-ph" src="images/business01.png" alt="研修の様子">
+        <div class="biz-tx">
+          <span class="num">01 &nbsp;/&nbsp; TRAINING</span>
+          <h3>研修<span class="tag">AIリテラシー研修</span></h3>
+          <p class="lead">コンプライアンスを核に、「やってはいけないこと」を医療版ヒヤリハット事例で体感。抽象論をやらず、明日から使える具体で「使ってよいか分からない」を解消します。</p>
+          <ul>
+            <li>患者情報を外部AIに入れない等、現場の実践ルールを事例で</li>
+            <li>オンライン／現地の双方に対応した密度の高いプログラム</li>
+            <li>医師・看護・薬剤・医療事務・介護など職種別モジュール</li>
+          </ul>
         </div>
       </div>
-      <div class="card reveal d1">
-        <img class="business-ph" src="images/business02.png" alt="個人認定制度">
-        <div class="card-body">
-          <h3>個人認定制度</h3>
-          <p>研修受講とテスト合格に応じて、職員一人ひとりに修了証・資格証を発行。個人のスキルアップとコンプライアンス意識を、目に見える形で証明します。</p>
+
+      <!-- 02 法人認定（スリースター） -->
+      <div class="biz-row rev reveal">
+        <img class="biz-ph" src="images/business03.png" alt="法人認定制度 スリースター">
+        <div class="biz-tx">
+          <span class="num">02 &nbsp;/&nbsp; THREE-STAR</span>
+          <h3>法人認定制度<span class="tag">スリースター</span></h3>
+          <p class="lead">組織全体を毎年評価し、達成度を星1〜3で認定。正職員から派遣・アルバイトまで「全員」の受講を前提に、医療機関・施設単位でAI活用の質を可視化します。個人資格と違い、“組織そのもの”を評価するのが本協会ならではの特長です。</p>
+          <ul>
+            <li>組織診断（理解／ルール／対応／体制の4領域）で現状を可視化</li>
+            <li>評価して終わりでなく、弱点＋改善策まで返す</li>
+            <li>星3の医療機関・施設はサイト上のランキングで開示</li>
+          </ul>
+          <a href="#threestar" class="more">制度の詳細を見る <span class="arrow">→</span></a>
         </div>
       </div>
-      <div class="card reveal d2">
-        <img class="business-ph" src="images/business03.png" alt="法人認定制度 スリースター">
-        <div class="card-body">
-          <h3>法人認定制度<span style="font-size:.68em;color:var(--teal);font-weight:700;margin-left:.4em">スリースター</span></h3>
-          <p>組織全体を毎年評価し、達成度に応じて認定。正職員から派遣・アルバイトまで「全員」の受講を前提に、医療機関・施設単位でAI活用の質を可視化します。</p>
+
+      <!-- 03 オンライン認定書発行（個人認定） -->
+      <div class="biz-row reveal">
+        <img class="biz-ph" src="images/business02.png" alt="オンライン認定書発行">
+        <div class="biz-tx">
+          <span class="num">03 &nbsp;/&nbsp; CERTIFICATE</span>
+          <h3>オンライン認定書発行<span class="tag">個人認定</span></h3>
+          <p class="lead">研修受講とテスト合格に応じて、職員一人ひとりに認定書「医療AIスキルマスター（仮）」をオンラインで発行。個人のスキルアップとコンプライアンス意識を、目に見える形で証明します。</p>
+          <ul>
+            <li>座学後のテスト（10問中8問正解）で合格・資格証を発行</li>
+            <li>各部署から事前に集めた質問を設問に反映し“刺さる”内容に</li>
+            <li>取得後は資格証で個人の学びの成果を証明</li>
+          </ul>
         </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREE-STAR ============ -->
+
+<section class="threestar" id="threestar">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">THREE-STAR CERTIFICATION</span>
+      <h2 class="sec-title">法人認定制度「スリースター」</h2>
+      <p class="sec-lead">個人資格の多くは「一人が学ぶだけ」。本協会は、医療機関・施設“全体”を評価する法人認定です。受けさせて終わりでなく、評価 → 改善策 → 翌年の再評価まで伴走し、組織のAI活用の質を星1〜3で可視化します。</p>
+    </div>
+
+    <div class="star-ladder">
+      <div class="star-card reveal">
+        <div class="stars">★<i>★★</i></div>
+        <span class="lv">star 1</span>
+        <p>組織診断10項目のうち8項目以上を達成。組織としての基礎ができている状態。</p>
+      </div>
+      <div class="star-card reveal d1">
+        <div class="stars">★★<i>★</i></div>
+        <span class="lv">star 2</span>
+        <p>10項目すべてを達成し、全職員（正職員・派遣・アルバイト含む）の受講が完了。</p>
+      </div>
+      <div class="star-card feature reveal d2">
+        <div class="stars">★★★</div>
+        <span class="lv">star 3</span>
+        <p>star 2に加え、前年からの改善・運用実績など継続の証跡あり。サイトのランキングで開示される最上位認定。</p>
+      </div>
+    </div>
+
+    <div class="ts-domains">
+      <p class="ts-domains-h reveal">組織診断で見る4つの領域</p>
+      <div class="dom-grid">
+        <div class="dom reveal"><span class="k">理解</span><p>全職員が正しく理解しているか。受講率・テスト正解率で測定。</p></div>
+        <div class="dom reveal d1"><span class="k">ルール</span><p>生成AIの利用ルール・許可ツール一覧が文書化・周知されているか。</p></div>
+        <div class="dom reveal d2"><span class="k">対応</span><p>誤情報・情報漏洩など、事故発生時の報告フローと責任分界が明確か。</p></div>
+        <div class="dom reveal d3"><span class="k">体制</span><p>管理責任者が置かれ、年1回以上ルールと運用を見直す仕組みがあるか。</p></div>
+      </div>
+    </div>
+
+    <div class="ts-notes reveal">
+      <ul>
+        <li><b>毎年、再評価。</b>受け続けないと星は下がる仕組み（＝毎年アップデートするのが前提）。</li>
+        <li><b>策まで返す。</b>返却レポートに弱点Top3と改善策の雛形（院内AI利用ポリシー／インシデント報告フロー／許可ツール一覧）を同梱。</li>
+        <li><b>星3の医療機関・施設は開示。</b>サイト上のランキングで公開し、組織の取り組みを対外的に証明します。</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary" style="background:var(--teal);color:#fff">導入・料金を相談する <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -580,6 +706,7 @@ body{font-size:calc(16px*var(--tsc))}
         <ul>
           <li><a href="#about">協会について</a></li>
           <li><a href="#business">事業内容</a></li>
+          <li><a href="#threestar">スリースター</a></li>
           <li><a href="#curriculum">研修内容</a></li>
           <li><a href="#members">理事紹介</a></li>
           <li><a href="#flow">認定制度</a></li>
