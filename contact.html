@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ｜一般社団法人 国際ヘルスケアAI推進協会</title>
+<meta name="description" content="一般社団法人 国際ヘルスケアAI推進協会へのお問い合わせページ。研修、個人認定、法人認定（スリースター）、協賛に関するご相談を承ります。">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B3B66;
+  --navy-deep:#072A4A;
+  --teal:#14A3A3;
+  --teal-light:#3CC9C9;
+  --ink:#1B2A38;
+  --muted:#5E7081;
+  --bg:#FFFFFF;
+  --bg-soft:#F2F7FA;
+  --line:#E2EAF0;
+  --shadow:0 18px 50px -22px rgba(11,59,102,.35);
+  --radius:16px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);
+  line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,.display{font-family:"Zen Kaku Gothic New",sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;font-weight:700;color:var(--teal);margin-bottom:14px}
+.eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--teal);vertical-align:middle;margin-right:10px;transform:translateY(-3px)}
+
+/* ---------- Header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px -16px rgba(7,42,74,.4);padding:14px 0}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;color:var(--navy)}
+.logo-mark{width:42px;height:42px;border-radius:11px;flex:none;background:linear-gradient(135deg,var(--teal),var(--teal-light));display:grid;place-items:center;color:#fff;font-weight:900;font-family:"Zen Kaku Gothic New";box-shadow:0 8px 20px -8px rgba(20,163,163,.7)}
+.logo-mark span{font-size:20px;letter-spacing:-.04em}
+.logo-text{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:17px;line-height:1.25}
+.logo-text small{display:block;font-size:9px;letter-spacing:.08em;font-weight:500;opacity:.7;white-space:nowrap}
+.back-link{font-size:14px;font-weight:500;color:var(--muted);transition:color .25s}
+.back-link:hover{color:var(--teal)}
+.back-link span{margin-right:6px}
+
+/* ---------- Page banner ---------- */
+.banner{
+  position:relative;padding:150px 0 70px;color:#fff;overflow:hidden;
+  background:radial-gradient(circle at 78% 25%,#0d4f86 0%,#072a4a 62%);
+}
+.banner-grid{position:absolute;inset:0;opacity:.5}
+.banner .wrap{position:relative;z-index:2}
+.banner .eyebrow{color:var(--teal-light)}
+.banner h1{font-size:clamp(28px,5vw,44px);font-weight:900;line-height:1.3}
+.banner p{margin-top:16px;color:rgba(255,255,255,.85);max-width:620px;font-size:15px}
+
+/* ---------- Contact body ---------- */
+.contact{padding:70px 0 100px;background:var(--bg-soft)}
+.contact-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:48px;align-items:start}
+
+/* Form card */
+.form-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:40px 38px;box-shadow:var(--shadow)}
+.field{margin-bottom:24px}
+.field label{display:block;font-size:14px;font-weight:700;margin-bottom:8px;color:var(--ink)}
+.req{color:var(--teal);font-size:12px;font-weight:700;margin-left:6px}
+.opt{color:var(--muted);font-size:12px;font-weight:500;margin-left:6px}
+.field input,.field select,.field textarea{
+  width:100%;font-family:inherit;font-size:15px;color:var(--ink);
+  padding:13px 15px;border:1.5px solid var(--line);border-radius:11px;background:var(--bg-soft);
+  transition:border-color .25s, box-shadow .25s, background .25s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 4px rgba(20,163,163,.12);
+}
+.field textarea{min-height:150px;resize:vertical;line-height:1.7}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235E7081' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:42px}
+.consent{display:flex;gap:12px;align-items:flex-start;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:28px}
+.consent input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--teal);cursor:pointer}
+.consent label{font-size:13px;color:var(--muted);font-weight:500;line-height:1.7}
+.consent a{color:var(--teal);text-decoration:underline;text-underline-offset:2px}
+.submit{
+  display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;font-family:inherit;
+  padding:16px 34px;border-radius:32px;border:0;cursor:pointer;color:#fff;
+  background:var(--teal);box-shadow:0 16px 34px -14px rgba(20,163,163,.9);transition:transform .25s, box-shadow .25s;
+}
+.submit:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(20,163,163,1)}
+.submit .arrow{transition:transform .25s}
+.submit:hover .arrow{transform:translateX(4px)}
+.form-note{margin-top:18px;font-size:12.5px;color:var(--muted)}
+
+/* Aside */
+.aside-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 30px}
+.aside-card+.aside-card{margin-top:22px}
+.aside-card h3{font-size:16px;font-weight:700;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.aside-card dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;font-size:13.5px}
+.aside-card dt{color:var(--muted);font-weight:700;white-space:nowrap}
+.aside-card dd{color:var(--ink)}
+.aside-card .mail-alt{font-size:13.5px;color:var(--muted);line-height:1.9}
+.aside-card .mail-alt a{color:var(--teal);font-weight:700}
+.topics{list-style:none;display:flex;flex-direction:column;gap:12px}
+.topics li{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;color:var(--muted)}
+.topics li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal-light);flex:none;margin-top:8px}
+
+/* ---------- Footer ---------- */
+footer{background:#06223c;color:rgba(255,255,255,.72);padding:56px 0 28px;font-size:14px}
+.foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-inner .logo{color:#fff}
+.foot-inner nav{display:flex;gap:22px;flex-wrap:wrap}
+.foot-inner nav a{color:rgba(255,255,255,.65);font-size:13.5px;transition:color .25s}
+.foot-inner nav a:hover{color:var(--teal-light)}
+.copyright{text-align:center;padding-top:24px;font-size:12px;color:rgba(255,255,255,.4)}
+
+:focus-visible{outline:3px solid var(--teal-light);outline-offset:3px;border-radius:4px}
+
+@media(max-width:860px){
+  .contact-grid{grid-template-columns:1fr;gap:30px}
+  .form-card{padding:30px 24px}
+  .banner{padding:130px 0 56px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo" aria-label="一般社団法人 国際ヘルスケアAI推進協会 トップへ">
+      <span class="logo-mark"><span>H<small style="font-size:.5em">AI</small></span></span>
+      <span class="logo-text">国際ヘルスケアAI推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
+    </a>
+    <a href="index.html" class="back-link"><span>←</span>トップに戻る</a>
+  </div>
+</header>
+
+<!-- ============ BANNER ============ -->
+<section class="banner">
+  <svg class="banner-grid" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs><pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse"><path d="M46 0H0V46" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#grid)"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">CONTACT</span>
+    <h1>お問い合わせ</h1>
+    <p>研修・個人認定・法人認定（スリースター）・協賛に関するご相談を承っています。以下のフォームよりお気軽にお問い合わせください。</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact">
+  <div class="wrap contact-grid">
+
+    <!-- Form -->
+    <div class="form-card">
+      <!--
+        送信先の設定について（副田さん向けメモ）:
+        1. https://formspree.io/ で協会メールアドレス宛のフォームを作成
+        2. 発行されるエンドポイント（例 https://formspree.io/f/abcdwxyz）を下の action= に貼り替え
+        3. 下の _next の URL を本番ドメインの完了ページ/トップに変更（任意）
+        Google フォームを使わず、独自ドメイン内で完結・メール受信できます。
+      -->
+      <form action="https://formspree.io/f/XXXXXXXX" method="POST">
+        <input type="hidden" name="_subject" value="【Webサイト】お問い合わせ">
+        <input type="hidden" name="_next" value="https://Keeeeei-Soeda.github.io/healthcare-ai-association/contact.html?sent=1">
+        <!-- スパム対策（bot用おとり。人間には非表示） -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="field">
+          <label for="name">お名前<span class="req">必須</span></label>
+          <input type="text" id="name" name="お名前" required autocomplete="name" placeholder="山田 太郎">
+        </div>
+
+        <div class="field">
+          <label for="org">法人名・ご所属<span class="req">必須</span></label>
+          <input type="text" id="org" name="法人名・所属" required autocomplete="organization" placeholder="◯◯病院 / ◯◯法人">
+        </div>
+
+        <div class="field">
+          <label for="email">メールアドレス<span class="req">必須</span></label>
+          <input type="email" id="email" name="メールアドレス" required autocomplete="email" placeholder="example@hospital.jp">
+        </div>
+
+        <div class="field">
+          <label for="tel">電話番号<span class="opt">任意</span></label>
+          <input type="tel" id="tel" name="電話番号" autocomplete="tel" placeholder="000-0000-0000">
+        </div>
+
+        <div class="field">
+          <label for="topic">お問い合わせ種別<span class="req">必須</span></label>
+          <select id="topic" name="お問い合わせ種別" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="研修について">研修について</option>
+            <option value="個人認定制度について">個人認定制度について</option>
+            <option value="法人認定制度（スリースター）について">法人認定制度（スリースター）について</option>
+            <option value="協賛・連携について">協賛・連携について</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">お問い合わせ内容<span class="req">必須</span></label>
+          <textarea id="message" name="お問い合わせ内容" required placeholder="ご相談内容をご記入ください。"></textarea>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="agree" name="個人情報の取り扱いへの同意" value="同意する" required>
+          <label for="agree">お預かりした個人情報は、お問い合わせへの対応のみに利用し、適切に管理します。内容に同意のうえ送信します。</label>
+        </div>
+
+        <button type="submit" class="submit">送信する <span class="arrow">→</span></button>
+        <p class="form-note">送信後、担当者より順次ご連絡いたします。数日経っても返信がない場合は、お手数ですが下記メールまでご連絡ください。</p>
+      </form>
+    </div>
+
+    <!-- Aside -->
+    <aside>
+      <div class="aside-card">
+        <h3>お問い合わせ先</h3>
+        <dl>
+          <dt>名称</dt><dd>一般社団法人<br>国際ヘルスケアAI推進協会</dd>
+          <dt>所在地</dt><dd>〒732-0065<br>広島市東区牛田中1-1-11</dd>
+        </dl>
+        <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+        <p class="mail-alt">メールでのお問い合わせ<br>
+          <!-- ドメイン確定後、実アドレスに差し替え -->
+          <a href="mailto:info@example.jp">info@example.jp</a>
+        </p>
+      </div>
+      <div class="aside-card">
+        <h3>こんなご相談を承ります</h3>
+        <ul class="topics">
+          <li>研修の内容・実施方法・費用について</li>
+          <li>個人認定・法人認定（スリースター）の仕組み</li>
+          <li>組織単位での導入・評価のご相談</li>
+          <li>協賛・連携・取材のお問い合わせ</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"><span>H<small style="font-size:.5em">AI</small></span></span>
+        <span class="logo-text">国際ヘルスケアAI推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
+      </a>
+      <nav>
+        <a href="index.html#about">協会について</a>
+        <a href="index.html#business">事業内容</a>
+        <a href="index.html#curriculum">研修内容</a>
+        <a href="index.html#flow">認定制度</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+    <div class="copyright">© 2026 一般社団法人 国際ヘルスケアAI推進協会 All Rights Reserved.</div>
+  </div>
+</footer>
+
+<script>
+// 送信完了メッセージ（Formspreeの _next で ?sent=1 が付いて戻ってきたとき）
+if(new URLSearchParams(location.search).get('sent')==='1'){
+  const card=document.querySelector('.form-card');
+  if(card){
+    card.innerHTML='<div style="text-align:center;padding:40px 10px">'+
+      '<div style="width:70px;height:70px;border-radius:50%;margin:0 auto 22px;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff">'+
+      '<svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>'+
+      '<h2 style="font-size:22px;font-weight:900;margin-bottom:12px">送信が完了しました</h2>'+
+      '<p style="color:var(--muted);font-size:14.5px">お問い合わせありがとうございます。担当者より順次ご連絡いたします。</p>'+
+      '<a href="index.html" style="display:inline-block;margin-top:28px;color:var(--teal);font-weight:700">トップに戻る →</a></div>';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+}
+</script>
+</body>
+</html>
