@@ -160,33 +160,41 @@ section{padding:110px 0}
 .card h3{font-size:20px;font-weight:700;margin-bottom:14px}
 .card p{color:var(--muted);font-size:14.5px}
 
-/* ---------- Curriculum ---------- */
+/* ---------- 写真プレースホルダー（仮）共通 ---------- */
+.ph{position:relative;width:100%;display:grid;place-items:center;text-align:center;
+  font-size:12px;font-weight:700;letter-spacing:.04em;line-height:1.6;color:var(--muted);
+  background:repeating-linear-gradient(45deg,rgba(11,59,102,.05) 0 12px,rgba(11,59,102,.09) 12px 24px);
+}
+.ph small{display:block;font-size:10.5px;font-weight:500;opacity:.75;margin-top:4px}
+.ph.on-dark{color:rgba(255,255,255,.75);background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 12px,rgba(255,255,255,.1) 12px 24px)}
+
+/* ---------- Curriculum（写真+テキスト 3段） ---------- */
 .curriculum{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
 .curriculum .hero-glow{top:auto;bottom:-200px;left:-150px;right:auto;opacity:.6}
 .curriculum .eyebrow{color:var(--teal-light)}
 .curriculum .sec-lead{color:rgba(255,255,255,.7)}
-.curr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:56px;position:relative;z-index:2}
-.curr-item{
-  display:flex;gap:20px;padding:28px 30px;border-radius:var(--radius);
+.curr-rows{display:flex;flex-direction:column;gap:26px;margin-top:56px;position:relative;z-index:2}
+.curr-row{
+  display:grid;grid-template-columns:.92fr 1.08fr;gap:0;align-items:stretch;
   background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  transition:background .3s, transform .3s;
+  border-radius:var(--radius);overflow:hidden;transition:background .3s, transform .3s;
 }
-.curr-item:hover{background:rgba(255,255,255,.09);transform:translateY(-4px)}
-.curr-no{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:15px;color:var(--navy-deep);background:var(--teal-light);width:34px;height:34px;border-radius:9px;display:grid;place-items:center;flex:none}
-.curr-item h4{font-size:17px;font-weight:700;margin-bottom:6px}
-.curr-item p{font-size:13.5px;color:rgba(255,255,255,.7);margin:0}
+.curr-row:hover{background:rgba(255,255,255,.08);transform:translateY(-4px)}
+.curr-ph{aspect-ratio:3/2;min-height:100%}
+.curr-tx{padding:34px 38px;display:flex;flex-direction:column;justify-content:center}
+.curr-no{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:14px;color:var(--navy-deep);background:var(--teal-light);width:34px;height:34px;border-radius:9px;display:grid;place-items:center;margin-bottom:16px}
+.curr-tx h4{font-size:20px;font-weight:700;margin-bottom:10px}
+.curr-tx p{font-size:14px;color:rgba(255,255,255,.72);margin:0}
 
-/* ---------- Why ---------- */
+/* ---------- Why（写真上+テキスト下 カード） ---------- */
 .why{background:var(--bg)}
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:58px}
-.why-card{text-align:center;padding:20px}
-.why-ic{
-  width:74px;height:74px;border-radius:50%;margin:0 auto 22px;display:grid;place-items:center;
-  background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;box-shadow:0 16px 30px -14px rgba(11,59,102,.6);
-}
-.why-ic svg{width:34px;height:34px}
-.why-card h3{font-size:18px;font-weight:700;margin-bottom:12px}
-.why-card p{color:var(--muted);font-size:14.5px}
+.why-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .35s, box-shadow .35s, border-color .35s}
+.why-card:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+.why-ph{aspect-ratio:4/3}
+.why-body{padding:26px 26px 30px}
+.why-body h3{font-size:18px;font-weight:700;margin-bottom:12px}
+.why-body p{color:var(--muted);font-size:14.5px}
 
 /* ---------- Flow ---------- */
 .flow{background:var(--bg-soft)}
@@ -201,14 +209,27 @@ section{padding:110px 0}
 .flow-step h4{font-size:18px;font-weight:700;margin-bottom:10px}
 .flow-step p{color:var(--muted);font-size:14px;padding:0 10px}
 
+/* ---------- Members（理事紹介 / 互い違い） ---------- */
+.members{background:var(--bg)}
+.member-rows{display:flex;flex-direction:column;gap:56px;margin-top:64px}
+.member-row{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.member-row.rev{grid-template-columns:1.15fr .85fr}
+.member-row.rev .member-ph{order:2}
+.member-row.rev .member-tx{order:1}
+.member-ph{aspect-ratio:4/5;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.member-tx .role{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--teal);background:rgba(20,163,163,.1);padding:6px 14px;border-radius:30px;margin-bottom:16px}
+.member-tx h3{font-size:26px;font-weight:900;line-height:1.35}
+.member-tx h3 .en{display:block;font-size:12px;font-weight:500;letter-spacing:.16em;color:var(--muted);margin-top:6px}
+.member-tx p{color:var(--muted);font-size:15px;margin-top:18px}
+
 /* ---------- CTA band ---------- */
 .cta-band{
   background:linear-gradient(115deg,var(--navy-deep),var(--navy) 55%,var(--teal));
   color:#fff;text-align:center;position:relative;overflow:hidden;padding:90px 0;
 }
 .cta-band .hero-grid{opacity:.4}
-.cta-band h2{font-size:clamp(26px,4vw,38px);font-weight:900;position:relative;z-index:2}
-.cta-band p{margin:20px auto 38px;color:rgba(255,255,255,.85);max-width:560px;position:relative;z-index:2}
+.cta-band h2{font-size:clamp(26px,4vw,38px);font-weight:900;position:relative;z-index:2;text-wrap:balance}
+.cta-band p{margin:20px auto 38px;color:rgba(255,255,255,.85);max-width:680px;position:relative;z-index:2;text-wrap:balance}
 .cta-band .btn-primary{background:#fff;color:var(--navy);position:relative;z-index:2}
 .cta-band .btn-primary:hover{background:#eafafa}
 
@@ -233,7 +254,12 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
 /* ---------- Responsive ---------- */
 @media(max-width:900px){
   .about-grid{grid-template-columns:1fr;gap:44px}
-  .cards-3,.curr-grid,.why-grid,.flow-steps{grid-template-columns:1fr}
+  .cards-3,.why-grid,.flow-steps{grid-template-columns:1fr}
+  .curr-row,.member-row,.member-row.rev{grid-template-columns:1fr;gap:0}
+  .curr-ph{aspect-ratio:16/10}
+  .member-row{gap:28px}
+  .member-row.rev .member-ph{order:1}
+  .member-row.rev .member-tx{order:2}
   .flow-line{display:none}
   .foot-grid{grid-template-columns:1fr;gap:36px}
   .nav-links{
@@ -265,6 +291,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
       <a href="#about">協会について</a>
       <a href="#business">事業内容</a>
       <a href="#curriculum">研修内容</a>
+      <a href="#members">理事紹介</a>
       <a href="#flow">認定制度</a>
       <a href="#contact" class="nav-cta">お問い合わせ</a>
     </nav>
@@ -351,15 +378,36 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
     <div class="reveal" style="max-width:680px">
       <span class="eyebrow">CURRICULUM</span>
       <h2 class="sec-title">研修・セミナーで扱う内容</h2>
-      <p class="sec-lead">「使っていいのか分からないから使えない」を解消。基礎から実務、コンプライアンスまでを一貫してカバーします。</p>
+      <p class="sec-lead">「使っていいのか分からないから使えない」を解消。基礎・組織のルールから、法令・倫理、現場での線引きまでを一貫してカバーします。</p>
     </div>
-    <div class="curr-grid">
-      <div class="curr-item reveal"><div class="curr-no">01</div><div><h4>AIの基礎と安全な使い方</h4><p>生成AIの仕組みと、医療・福祉の現場でやってよいこと・避けるべきことの線引き</p></div></div>
-      <div class="curr-item reveal d1"><div class="curr-no">02</div><div><h4>法律・倫理・情報セキュリティ</h4><p>個人情報保護法、厚労省ガイドライン、薬機法・医療機器該当性など遵守すべき要点</p></div></div>
-      <div class="curr-item reveal"><div class="curr-no">03</div><div><h4>ネットリテラシーと情報管理</h4><p>「AIに個人情報を載せてよいか」など、日常業務に潜むリスクとインシデント対応</p></div></div>
-      <div class="curr-item reveal d1"><div class="curr-no">04</div><div><h4>組織で使うためのルールづくり</h4><p>個人任せにせず、チーム・組織として安全に運用するための基準と体制の考え方</p></div></div>
-      <div class="curr-item reveal"><div class="curr-no">05</div><div><h4>実務の省力化</h4><p>問診案内・服薬指導文・院内文書づくりや調べものを、AIで効率化する指示の出し方</p></div></div>
-      <div class="curr-item reveal d1"><div class="curr-no">06</div><div><h4>Excel × AI・資料作成</h4><p>集計・名簿・シフト表や、院内掲示・研修スライドなど定型業務の効率化</p></div></div>
+    <div class="curr-rows">
+      <div class="curr-row reveal">
+        <!-- 写真差し替え: 下の<div class="ph …">を <img src="images/curr-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover"> に置換。推奨 1200×800px(横3:2) -->
+        <div class="ph on-dark curr-ph">写真<small>1200×800px（3:2）</small></div>
+        <div class="curr-tx">
+          <div class="curr-no">01</div>
+          <h4>AIの基礎と、組織で安全に使う土台</h4>
+          <p>生成AIの仕組みと、医療・福祉の現場でやってよいこと・避けるべきことの線引き。個人任せにせず、チーム・組織として安全に運用するためのルールづくりまで扱います。</p>
+        </div>
+      </div>
+      <div class="curr-row reveal">
+        <!-- 写真差し替え: 推奨 1200×800px(横3:2) -->
+        <div class="ph on-dark curr-ph">写真<small>1200×800px（3:2）</small></div>
+        <div class="curr-tx">
+          <div class="curr-no">02</div>
+          <h4>法律・倫理・情報セキュリティとネットリテラシー</h4>
+          <p>個人情報保護法、厚労省ガイドライン、薬機法・医療機器該当性などの要点。「AIに個人情報を載せてよいか」といった日常業務のリスクとインシデント対応も押さえます。</p>
+        </div>
+      </div>
+      <div class="curr-row reveal">
+        <!-- 写真差し替え: 推奨 1200×800px(横3:2) -->
+        <div class="ph on-dark curr-ph">写真<small>1200×800px（3:2）</small></div>
+        <div class="curr-tx">
+          <div class="curr-no">03</div>
+          <h4>実際の事例で学ぶ、現場での線引き</h4>
+          <p>ヒヤリハットや「これはアウト・これはOK」の具体事例、うまく活用できている現場の例を紹介。グループワークを通じて、明日から使える判断力を養います。</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -373,19 +421,28 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
     </div>
     <div class="why-grid">
       <div class="why-card reveal">
-        <div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>組織全体を評価する独自性</h3>
-        <p>個人の学習で完結させず、医師から医療事務まで含めた「医療機関・施設全体」を評価・サポート対象に据える、数少ないアプローチです。</p>
+        <!-- 写真差し替え: <img src="images/why-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover"> に置換。推奨 800×600px(横4:3) -->
+        <div class="ph why-ph">写真<small>800×600px（4:3）</small></div>
+        <div class="why-body">
+          <h3>組織全体を評価する独自性</h3>
+          <p>個人の学習で完結させず、医師から医療事務まで含めた「医療機関・施設全体」を評価・サポート対象に据える、数少ないアプローチです。</p>
+        </div>
       </div>
       <div class="why-card reveal d1">
-        <div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h3>評価から改善まで一気通貫</h3>
-        <p>受けさせて終わりにしません。現状把握 → 評価 → 数字とテキストによる濃いフィードバック → 改善策・サポートまで伴走します。</p>
+        <!-- 写真差し替え: 推奨 800×600px(横4:3) -->
+        <div class="ph why-ph">写真<small>800×600px（4:3）</small></div>
+        <div class="why-body">
+          <h3>評価から改善まで一気通貫</h3>
+          <p>受けさせて終わりにしません。現状把握 → 評価 → 数字とテキストによる濃いフィードバック → 改善策・サポートまで伴走します。</p>
+        </div>
       </div>
       <div class="why-card reveal d2">
-        <div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"/></svg></div>
-        <h3>国際・最新の知見</h3>
-        <p>海外の医療AI事例や国際動向を継続的に収集し、研修や発信に反映。他ではまだ扱われにくい、独自の情報をお届けします。</p>
+        <!-- 写真差し替え: 推奨 800×600px(横4:3) -->
+        <div class="ph why-ph">写真<small>800×600px（4:3）</small></div>
+        <div class="why-body">
+          <h3>国際・最新の知見</h3>
+          <p>海外の医療AI事例や国際動向を継続的に収集し、研修や発信に反映。他ではまだ扱われにくい、独自の情報をお届けします。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -405,6 +462,56 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
       <div class="flow-step reveal d1"><div class="flow-circle">2</div><h4>研修・評価</h4><p>研修を実施し、修了後にテスト。受講前後の変化をBefore/Afterで可視化します。</p></div>
       <div class="flow-step reveal d2"><div class="flow-circle">3</div><h4>フィードバック・認定</h4><p>数字とテキストで濃くフィードバック。達成度に応じて個人・法人を認定します。</p></div>
       <div class="flow-step reveal d3"><div class="flow-circle">4</div><h4>改善・翌年更新</h4><p>課題に応じた追加研修で改善へ。毎年くり返し、組織のレベルを引き上げます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEMBERS（理事紹介） ============ -->
+<section class="members" id="members">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">MEMBERS</span>
+      <h2 class="sec-title">理事紹介</h2>
+      <p class="sec-lead">医療・福祉とAIの現場を知るメンバーが、協会の活動を支えています。</p>
+    </div>
+    <div class="member-rows">
+
+      <!-- 1段目：大友達也（左=写真 / 右=テキスト） -->
+      <div class="member-row reveal">
+        <!-- 写真差し替え: <img src="images/otomo.jpg" alt="大友達也" style="width:100%;height:100%;object-fit:cover"> に置換。推奨 800×1000px(縦4:5) -->
+        <div class="ph member-ph">写真<small>800×1000px（4:5）</small></div>
+        <div class="member-tx">
+          <span class="role">会長</span>
+          <h3>大友 達也<span class="en">OTOMO Tatsuya</span></h3>
+          <!-- 本文は仮。確定プロフィールに差し替えてください -->
+          <p>医療・福祉分野に長く携わり、現場と経営の双方の視点から協会の活動を牽引。医療AIの健全な普及に向けた方針づくりを担う。</p>
+        </div>
+      </div>
+
+      <!-- 2段目：鈴木峻平（左=テキスト / 右=写真） -->
+      <div class="member-row rev reveal">
+        <!-- 写真差し替え: 推奨 800×1000px(縦4:5) -->
+        <div class="ph member-ph">写真<small>800×1000px（4:5）</small></div>
+        <div class="member-tx">
+          <span class="role">理事・事務局</span>
+          <h3>鈴木 峻平<span class="en">SUZUKI Shunpei</span></h3>
+          <!-- 本文は仮。確定プロフィールに差し替えてください -->
+          <p>協会の運営全般を統括し、研修・認定プログラムの企画と、医療機関との窓口・調整を担当する。</p>
+        </div>
+      </div>
+
+      <!-- 3段目：副田渓（左=写真 / 右=テキスト） -->
+      <div class="member-row reveal">
+        <!-- 写真差し替え: 推奨 800×1000px(縦4:5) -->
+        <div class="ph member-ph">写真<small>800×1000px（4:5）</small></div>
+        <div class="member-tx">
+          <span class="role">理事・講師／監修</span>
+          <h3>副田 渓<span class="en">SOEDA Kei</span></h3>
+          <!-- 本文は仮。確定プロフィールに差し替えてください -->
+          <p>Web・AI領域を専門に、医療現場向けのAI活用・教育コンテンツの開発と研修監修を担当する。</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -436,6 +543,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
           <li><a href="#about">協会について</a></li>
           <li><a href="#business">事業内容</a></li>
           <li><a href="#curriculum">研修内容</a></li>
+          <li><a href="#members">理事紹介</a></li>
           <li><a href="#flow">認定制度</a></li>
           <li><a href="#contact">お問い合わせ</a></li>
         </ul>
