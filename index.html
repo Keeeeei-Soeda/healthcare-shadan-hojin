@@ -146,9 +146,11 @@ section{padding:110px 0}
 .head-center .sec-lead{margin-left:auto;margin-right:auto}
 .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .card{
-  background:#fff;border-radius:var(--radius);padding:40px 32px;border:1px solid var(--line);
+  background:#fff;border-radius:var(--radius);padding:0;border:1px solid var(--line);
   transition:transform .35s, box-shadow .35s, border-color .35s;position:relative;overflow:hidden;
 }
+.business-ph{aspect-ratio:4/3}
+.card-body{padding:32px 30px 36px}
 .card::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:linear-gradient(90deg,var(--teal),var(--teal-light));transform:scaleX(0);transform-origin:left;transition:transform .4s}
 .card:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
 .card:hover::before{transform:scaleX(1)}
@@ -160,13 +162,12 @@ section{padding:110px 0}
 .card h3{font-size:20px;font-weight:700;margin-bottom:14px}
 .card p{color:var(--muted);font-size:14.5px}
 
-/* ---------- 写真プレースホルダー（仮）共通 ---------- */
-.ph{position:relative;width:100%;display:grid;place-items:center;text-align:center;
-  font-size:12px;font-weight:700;letter-spacing:.04em;line-height:1.6;color:var(--muted);
+/* ---------- 写真（img）共通：未設置時はフォールバックの縞が見える ---------- */
+.member-ph,.curr-ph,.why-ph,.business-ph{
+  width:100%;display:block;object-fit:cover;
   background:repeating-linear-gradient(45deg,rgba(11,59,102,.05) 0 12px,rgba(11,59,102,.09) 12px 24px);
 }
-.ph small{display:block;font-size:10.5px;font-weight:500;opacity:.75;margin-top:4px}
-.ph.on-dark{color:rgba(255,255,255,.75);background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 12px,rgba(255,255,255,.1) 12px 24px)}
+.curr-ph{background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 12px,rgba(255,255,255,.1) 12px 24px)}
 
 /* ---------- Curriculum（写真+テキスト 3段） ---------- */
 .curriculum{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
@@ -250,6 +251,46 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+/* ===== 確認用：文字サイズ倍率（--tsc で見出し・本文が連動スケール）。決定後はこのブロックと右下パネルを削除可 ===== */
+:root{--tsc:1}
+body{font-size:calc(16px*var(--tsc))}
+.eyebrow{font-size:calc(13px*var(--tsc))}
+.sec-title{font-size:calc(clamp(26px,4vw,40px)*var(--tsc))}
+.sec-lead{font-size:calc(16px*var(--tsc))}
+.logo-text{font-size:calc(17px*var(--tsc))}
+.logo-text small{font-size:calc(9px*var(--tsc))}
+.nav-links a{font-size:calc(14px*var(--tsc))}
+.hero-tag{font-size:calc(13px*var(--tsc))}
+.hero h1{font-size:calc(clamp(34px,6vw,64px)*var(--tsc))}
+.hero p.sub{font-size:calc(clamp(15px,2.2vw,19px)*var(--tsc))}
+.btn{font-size:calc(15px*var(--tsc))}
+.scroll-hint{font-size:calc(11px*var(--tsc))}
+.about-copy p{font-size:calc(16px*var(--tsc))}
+.key-num{font-size:calc(22px*var(--tsc))}
+.key-card h4{font-size:calc(17px*var(--tsc))}
+.key-card p{font-size:calc(14px*var(--tsc))}
+.card h3{font-size:calc(20px*var(--tsc))}
+.card p{font-size:calc(14.5px*var(--tsc))}
+.curr-no{font-size:calc(14px*var(--tsc))}
+.curr-tx h4{font-size:calc(20px*var(--tsc))}
+.curr-tx p{font-size:calc(14px*var(--tsc))}
+.why-body h3{font-size:calc(18px*var(--tsc))}
+.why-body p{font-size:calc(14.5px*var(--tsc))}
+.flow-circle{font-size:calc(30px*var(--tsc))}
+.flow-step h4{font-size:calc(18px*var(--tsc))}
+.flow-step p{font-size:calc(14px*var(--tsc))}
+.member-tx .role{font-size:calc(12px*var(--tsc))}
+.member-tx h3{font-size:calc(26px*var(--tsc))}
+.member-tx h3 .en{font-size:calc(12px*var(--tsc))}
+.member-tx p{font-size:calc(15px*var(--tsc))}
+.cta-band h2{font-size:calc(clamp(26px,4vw,38px)*var(--tsc))}
+.cta-band p{font-size:calc(16px*var(--tsc))}
+.foot-brand p{font-size:calc(13.5px*var(--tsc))}
+.foot-col h5{font-size:calc(14px*var(--tsc))}
+.foot-col a{font-size:calc(13.5px*var(--tsc))}
+.foot-info dl{font-size:calc(13px*var(--tsc))}
+.copyright{font-size:calc(12px*var(--tsc))}
 
 /* ---------- Responsive ---------- */
 @media(max-width:900px){
@@ -353,19 +394,25 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
     </div>
     <div class="cards-3">
       <div class="card reveal">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 5h18v11H3z"/><path d="M8 21h8M12 16v5"/><path d="M7 10l2.5 2.5L13 8"/></svg></div>
-        <h3>研修</h3>
-        <p>AIリテラシー・組織運用・コンプライアンス・ネットリテラシーを軸にした研修を実施。オンライン／現地の双方に対応し、密度の高いプログラムで「使ってよいか分からない」を解消します。</p>
+        <img class="business-ph" src="images/business01.png" alt="研修の様子">
+        <div class="card-body">
+          <h3>研修</h3>
+          <p>AIリテラシー・組織運用・コンプライアンス・ネットリテラシーを軸にした研修を実施。オンライン／現地の双方に対応し、密度の高いプログラムで「使ってよいか分からない」を解消します。</p>
+        </div>
       </div>
       <div class="card reveal d1">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 14l-7-4 7-4 7 4-7 4z"/><path d="M5 11v4l7 4 7-4v-4"/><circle cx="18" cy="18" r="3"/></svg></div>
-        <h3>個人認定制度</h3>
-        <p>研修受講とテスト合格に応じて、職員一人ひとりに修了証・資格証を発行。個人のスキルアップとコンプライアンス意識を、目に見える形で証明します。</p>
+        <img class="business-ph" src="images/business02.png" alt="個人認定制度">
+        <div class="card-body">
+          <h3>個人認定制度</h3>
+          <p>研修受講とテスト合格に応じて、職員一人ひとりに修了証・資格証を発行。個人のスキルアップとコンプライアンス意識を、目に見える形で証明します。</p>
+        </div>
       </div>
       <div class="card reveal d2">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
-        <h3>法人認定制度<span style="font-size:.68em;color:var(--teal);font-weight:700;margin-left:.4em">スリースター</span></h3>
-        <p>組織全体を毎年評価し、達成度に応じて認定。正職員から派遣・アルバイトまで「全員」の受講を前提に、医療機関・施設単位でAI活用の質を可視化します。</p>
+        <img class="business-ph" src="images/business03.png" alt="法人認定制度 スリースター">
+        <div class="card-body">
+          <h3>法人認定制度<span style="font-size:.68em;color:var(--teal);font-weight:700;margin-left:.4em">スリースター</span></h3>
+          <p>組織全体を毎年評価し、達成度に応じて認定。正職員から派遣・アルバイトまで「全員」の受講を前提に、医療機関・施設単位でAI活用の質を可視化します。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -382,8 +429,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
     </div>
     <div class="curr-rows">
       <div class="curr-row reveal">
-        <!-- 写真差し替え: 下の<div class="ph …">を <img src="images/curr-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover"> に置換。推奨 1200×800px(横3:2) -->
-        <div class="ph on-dark curr-ph">写真<small>1200×800px（3:2）</small></div>
+        <img class="curr-ph" src="images/content01.png" alt="AIの基礎と組織のルールに関する研修">
         <div class="curr-tx">
           <div class="curr-no">01</div>
           <h4>AIの基礎と、組織で安全に使う土台</h4>
@@ -391,8 +437,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
         </div>
       </div>
       <div class="curr-row reveal">
-        <!-- 写真差し替え: 推奨 1200×800px(横3:2) -->
-        <div class="ph on-dark curr-ph">写真<small>1200×800px（3:2）</small></div>
+        <img class="curr-ph" src="images/content02.png" alt="法律・倫理・情報セキュリティの研修">
         <div class="curr-tx">
           <div class="curr-no">02</div>
           <h4>法律・倫理・情報セキュリティとネットリテラシー</h4>
@@ -400,8 +445,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
         </div>
       </div>
       <div class="curr-row reveal">
-        <!-- 写真差し替え: 推奨 1200×800px(横3:2) -->
-        <div class="ph on-dark curr-ph">写真<small>1200×800px（3:2）</small></div>
+        <img class="curr-ph" src="images/content03.png" alt="事例で学ぶ現場での線引き">
         <div class="curr-tx">
           <div class="curr-no">03</div>
           <h4>実際の事例で学ぶ、現場での線引き</h4>
@@ -421,24 +465,21 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
     </div>
     <div class="why-grid">
       <div class="why-card reveal">
-        <!-- 写真差し替え: <img src="images/why-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover"> に置換。推奨 800×600px(横4:3) -->
-        <div class="ph why-ph">写真<small>800×600px（4:3）</small></div>
+        <img class="why-ph" src="images/reason01.png" alt="組織全体を評価する取り組み">
         <div class="why-body">
           <h3>組織全体を評価する独自性</h3>
           <p>個人の学習で完結させず、医師から医療事務まで含めた「医療機関・施設全体」を評価・サポート対象に据える、数少ないアプローチです。</p>
         </div>
       </div>
       <div class="why-card reveal d1">
-        <!-- 写真差し替え: 推奨 800×600px(横4:3) -->
-        <div class="ph why-ph">写真<small>800×600px（4:3）</small></div>
+        <img class="why-ph" src="images/reason02.png" alt="評価から改善まで伴走する様子">
         <div class="why-body">
           <h3>評価から改善まで一気通貫</h3>
           <p>受けさせて終わりにしません。現状把握 → 評価 → 数字とテキストによる濃いフィードバック → 改善策・サポートまで伴走します。</p>
         </div>
       </div>
       <div class="why-card reveal d2">
-        <!-- 写真差し替え: 推奨 800×600px(横4:3) -->
-        <div class="ph why-ph">写真<small>800×600px（4:3）</small></div>
+        <img class="why-ph" src="images/reason03.png" alt="国際・最新の知見の収集">
         <div class="why-body">
           <h3>国際・最新の知見</h3>
           <p>海外の医療AI事例や国際動向を継続的に収集し、研修や発信に反映。他ではまだ扱われにくい、独自の情報をお届けします。</p>
@@ -478,8 +519,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
 
       <!-- 1段目：大友達也（左=写真 / 右=テキスト） -->
       <div class="member-row reveal">
-        <!-- 写真差し替え: <img src="images/otomo.jpg" alt="大友達也" style="width:100%;height:100%;object-fit:cover"> に置換。推奨 800×1000px(縦4:5) -->
-        <div class="ph member-ph">写真<small>800×1000px（4:5）</small></div>
+        <img class="member-ph" src="images/member01.png" alt="大友達也">
         <div class="member-tx">
           <span class="role">会長</span>
           <h3>大友 達也<span class="en">OTOMO Tatsuya</span></h3>
@@ -490,8 +530,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
 
       <!-- 2段目：鈴木峻平（左=テキスト / 右=写真） -->
       <div class="member-row rev reveal">
-        <!-- 写真差し替え: 推奨 800×1000px(縦4:5) -->
-        <div class="ph member-ph">写真<small>800×1000px（4:5）</small></div>
+        <img class="member-ph" src="images/member02.png" alt="鈴木峻平">
         <div class="member-tx">
           <span class="role">理事・事務局</span>
           <h3>鈴木 峻平<span class="en">SUZUKI Shunpei</span></h3>
@@ -502,8 +541,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-s
 
       <!-- 3段目：副田渓（左=写真 / 右=テキスト） -->
       <div class="member-row reveal">
-        <!-- 写真差し替え: 推奨 800×1000px(縦4:5) -->
-        <div class="ph member-ph">写真<small>800×1000px（4:5）</small></div>
+        <img class="member-ph" src="images/member03.png" alt="副田渓">
         <div class="member-tx">
           <span class="role">理事・講師／監修</span>
           <h3>副田 渓<span class="en">SOEDA Kei</span></h3>
@@ -598,6 +636,47 @@ if(!reduce){
     glow.forEach(g=>g.style.transform=`translateY(${y*.18}px)`);
   },{passive:true});
 }
+</script>
+<!-- ===== 確認用：文字サイズ調整パネル（本番前に、この<style>〜<script>までをまとめて削除可） ===== -->
+<style>
+#tsc-fab{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;align-items:center;gap:7px;
+  background:var(--navy);color:#fff;border:0;border-radius:30px;padding:11px 17px;cursor:pointer;
+  font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:13px;box-shadow:0 14px 30px -12px rgba(11,59,102,.7)}
+#tsc-fab b{font-size:16px;font-weight:900}
+#tsc-panel{position:fixed;right:18px;bottom:18px;z-index:9999;width:238px;display:none;
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 17px 15px;
+  font-family:"Noto Sans JP",sans-serif;box-shadow:0 22px 55px -18px rgba(11,59,102,.55)}
+#tsc-panel.open{display:block}
+#tsc-panel .th{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+#tsc-panel .th span{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:13px;color:var(--ink)}
+#tsc-panel .th button{background:none;border:0;font-size:18px;line-height:1;color:var(--muted);cursor:pointer;padding:2px 4px}
+#tsc-range{width:100%;accent-color:var(--teal);cursor:pointer;margin:2px 0 10px}
+#tsc-read{font-size:12px;color:var(--muted);line-height:1.9}
+#tsc-read b{color:var(--teal);font-size:15px}
+#tsc-reset{margin-top:10px;width:100%;background:var(--bg-soft);border:1px solid var(--line);border-radius:9px;
+  padding:8px;font-family:inherit;font-size:12px;font-weight:700;color:var(--ink);cursor:pointer}
+#tsc-note{margin-top:9px;font-size:10.5px;color:var(--muted);line-height:1.6}
+</style>
+<button id="tsc-fab" aria-label="文字サイズを調整"><b>Aa</b> 文字サイズ</button>
+<div id="tsc-panel" role="dialog" aria-label="文字サイズ調整（確認用）">
+  <div class="th"><span>文字サイズ（確認用）</span><button id="tsc-close" aria-label="閉じる">×</button></div>
+  <input type="range" id="tsc-range" min="0.8" max="1.5" step="0.01" value="1">
+  <div id="tsc-read">倍率 <b id="tsc-val">100%</b><br>本文 <span id="tsc-b">16</span>px ／ 見出し <span id="tsc-h">40</span>px</div>
+  <button id="tsc-reset">標準（100%）に戻す</button>
+  <p id="tsc-note">見出しと本文が連動して拡大・縮小します。決めたい大きさが決まったら、その値を教えてください。</p>
+</div>
+<script>
+(function(){
+  const root=document.documentElement,fab=document.getElementById('tsc-fab'),panel=document.getElementById('tsc-panel'),
+        range=document.getElementById('tsc-range'),val=document.getElementById('tsc-val'),
+        vb=document.getElementById('tsc-b'),vh=document.getElementById('tsc-h');
+  function upd(v){root.style.setProperty('--tsc',v);val.textContent=Math.round(v*100)+'%';vb.textContent=Math.round(16*v);vh.textContent=Math.round(40*v);}
+  range.addEventListener('input',e=>upd(parseFloat(e.target.value)));
+  fab.addEventListener('click',()=>{panel.classList.add('open');fab.style.display='none';});
+  document.getElementById('tsc-close').addEventListener('click',()=>{panel.classList.remove('open');fab.style.display='flex';});
+  document.getElementById('tsc-reset').addEventListener('click',()=>{range.value=1;upd(1);});
+  upd(1);
+})();
 </script>
 </body>
 </html>
