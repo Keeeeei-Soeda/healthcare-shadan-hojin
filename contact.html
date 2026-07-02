@@ -40,8 +40,8 @@ a{color:inherit;text-decoration:none}
 header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px -16px rgba(7,42,74,.4);padding:14px 0}
 .nav{display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:12px;color:var(--navy)}
-.logo-mark{width:42px;height:42px;border-radius:11px;flex:none;background:linear-gradient(135deg,var(--teal),var(--teal-light));display:grid;place-items:center;color:#fff;font-weight:900;font-family:"Zen Kaku Gothic New";box-shadow:0 8px 20px -8px rgba(20,163,163,.7)}
-.logo-mark span{font-size:20px;letter-spacing:-.04em}
+.logo-mark{flex:none;display:block;line-height:0}
+.logo-img{height:44px;width:auto;display:block;object-fit:contain}
 .logo-text{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:17px;line-height:1.25}
 .logo-text small{display:block;font-size:9px;letter-spacing:.08em;font-weight:500;opacity:.7;white-space:nowrap}
 .back-link{font-size:14px;font-weight:500;color:var(--muted);transition:color .25s}
@@ -134,7 +134,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:56px 0 28px;font-s
 <header>
   <div class="wrap nav">
     <a href="index.html" class="logo" aria-label="一般社団法人 国際ヘルスケアAI推進協会 トップへ">
-      <span class="logo-mark"><span>H<small style="font-size:.5em">AI</small></span></span>
+      <span class="logo-mark"><img src="images/logo.png" alt="" class="logo-img" width="240" height="240"></span>
       <span class="logo-text">国際ヘルスケアAI推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
     </a>
     <a href="index.html" class="back-link"><span>←</span>トップに戻る</a>
@@ -247,7 +247,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:56px 0 28px;font-s
   <div class="wrap">
     <div class="foot-inner">
       <a href="index.html" class="logo">
-        <span class="logo-mark"><span>H<small style="font-size:.5em">AI</small></span></span>
+        <span class="logo-mark"><img src="images/logo.png" alt="" class="logo-img" width="240" height="240"></span>
         <span class="logo-text">国際ヘルスケアAI推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
       </a>
       <nav>

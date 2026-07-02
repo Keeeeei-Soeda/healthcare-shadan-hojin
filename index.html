@@ -55,13 +55,8 @@ header.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-
 .nav{display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:12px;color:#fff;transition:color .35s ease}
 header.scrolled .logo{color:var(--navy)}
-.logo-mark{
-  width:42px;height:42px;border-radius:11px;flex:none;
-  background:linear-gradient(135deg,var(--teal),var(--teal-light));
-  display:grid;place-items:center;color:#fff;font-weight:900;font-family:"Zen Kaku Gothic New";
-  box-shadow:0 8px 20px -8px rgba(20,163,163,.7);
-}
-.logo-mark span{font-size:20px;letter-spacing:-.04em}
+.logo-mark{flex:none;display:block;line-height:0}
+.logo-img{height:44px;width:auto;display:block;object-fit:contain}
 .logo-text{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:17px;line-height:1.25}
 .logo-text small{display:block;font-size:9px;letter-spacing:.08em;font-weight:500;opacity:.7;white-space:nowrap}
 .nav-links{display:flex;align-items:center;gap:30px}
@@ -378,7 +373,7 @@ body{font-size:calc(16px*var(--tsc))}
 <header id="header">
   <div class="wrap nav">
     <a href="#top" class="logo" aria-label="一般社団法人 国際ヘルスケアAI推進協会">
-      <span class="logo-mark"><span>H<small style="font-size:.5em">AI</small></span></span>
+      <span class="logo-mark"><img src="images/logo.png" alt="" class="logo-img" width="240" height="240"></span>
       <span class="logo-text">国際ヘルスケアAI推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
     </a>
     <nav class="nav-links" id="navLinks">
@@ -699,7 +694,7 @@ body{font-size:calc(16px*var(--tsc))}
     <div class="foot-grid">
       <div class="foot-brand">
         <a href="#top" class="logo">
-          <span class="logo-mark"><span>H<small style="font-size:.5em">AI</small></span></span>
+          <span class="logo-mark"><img src="images/logo.png" alt="" class="logo-img" width="240" height="240"></span>
           <span class="logo-text">国際ヘルスケアAI推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
         </a>
         <p>医療・福祉分野におけるAIの適正かつ安全な活用を推進する一般社団法人です。</p>
