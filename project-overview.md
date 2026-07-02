@@ -68,8 +68,8 @@
 
 - 送信先エンドポイント: `https://formspree.io/f/xgojnqbg`
 - 協会側に通知メールが届く（Formspree ダッシュボードで通知先を設定）
-- 送信者への自動返信（控えメール）は無料プランでは非対応（有料プランの Auto Response が必要）
-- `_replyto` を JS で設定しているため、協会側から返信する際は問い合わせ者のメールアドレスに返信可能
+- 送信者への自動返信は **Apps Script（MailApp）** で送信（Formspree 無料プランの代替）
+- `_replyto` を JS で設定しているため、Formspree 通知メールから返信する際も問い合わせ者アドレスに返信可能
 - 送信完了後は `contact.html?sent=1` で自サイト内の完了メッセージを表示（Formspree 標準ページは経由しない）
 - Google スプレッドシートへの自動記録（Apps Script。URL 設定後に有効化）
 
@@ -101,7 +101,7 @@
 - [ ] お問い合わせ先メールアドレスの確定（`contact.html` サイドバー・フッター）
 - [ ] 法人概要（連絡先メール等）の確定
 - [ ] 独自ドメインの取得・DNS設定
-- [ ] Google スプレッドシート同期の有効化（Apps Script デプロイ → `SHEET_SYNC_URL` 設定）
+- [ ] Google スプレッドシート同期・自動返信の Apps Script を最新版に更新・再デプロイ
 
 ## 今後の流れ
 
