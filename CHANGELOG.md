@@ -37,7 +37,7 @@
 | ファイル | 内容 |
 |---|---|
 | `images/member01.png` | 理事紹介 — 大友達也 |
-| `images/member02.png` | 理事紹介 — 鈴木峻平 |
+| `images/member02.png` | 理事紹介 — 鈴木崚平 |
 | `images/member03.png` | 理事紹介 — 副田渓 |
 
 ### `images/` ディレクトリの作成
