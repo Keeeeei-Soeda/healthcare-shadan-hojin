@@ -6,6 +6,23 @@
 
 ---
 
+## 2026-07-03
+
+### ヘッダー・フッターのメニュー表記変更
+- **コミット:** [`3c6cee8`](https://github.com/Keeeeei-Soeda/healthcare-shadan-hojin/commit/3c6cee8)
+- **日時:** 2026-07-03 19:00 (JST)
+- `index.html` を更新
+- ナビゲーションメニューの「スリースター」を「法人評価制度」に変更（ヘッダー・フッター共通）
+- リンク先（`#threestar`）およびセクション内容は変更なし
+
+### 理事名の表記修正
+- **コミット:** [`904788f`](https://github.com/Keeeeei-Soeda/healthcare-shadan-hojin/commit/904788f)
+- **日時:** 2026-07-03 15:24 (JST)
+- `index.html` / `CHANGELOG.md` を更新
+- 理事紹介の表記を「鈴木 峻平（SUZUKI Shunpei）」から「鈴木 崚平（SUZUKI Ryohei）」に修正
+
+---
+
 ## 2026-07-02
 
 ### 事業内容・研修内容・選ばれる理由のイラスト9枚を追加
