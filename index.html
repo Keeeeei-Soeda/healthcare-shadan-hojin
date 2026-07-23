@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>一般社団法人 国際ヘルスケアAI推進協会</title>
-<meta name="description" content="医療・福祉分野におけるAIの適正かつ安全な活用を推進する一般社団法人 国際ヘルスケアAI推進協会。安全性・コンプライアンスを軸に、研修、個人認定、組織単位の法人認定（スリースター）を通じて、医療機関のAI活用と職員育成を支援します。">
+<title>一般社団法人 国際ヘルスケアAI管理推進協会</title>
+<meta name="description" content="医療・福祉分野におけるAIの適正かつ安全な活用を推進する一般社団法人 国際ヘルスケアAI管理推進協会。安全性・コンプライアンスを軸に、研修、個人認定、組織単位の法人認定（スリースター）を通じて、医療機関のAI活用と職員育成を支援します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -57,15 +57,15 @@ header.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-
 header.scrolled .logo{color:var(--navy)}
 .logo-mark{flex:none;display:block;line-height:0}
 .logo-img{height:44px;width:auto;display:block;object-fit:contain}
-.logo-text{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:17px;line-height:1.25}
-.logo-text small{display:block;font-size:9px;letter-spacing:.08em;font-weight:500;opacity:.7;white-space:nowrap}
-.nav-links{display:flex;align-items:center;gap:30px}
-.nav-links a{color:rgba(255,255,255,.9);font-size:14px;font-weight:500;transition:color .3s;position:relative}
+.logo-text{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:15px;line-height:1.25;letter-spacing:.01em}
+.logo-text small{display:block;font-size:9px;letter-spacing:.06em;font-weight:500;opacity:.7;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:18px}
+.nav-links a{color:rgba(255,255,255,.9);font-size:13px;font-weight:500;transition:color .3s;position:relative;letter-spacing:.02em}
 header.scrolled .nav-links a{color:var(--ink)}
 .nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--teal);transition:width .3s}
 .nav-links a:not(.nav-cta):hover::after{width:100%}
 .nav-cta{
-  background:var(--teal);color:#fff!important;padding:11px 22px;border-radius:30px;font-weight:700;
+  background:var(--teal);color:#fff!important;padding:11px 18px;border-radius:30px;font-weight:700;
   box-shadow:0 10px 22px -10px rgba(20,163,163,.8);transition:transform .25s, box-shadow .25s;
 }
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 16px 28px -10px rgba(20,163,163,.9)}
@@ -155,10 +155,19 @@ section{padding:110px 0}
 }
 .card-icon svg{width:30px;height:30px}
 .card h3{font-size:20px;font-weight:700;margin-bottom:14px}
+.card h3 .card-sub{display:block;font-size:.72em;font-weight:500;color:var(--muted);margin-top:8px;letter-spacing:.02em;line-height:1.5}
 .card p{color:var(--muted);font-size:14.5px}
 
+/* ---------- AI管理とは ---------- */
+.aimgmt{background:var(--bg-soft);position:relative}
+.aimgmt .card::before{transform:scaleX(1)}
+.aimgmt-close{
+  text-align:center;margin:48px auto 0;max-width:720px;
+  color:var(--muted);font-size:15px;line-height:1.9;
+}
+
 /* ---------- 写真（img）共通：未設置時はフォールバックの縞が見える ---------- */
-.member-ph,.curr-ph,.why-ph,.business-ph{
+.curr-ph,.why-ph,.business-ph{
   width:100%;display:block;object-fit:cover;
   background:repeating-linear-gradient(45deg,rgba(11,59,102,.05) 0 12px,rgba(11,59,102,.09) 12px 24px);
 }
@@ -205,14 +214,14 @@ section{padding:110px 0}
 .flow-step h4{font-size:18px;font-weight:700;margin-bottom:10px}
 .flow-step p{color:var(--muted);font-size:14px;padding:0 10px}
 
-/* ---------- Members（理事紹介 / 互い違い） ---------- */
+/* ---------- Members（理事紹介 / テキスト縦積み） ---------- */
 .members{background:var(--bg)}
-.member-rows{display:flex;flex-direction:column;gap:56px;margin-top:64px}
-.member-row{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
-.member-row.rev{grid-template-columns:1.15fr .85fr}
-.member-row.rev .member-ph{order:2}
-.member-row.rev .member-tx{order:1}
-.member-ph{aspect-ratio:4/5;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.member-rows{display:flex;flex-direction:column;gap:24px;margin-top:64px}
+.member-row{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px 36px;transition:transform .3s, box-shadow .3s;
+}
+.member-row:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .member-tx .role{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--teal);background:rgba(20,163,163,.1);padding:6px 14px;border-radius:30px;margin-bottom:16px}
 .member-tx h3{font-size:26px;font-weight:900;line-height:1.35}
 .member-tx h3 .en{display:block;font-size:12px;font-weight:500;letter-spacing:.16em;color:var(--muted);margin-top:6px}
@@ -253,9 +262,10 @@ body{font-size:calc(16px*var(--tsc))}
 .eyebrow{font-size:calc(13px*var(--tsc))}
 .sec-title{font-size:calc(clamp(26px,4vw,40px)*var(--tsc))}
 .sec-lead{font-size:calc(16px*var(--tsc))}
-.logo-text{font-size:calc(17px*var(--tsc))}
+.logo-text{font-size:calc(15px*var(--tsc))}
 .logo-text small{font-size:calc(9px*var(--tsc))}
-.nav-links a{font-size:calc(14px*var(--tsc))}
+.aimgmt-close{font-size:calc(15px*var(--tsc))}
+.nav-links a{font-size:calc(13px*var(--tsc))}
 .hero-tag{font-size:calc(13px*var(--tsc))}
 .hero h1{font-size:calc(clamp(34px,6vw,64px)*var(--tsc))}
 .hero p.sub{font-size:calc(clamp(15px,2.2vw,19px)*var(--tsc))}
@@ -333,7 +343,7 @@ body{font-size:calc(16px*var(--tsc))}
 .ts-notes .btn{margin-top:28px}
 
 /* ---------- Responsive ---------- */
-@media(max-width:980px){
+@media(max-width:1100px){
   .nav-links{
     position:fixed;inset:0 0 0 auto;width:78%;max-width:320px;background:var(--navy-deep);
     flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:transform .4s;padding:40px;
@@ -346,16 +356,14 @@ body{font-size:calc(16px*var(--tsc))}
 @media(max-width:900px){
   .about-grid{grid-template-columns:1fr;gap:44px}
   .cards-3,.why-grid,.flow-steps{grid-template-columns:1fr}
-  .curr-row,.member-row,.member-row.rev{grid-template-columns:1fr;gap:0}
+  .curr-row{grid-template-columns:1fr;gap:0}
   .biz-row,.biz-row.rev{grid-template-columns:1fr;gap:26px}
   .biz-row.rev .biz-ph{order:1}
   .biz-row.rev .biz-tx{order:2}
   .star-ladder,.dom-grid{grid-template-columns:1fr;gap:18px}
   .ts-notes{padding:28px 24px}
   .curr-ph{aspect-ratio:16/10}
-  .member-row{gap:28px}
-  .member-row.rev .member-ph{order:1}
-  .member-row.rev .member-tx{order:2}
+  .member-row{padding:28px 24px}
   .flow-line{display:none}
   .foot-grid{grid-template-columns:1fr;gap:36px}
   section{padding:80px 0}
@@ -369,15 +377,16 @@ body{font-size:calc(16px*var(--tsc))}
 </head>
 <body>
 
-<!-- ============ HEADER ============ -->
+<!-- ============ S0 HEADER ============ -->
 <header id="header">
   <div class="wrap nav">
-    <a href="#top" class="logo" aria-label="一般社団法人 国際ヘルスケアAI推進協会">
+    <a href="#top" class="logo" aria-label="一般社団法人 国際ヘルスケアAI管理推進協会">
       <span class="logo-mark"><img src="images/logo.png" alt="" class="logo-img" width="240" height="240"></span>
-      <span class="logo-text">国際ヘルスケアAI推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
+      <span class="logo-text">国際ヘルスケアAI管理推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
     </a>
     <nav class="nav-links" id="navLinks">
       <a href="#about">協会について</a>
+      <a href="#aimgmt">AI管理とは</a>
       <a href="#business">事業内容</a>
       <a href="#threestar">法人評価制度</a>
       <a href="#curriculum">研修内容</a>
@@ -389,7 +398,7 @@ body{font-size:calc(16px*var(--tsc))}
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
+<!-- ============ S1 HERO ============ -->
 <section class="hero" id="top">
   <div class="hero-bg"></div>
   <svg class="hero-grid" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -415,7 +424,7 @@ body{font-size:calc(16px*var(--tsc))}
   <div class="scroll-hint">SCROLL<span></span></div>
 </section>
 
-<!-- ============ ABOUT ============ -->
+<!-- ============ S2 ABOUT ============ -->
 <section class="about" id="about">
   <div class="wrap about-grid">
     <div class="about-copy reveal">
@@ -433,7 +442,39 @@ body{font-size:calc(16px*var(--tsc))}
   </div>
 </section>
 
-<!-- ============ BUSINESS ============ -->
+<!-- ============ S3 AIMGMT ============ -->
+<section class="aimgmt" id="aimgmt">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">AI MANAGEMENT</span>
+      <h2 class="sec-title">AI管理とは何か？</h2>
+      <p class="sec-lead">医療現場へのAI導入は、「導入するかどうか」の段階を過ぎ、「どう管理するか」の段階に入っています。<br>使い方を教えるだけでは、誤情報・情報漏洩・責任の所在といったリスクは減りません。<br>当協会は、AIを安全に使い"続ける"ための管理の仕組みづくりを支援します。</p>
+    </div>
+    <div class="cards-3">
+      <div class="card reveal">
+        <div class="card-body">
+          <h3>リスク管理<span class="card-sub">― 「使う」前に「守る」</span></h3>
+          <p>AIの出力には誤りが含まれます。患者情報を安易に入力すれば漏洩のリスクが生じます。そして問題が起きたとき、責任は誰にあるのか。これらを曖昧にしたまま導入を進めること自体が、最大のリスクです。</p>
+        </div>
+      </div>
+      <div class="card reveal d1">
+        <div class="card-body">
+          <h3>ガバナンス<span class="card-sub">― ルールと記録を組織に残す</span></h3>
+          <p>院内のAI利用ルールを明文化し、利用ログを残し、責任者を置く。属人的な運用から、組織として説明できる運用へ。監査や第三者への説明にも耐えられる体制を整えます。</p>
+        </div>
+      </div>
+      <div class="card reveal d2">
+        <div class="card-body">
+          <h3>教育<span class="card-sub">― 全員が同じ基準で判断できる状態へ</span></h3>
+          <p>一部の職員だけが使いこなしている状態は、組織にとってリスクです。リテラシーの格差をなくし、「これは入力してよいか」を全員が同じ基準で判断できること。それが、AI管理の土台になります。</p>
+        </div>
+      </div>
+    </div>
+    <p class="aimgmt-close reveal">一般社団法人国際ヘルスケアAI管理推進協会は、この3つを一体で整えるための<br>研修・認定制度を提供しています。</p>
+  </div>
+</section>
+
+<!-- ============ S4 BUSINESS ============ -->
 <section class="business" id="business">
   <div class="wrap">
     <div class="head-center reveal">
@@ -493,7 +534,7 @@ body{font-size:calc(16px*var(--tsc))}
   </div>
 </section>
 
-<!-- ============ THREE-STAR ============ -->
+<!-- ============ S5 THREE-STAR ============ -->
 
 <section class="threestar" id="threestar">
   <div class="wrap">
@@ -542,7 +583,7 @@ body{font-size:calc(16px*var(--tsc))}
   </div>
 </section>
 
-<!-- ============ CURRICULUM ============ -->
+<!-- ============ S6 CURRICULUM ============ -->
 <section class="curriculum" id="curriculum">
   <div class="hero-glow"></div>
   <div class="wrap">
@@ -580,7 +621,7 @@ body{font-size:calc(16px*var(--tsc))}
   </div>
 </section>
 
-<!-- ============ WHY ============ -->
+<!-- ============ S7 WHY ============ -->
 <section class="why" id="why">
   <div class="wrap">
     <div class="head-center reveal">
@@ -613,7 +654,7 @@ body{font-size:calc(16px*var(--tsc))}
   </div>
 </section>
 
-<!-- ============ FLOW ============ -->
+<!-- ============ S8 FLOW ============ -->
 <section class="flow" id="flow">
   <div class="wrap">
     <div class="head-center reveal">
@@ -631,7 +672,7 @@ body{font-size:calc(16px*var(--tsc))}
   </div>
 </section>
 
-<!-- ============ MEMBERS（理事紹介） ============ -->
+<!-- ============ S9 MEMBERS（理事紹介） ============ -->
 <section class="members" id="members">
   <div class="wrap">
     <div class="head-center reveal">
@@ -641,9 +682,7 @@ body{font-size:calc(16px*var(--tsc))}
     </div>
     <div class="member-rows">
 
-      <!-- 1段目：大友達也（左=写真 / 右=テキスト） -->
       <div class="member-row reveal">
-        <img class="member-ph" src="images/member01.png" alt="大友達也">
         <div class="member-tx">
           <span class="role">会長</span>
           <h3>大友 達也<span class="en">OTOMO Tatsuya</span></h3>
@@ -652,9 +691,7 @@ body{font-size:calc(16px*var(--tsc))}
         </div>
       </div>
 
-      <!-- 2段目：鈴木崚平（左=テキスト / 右=写真） -->
-      <div class="member-row rev reveal">
-        <img class="member-ph" src="images/member02.png" alt="鈴木崚平">
+      <div class="member-row reveal d1">
         <div class="member-tx">
           <span class="role">理事・事務局</span>
           <h3>鈴木 崚平<span class="en">SUZUKI Ryohei</span></h3>
@@ -663,9 +700,7 @@ body{font-size:calc(16px*var(--tsc))}
         </div>
       </div>
 
-      <!-- 3段目：副田渓（左=写真 / 右=テキスト） -->
-      <div class="member-row reveal">
-        <img class="member-ph" src="images/member03.png" alt="副田渓">
+      <div class="member-row reveal d2">
         <div class="member-tx">
           <span class="role">理事・講師／監修</span>
           <h3>副田 渓<span class="en">SOEDA Kei</span></h3>
@@ -695,7 +730,7 @@ body{font-size:calc(16px*var(--tsc))}
       <div class="foot-brand">
         <a href="#top" class="logo">
           <span class="logo-mark"><img src="images/logo.png" alt="" class="logo-img" width="240" height="240"></span>
-          <span class="logo-text">国際ヘルスケアAI推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
+          <span class="logo-text">国際ヘルスケアAI管理推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
         </a>
         <p>医療・福祉分野におけるAIの適正かつ安全な活用を推進する一般社団法人です。</p>
       </div>
@@ -703,6 +738,7 @@ body{font-size:calc(16px*var(--tsc))}
         <h5>メニュー</h5>
         <ul>
           <li><a href="#about">協会について</a></li>
+          <li><a href="#aimgmt">AI管理とは</a></li>
           <li><a href="#business">事業内容</a></li>
           <li><a href="#threestar">法人評価制度</a></li>
           <li><a href="#curriculum">研修内容</a></li>
@@ -714,14 +750,14 @@ body{font-size:calc(16px*var(--tsc))}
       <div class="foot-col foot-info">
         <h5>法人概要</h5>
         <dl>
-          <dt>名称</dt><dd>一般社団法人 国際ヘルスケアAI推進協会</dd>
+          <dt>名称</dt><dd>一般社団法人 国際ヘルスケアAI管理推進協会</dd>
           <dt>事業</dt><dd>研修／個人認定／法人認定（スリースター）</dd>
           <dt>所在地</dt><dd>〒732-0065 広島市東区牛田中1-1-11</dd>
           <dt>連絡先</dt><dd><a href="contact.html">お問い合わせフォーム</a></dd>
         </dl>
       </div>
     </div>
-    <div class="copyright">© 2026 一般社団法人 国際ヘルスケアAI推進協会 All Rights Reserved.</div>
+    <div class="copyright">© 2026 一般社団法人 国際ヘルスケアAI管理推進協会 All Rights Reserved.</div>
   </div>
 </footer>
 
