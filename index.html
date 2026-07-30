@@ -161,6 +161,11 @@ section{padding:110px 0}
 /* ---------- AI管理とは ---------- */
 .aimgmt{background:var(--bg-soft);position:relative}
 .aimgmt .card::before{transform:scaleX(1)}
+.aimgmt-body{
+  max-width:720px;margin:0 auto 56px;
+  color:var(--muted);font-size:16px;line-height:1.95;
+}
+.aimgmt-body p + p{margin-top:1.25em}
 .aimgmt-close{
   text-align:center;margin:48px auto 0;max-width:720px;
   color:var(--muted);font-size:15px;line-height:1.9;
@@ -226,6 +231,9 @@ section{padding:110px 0}
 .member-tx h3{font-size:26px;font-weight:900;line-height:1.35}
 .member-tx h3 .en{display:block;font-size:12px;font-weight:500;letter-spacing:.16em;color:var(--muted);margin-top:6px}
 .member-tx p{color:var(--muted);font-size:15px;margin-top:18px}
+.member-tx .member-link{display:inline-block;margin-top:18px;color:var(--teal);font-weight:700;font-size:14px}
+.member-tx .member-link .arrow{transition:transform .3s;display:inline-block}
+.member-tx .member-link:hover .arrow{transform:translateX(5px)}
 
 /* ---------- CTA band ---------- */
 .cta-band{
@@ -264,7 +272,9 @@ body{font-size:calc(16px*var(--tsc))}
 .sec-lead{font-size:calc(16px*var(--tsc))}
 .logo-text{font-size:calc(15px*var(--tsc))}
 .logo-text small{font-size:calc(9px*var(--tsc))}
+.aimgmt-body{font-size:calc(16px*var(--tsc))}
 .aimgmt-close{font-size:calc(15px*var(--tsc))}
+.member-tx .member-link{font-size:calc(14px*var(--tsc))}
 .nav-links a{font-size:calc(13px*var(--tsc))}
 .hero-tag{font-size:calc(13px*var(--tsc))}
 .hero h1{font-size:calc(clamp(34px,6vw,64px)*var(--tsc))}
@@ -448,7 +458,11 @@ body{font-size:calc(16px*var(--tsc))}
     <div class="head-center reveal">
       <span class="eyebrow">AI MANAGEMENT</span>
       <h2 class="sec-title">AI管理とは何か？</h2>
-      <p class="sec-lead">医療現場へのAI導入は、「導入するかどうか」の段階を過ぎ、「どう管理するか」の段階に入っています。<br>使い方を教えるだけでは、誤情報・情報漏洩・責任の所在といったリスクは減りません。<br>当協会は、AIを安全に使い"続ける"ための管理の仕組みづくりを支援します。</p>
+    </div>
+    <div class="aimgmt-body reveal">
+      <p>医療現場へのAI導入は、「導入するかどうか」の段階を過ぎ、「どう管理するか」の段階に入っています。そして、その次には「どう組織再編するか」となります。</p>
+      <p>使い方を理解するだけでは、誤情報・情報漏洩・責任の所在といったリスクは減りません。個人のスピードが上がっても、組織全体の生産性が上がるとは限りません。</p>
+      <p>当協会は、AIを安全に使い"続ける"ための管理の仕組みや、生産性を高める管理の仕組み、職務設計や再編成に至るまで、AI管理のあり方を研究し、支援します。</p>
     </div>
     <div class="cards-3">
       <div class="card reveal">
@@ -509,7 +523,7 @@ body{font-size:calc(16px*var(--tsc))}
           <ul>
             <li>組織診断（理解／ルール／対応／体制の4領域）で現状を可視化</li>
             <li>評価して終わりでなく、弱点＋改善策まで返す</li>
-            <li>星3の医療機関・施設はサイト上のランキングで開示</li>
+            <li>三ツ星医療機関を公開</li>
           </ul>
           <a href="#threestar" class="more">制度の詳細を見る <span class="arrow">→</span></a>
         </div>
@@ -558,7 +572,7 @@ body{font-size:calc(16px*var(--tsc))}
       <div class="star-card feature reveal d2">
         <div class="stars">★★★</div>
         <span class="lv">star 3</span>
-        <p>star 2に加え、前年からの改善・運用実績など継続の証跡あり。サイトのランキングで開示される最上位認定。</p>
+        <p>star 2に加え、前年からの改善・運用実績など継続の証跡あり。三ツ星医療機関として公開。</p>
       </div>
     </div>
 
@@ -576,7 +590,7 @@ body{font-size:calc(16px*var(--tsc))}
       <ul>
         <li><b>毎年、再評価。</b>受け続けないと星は下がる仕組み（＝毎年アップデートするのが前提）。</li>
         <li><b>策まで返す。</b>返却レポートに弱点Top3と改善策の雛形（院内AI利用ポリシー／インシデント報告フロー／許可ツール一覧）を同梱。</li>
-        <li><b>星3の医療機関・施設は開示。</b>サイト上のランキングで公開し、組織の取り組みを対外的に証明します。</li>
+        <li><b>三ツ星医療機関を公開。</b>組織の取り組みを対外的に証明します。</li>
       </ul>
       <a href="#contact" class="btn btn-primary" style="background:var(--teal);color:#fff">導入・料金を相談する <span class="arrow">→</span></a>
     </div>
@@ -706,6 +720,23 @@ body{font-size:calc(16px*var(--tsc))}
           <h3>副田 渓<span class="en">SOEDA Kei</span></h3>
           <!-- 本文は仮。確定プロフィールに差し替えてください -->
           <p>Web・AI領域を専門に、医療現場向けのAI活用・教育コンテンツの開発と研修監修を担当する。</p>
+        </div>
+      </div>
+
+      <div class="member-row reveal">
+        <div class="member-tx">
+          <span class="role">グロービス経営大学院　教授</span>
+          <h3>小熊 英國<span class="en">OGUMA Hidekuni</span></h3>
+          <p>経営学者。日本レセプト学会の理事と併任。これからの時代に合致した組織、サービスについて研究。</p>
+          <a href="https://mba.globis.ac.jp/faculty/detail/ccm/teacher/oguma_hidekuni.html" class="member-link" target="_blank" rel="noopener noreferrer">プロフィールを見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="member-row reveal d1">
+        <div class="member-tx">
+          <span class="role">姫路獨協大学　教授</span>
+          <h3>清水 隆明<span class="en">SHIMIZU Takaaki</span></h3>
+          <p>医療情報、医療福祉経営を専門とし、AI活用、管理の可能性を探る。</p>
         </div>
       </div>
 
