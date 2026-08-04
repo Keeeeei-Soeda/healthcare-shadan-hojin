@@ -2,7 +2,29 @@
 
 一般社団法人ヘルスケアAI推進協会 公式サイト（[Keeeeei-Soeda/healthcare-shadan-hojin](https://github.com/Keeeeei-Soeda/healthcare-shadan-hojin)）の GitHub コミット履歴をまとめたものです。
 
-公開URL: https://Keeeeei-Soeda.github.io/healthcare-shadan-hojin/
+公開URL: https://www.iha-as.com/（GitHub Pages 独自ドメイン）
+
+---
+
+## 2026-08-04
+
+### 大友達也（会長）紹介文に肩書きを追記
+- **日時:** 2026-08-04 16:51 頃 (JST)
+- `index.html` / `index_ver02.html` / `index_ver03.html` を更新・追加
+- 会長・大友達也の紹介文末尾に「一般社団法人日本レセプト学会理事長、就実大学教授」を追加（大友先生からの指示）
+- キャッシュ回避用に `index_ver03.html` を追加してデプロイ
+- 共有用URL: https://www.iha-as.com/index_ver03.html#members
+
+### 増田雅史をアドバイザー紹介へ移設・プロフィール全文掲載
+- **コミット:** [`6cc80ea`](https://github.com/Keeeeei-Soeda/healthcare-shadan-hojin/commit/6cc80ea)
+- **日時:** 2026-08-04 16:15 頃 (JST)
+- `index.html` / `index_ver02.html` を更新・追加
+- 増田雅史を「理事紹介」から外し、直下に「アドバイザー紹介」（`#advisors`）セクションを新設
+- 役職バッジを「アドバイザー」に変更（理事ではない立ち位置を明確化）
+- 氏名表記を「増田 雅史（ますだ・まさふみ / MASUDA Masafumi）」に修正（旧: Masashi）
+- 本人提供の紹介文を全文掲載（森・濱田松本法律事務所パートナー／立教大学大学院人工知能科学研究科客員教授、経歴・公職・著作）
+- キャッシュ消去できないクライアント向けに `index_ver02.html` を追加してデプロイ
+- 共有用URL: https://www.iha-as.com/index_ver02.html#advisors
 
 ---
 
