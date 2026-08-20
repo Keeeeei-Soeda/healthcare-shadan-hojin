@@ -47,11 +47,11 @@ img{max-width:100%;display:block}
 
 /* ---------- Header ---------- */
 header{
-  position:fixed;top:0;left:0;right:0;z-index:100;
+  position:fixed;top:0;left:0;right:0;z-index:200;
   transition:background .35s ease, box-shadow .35s ease, padding .35s ease;
   padding:22px 0;
 }
-header.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px -16px rgba(7,42,74,.4);padding:14px 0}
+header.scrolled{background:rgba(255,255,255,.97);box-shadow:0 6px 24px -16px rgba(7,42,74,.4);padding:14px 0}
 .nav{display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:12px;color:#fff;transition:color .35s ease}
 header.scrolled .logo{color:var(--navy)}
@@ -61,7 +61,7 @@ header.scrolled .logo{color:var(--navy)}
 .logo-text small{display:block;font-size:9px;letter-spacing:.06em;font-weight:500;opacity:.7;white-space:nowrap}
 .nav-links{display:flex;align-items:center;gap:18px}
 .nav-links a{color:rgba(255,255,255,.9);font-size:13px;font-weight:500;transition:color .3s;position:relative;letter-spacing:.02em}
-header.scrolled .nav-links a{color:var(--ink)}
+header.scrolled~.nav-links a:not(.nav-cta){color:var(--ink)}
 .nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--teal);transition:width .3s}
 .nav-links a:not(.nav-cta):hover::after{width:100%}
 .nav-cta{
@@ -69,7 +69,7 @@ header.scrolled .nav-links a{color:var(--ink)}
   box-shadow:0 10px 22px -10px rgba(20,163,163,.8);transition:transform .25s, box-shadow .25s;
 }
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 16px 28px -10px rgba(20,163,163,.9)}
-.nav-overlay{display:none;position:fixed;inset:0;background:rgba(7,42,74,.45);z-index:150;opacity:0;transition:opacity .35s ease}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(7,42,74,.45);z-index:250;opacity:0;transition:opacity .35s ease}
 .nav-overlay.show{display:block;opacity:1}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:6px}
 .burger span{width:26px;height:2px;background:#fff;transition:.3s}
@@ -375,7 +375,7 @@ body{font-size:calc(16px*var(--tsc))}
     background:var(--navy-deep);
     flex-direction:column;align-items:stretch;justify-content:flex-start;
     gap:0;transform:translate3d(100%,0,0);transition:transform .35s ease;
-    overflow-y:auto;z-index:160;box-shadow:-8px 0 32px rgba(7,42,74,.25);
+    overflow:visible;z-index:260;box-shadow:-8px 0 32px rgba(7,42,74,.25);
   }
   .nav-links.open{transform:translate3d(0,0,0)}
   .nav-links a{
@@ -387,7 +387,18 @@ body{font-size:calc(16px*var(--tsc))}
     margin-top:16px;text-align:center;justify-content:center;width:100%;
     box-shadow:none;
   }
-  .burger{display:flex;position:relative;z-index:201}
+  .burger{display:flex;position:relative;z-index:270}
+}
+@media(min-width:1281px){
+  .nav-links{
+    position:fixed;top:0;left:0;right:0;
+    max-width:var(--maxw);margin:0 auto;padding:22px 24px;
+    display:flex;align-items:center;justify-content:flex-end;gap:18px;
+    background:transparent;box-shadow:none;transform:none!important;
+    z-index:201;pointer-events:none;
+  }
+  header.scrolled~.nav-links{padding-top:14px;padding-bottom:14px}
+  .nav-links a,.nav-links .nav-cta{pointer-events:auto}
 }
 @media(max-width:900px){
   .about-grid{grid-template-columns:1fr;gap:44px}
@@ -420,20 +431,20 @@ body{font-size:calc(16px*var(--tsc))}
       <span class="logo-mark"><img src="images/logo.png" alt="" class="logo-img" width="240" height="240"></span>
       <span class="logo-text">国際ヘルスケアAI管理推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
     </a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#about">協会について</a>
-      <a href="#aimgmt">AI管理とは</a>
-      <a href="#business">事業内容</a>
-      <a href="#threestar">法人評価制度</a>
-      <a href="#curriculum">研修内容</a>
-      <a href="#flow">認定制度</a>
-      <a href="#individual">個人認定</a>
-      <a href="#members">理事紹介</a>
-      <a href="#contact" class="nav-cta">お問い合わせ</a>
-    </nav>
     <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </header>
+<nav class="nav-links" id="navLinks">
+  <a href="#about">協会について</a>
+  <a href="#aimgmt">AI管理とは</a>
+  <a href="#business">事業内容</a>
+  <a href="#threestar">法人評価制度</a>
+  <a href="#curriculum">研修内容</a>
+  <a href="#flow">認定制度</a>
+  <a href="#individual">個人認定</a>
+  <a href="#members">理事紹介</a>
+  <a href="#contact" class="nav-cta">お問い合わせ</a>
+</nav>
 <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
 <!-- ============ S1 HERO ============ -->
