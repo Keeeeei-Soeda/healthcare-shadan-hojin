@@ -69,6 +69,8 @@ header.scrolled .nav-links a{color:var(--ink)}
   box-shadow:0 10px 22px -10px rgba(20,163,163,.8);transition:transform .25s, box-shadow .25s;
 }
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 16px 28px -10px rgba(20,163,163,.9)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(7,42,74,.45);z-index:150;opacity:0;transition:opacity .35s ease}
+.nav-overlay.show{display:block;opacity:1}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:6px}
 .burger span{width:26px;height:2px;background:#fff;transition:.3s}
 header.scrolled .burger span{background:var(--navy)}
@@ -368,17 +370,24 @@ body{font-size:calc(16px*var(--tsc))}
 /* ---------- Responsive ---------- */
 @media(max-width:1280px){
   .nav-links{
-    position:fixed;inset:0 0 0 auto;width:min(78%,320px);height:100%;
+    position:fixed;top:0;right:0;bottom:0;width:min(320px,86vw);
+    margin:0;padding:88px 32px 32px;
     background:var(--navy-deep);
-    flex-direction:column;justify-content:flex-start;align-items:flex-start;
-    gap:22px;padding:96px 40px 40px;
-    transform:translateX(110%);transition:transform .4s,visibility .4s;
-    overflow-y:auto;visibility:hidden;pointer-events:none;z-index:99;
+    flex-direction:column;align-items:stretch;justify-content:flex-start;
+    gap:0;transform:translate3d(100%,0,0);transition:transform .35s ease;
+    overflow-y:auto;z-index:160;box-shadow:-8px 0 32px rgba(7,42,74,.25);
   }
-  .nav-links.open{transform:none;visibility:visible;pointer-events:auto}
-  .nav-links a{color:#fff!important;font-size:18px}
+  .nav-links.open{transform:translate3d(0,0,0)}
+  .nav-links a{
+    color:#fff!important;font-size:17px;font-weight:500;
+    padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);
+  }
   .nav-links a:not(.nav-cta)::after{display:none}
-  .burger{display:flex;position:relative;z-index:101}
+  .nav-links .nav-cta{
+    margin-top:16px;text-align:center;justify-content:center;width:100%;
+    box-shadow:none;
+  }
+  .burger{display:flex;position:relative;z-index:201}
 }
 @media(max-width:900px){
   .about-grid{grid-template-columns:1fr;gap:44px}
@@ -422,9 +431,10 @@ body{font-size:calc(16px*var(--tsc))}
       <a href="#members">理事紹介</a>
       <a href="#contact" class="nav-cta">お問い合わせ</a>
     </nav>
-    <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </header>
+<div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
 <!-- ============ S1 HERO ============ -->
 <section class="hero" id="top">
@@ -875,8 +885,17 @@ window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 // ---- Mobile menu ----
 const burger=document.getElementById('burger');
 const navLinks=document.getElementById('navLinks');
-burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+const navOverlay=document.getElementById('navOverlay');
+const setMenuOpen=(open)=>{
+  navLinks.classList.toggle('open',open);
+  navOverlay.classList.toggle('show',open);
+  navOverlay.setAttribute('aria-hidden',open?'false':'true');
+  burger.setAttribute('aria-expanded',open?'true':'false');
+  document.body.style.overflow=open?'hidden':'';
+};
+burger.addEventListener('click',()=>setMenuOpen(!navLinks.classList.contains('open')));
+navOverlay.addEventListener('click',()=>setMenuOpen(false));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenuOpen(false)));
 
 // ---- Scroll reveal (IntersectionObserver) ----
 const io=new IntersectionObserver((entries)=>{
