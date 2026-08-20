@@ -112,6 +112,13 @@ header.scrolled .burger span{background:var(--navy)}
 }
 .btn-primary{background:var(--teal);color:#fff;box-shadow:0 16px 34px -14px rgba(20,163,163,.9)}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(20,163,163,1)}
+.btn.is-soon{
+  background:var(--line);
+  color:#6B7C8C;
+  pointer-events:none;
+  cursor:default;
+  box-shadow:none;
+}
 .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
 .btn-ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-3px)}
 .btn .arrow{transition:transform .25s}
@@ -172,7 +179,7 @@ section{padding:110px 0}
 }
 
 /* ---------- 写真（img）共通：未設置時はフォールバックの縞が見える ---------- */
-.curr-ph,.why-ph,.business-ph{
+.curr-ph,.why-ph,.business-ph,.biz-ph{
   width:100%;display:block;object-fit:cover;
   background:repeating-linear-gradient(45deg,rgba(11,59,102,.05) 0 12px,rgba(11,59,102,.09) 12px 24px);
 }
@@ -353,6 +360,11 @@ body{font-size:calc(16px*var(--tsc))}
 .ts-notes li b{color:var(--ink);font-weight:700}
 .ts-notes .btn{margin-top:28px}
 
+/* ---------- Individual certification ---------- */
+.individual{background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);position:relative;overflow:hidden}
+.individual .biz-ph{max-width:560px;margin:0 auto}
+.individual .dom-grid{grid-template-columns:repeat(2,1fr)}
+
 /* ---------- Responsive ---------- */
 @media(max-width:1100px){
   .nav-links{
@@ -371,7 +383,7 @@ body{font-size:calc(16px*var(--tsc))}
   .biz-row,.biz-row.rev{grid-template-columns:1fr;gap:26px}
   .biz-row.rev .biz-ph{order:1}
   .biz-row.rev .biz-tx{order:2}
-  .star-ladder,.dom-grid{grid-template-columns:1fr;gap:18px}
+  .star-ladder,.dom-grid,.individual .dom-grid{grid-template-columns:1fr;gap:18px}
   .ts-notes{padding:28px 24px}
   .curr-ph{aspect-ratio:16/10}
   .member-row{padding:28px 24px}
@@ -400,6 +412,7 @@ body{font-size:calc(16px*var(--tsc))}
       <a href="#aimgmt">AI管理とは</a>
       <a href="#business">事業内容</a>
       <a href="#threestar">法人評価制度</a>
+      <a href="#individual">個人認定</a>
       <a href="#curriculum">研修内容</a>
       <a href="#members">理事紹介</a>
       <a href="#flow">認定制度</a>
@@ -687,6 +700,36 @@ body{font-size:calc(16px*var(--tsc))}
   </div>
 </section>
 
+<!-- ============ S5b INDIVIDUAL（個人認定） ============ -->
+<section class="individual" id="individual">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">INDIVIDUAL CERTIFICATION</span>
+      <h2 class="sec-title">個人認定制度「医療AIスキルマスター（仮）」</h2>
+      <p class="sec-lead">スリースターが医療機関・施設“全体”を評価する制度なら、こちらは職員一人ひとりのAIスキルを担保する個人認定です。所定のテキストで学び、認定試験に合格した方を、医療現場でAIを安全に活用できる人材——現場でAI管理を担える人——として認定します。汎用のAI資格ではなく「医療 × AI管理」に特化しているのが特長です。</p>
+    </div>
+
+    <img class="biz-ph reveal" src="images/individual01.png" alt="医療AIスキルマスター 個人認定のイメージ">
+
+    <div class="ts-domains">
+      <p class="ts-domains-h reveal">この資格が証明する2つの力</p>
+      <div class="dom-grid">
+        <div class="dom reveal"><span class="k">AI活用力</span><p>生成AIを業務で安全かつ効果的に使う力。患者情報の扱い、適切な指示（プロンプト）、出力の検証など、現場で“正しく使う”判断ができます。（AI活用研修で養成）</p></div>
+        <div class="dom reveal d1"><span class="k">AIガバナンス力</span><p>院内ルール・法令・インシデント対応を理解し、「これは入力してよいか」を正しく判断できる力。（AIガバナンス研修で養成）</p></div>
+      </div>
+    </div>
+
+    <div class="ts-notes reveal">
+      <ul>
+        <li><b>テキストで体系的に学ぶ。</b> AI活用とAIガバナンスの2領域を、医療現場の事例に沿って学習します。</li>
+        <li><b>試験に合格して認定。</b> 実践的な判断を問う認定試験に合格した方を認定し、確かな知識と判断力を担保します。</li>
+        <li><b>成果を、目に見える形で。</b> 認定書をオンラインで発行。個人の学びと現場での判断力を証明します。</li>
+      </ul>
+      <span class="btn btn-primary is-soon">受講・お申し込みについて｜準備中</span>
+    </div>
+  </div>
+</section>
+
 <!-- ============ S9 MEMBERS（理事紹介） ============ -->
 <section class="members" id="members">
   <div class="wrap">
@@ -797,6 +840,7 @@ body{font-size:calc(16px*var(--tsc))}
           <li><a href="#aimgmt">AI管理とは</a></li>
           <li><a href="#business">事業内容</a></li>
           <li><a href="#threestar">法人評価制度</a></li>
+          <li><a href="#individual">個人認定</a></li>
           <li><a href="#curriculum">研修内容</a></li>
           <li><a href="#members">理事紹介</a></li>
           <li><a href="#flow">認定制度</a></li>
