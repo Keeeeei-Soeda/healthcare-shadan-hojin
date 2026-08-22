@@ -369,6 +369,7 @@ body{font-size:calc(16px*var(--tsc))}
 .individual{background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);position:relative;overflow:hidden}
 .individual .biz-ph{max-width:560px;margin:0 auto}
 .individual .dom-grid{grid-template-columns:1fr;max-width:560px;margin:0 auto}
+.individual .head-center .sec-lead{max-width:920px}
 .indiv-notice{
   margin:24px auto 0;max-width:720px;text-align:center;
   background:#fff;border:1px solid var(--line);border-radius:12px;
@@ -381,7 +382,8 @@ body{font-size:calc(16px*var(--tsc))}
 }
 .indiv-notice p{color:var(--muted);font-size:14px;line-height:1.7;margin:0}
 
-/* ---------- Skill Master (医療機関向け・スリースターの一部) ---------- */
+/* ---------- Skill Master (一時非表示中・復活時にHTMLコメント解除) ---------- */
+/* #skillmaster パネル用。本文は index.html #flow 内のコメントブロックを参照 */
 .skillmaster{background:#fff;padding-top:0}
 .skillmaster .wrap{padding-top:0}
 .skillmaster-panel{
@@ -590,11 +592,11 @@ body{font-size:calc(16px*var(--tsc))}
         <div class="biz-tx">
           <span class="num">02 &nbsp;/&nbsp; THREE-STAR</span>
           <h3>法人認定制度<span class="tag">スリースター</span></h3>
-          <p class="lead">組織全体を毎年評価し、達成度を星1〜3で認定。正職員から派遣・アルバイトまで「全員」の受講を前提に、医療機関・施設単位でAI活用の質を可視化します。職員向けの「医療AIスキルマスター」も、この医療機関向けの仕組みの一部として位置づけています。</p>
+          <p class="lead">組織全体を毎年評価し、達成度を星1〜3で認定。正職員から派遣・アルバイトまで「全員」の受講を前提に、医療機関・施設単位でAI活用の質を可視化します。個人資格と違い、“組織そのもの”を評価するのが本協会ならではの特長です。</p>
           <ul>
             <li>組織診断（理解／ルール／対応／体制の4領域）で現状を可視化</li>
             <li>評価して終わりでなく、弱点＋改善策まで返す</li>
-            <li>三ツ星医療機関を公開／職員のスキルマスター認定と連携</li>
+            <li>三ツ星医療機関を公開</li>
           </ul>
           <a href="#threestar" class="more">制度の詳細を見る <span class="arrow">→</span></a>
         </div>
@@ -756,7 +758,13 @@ body{font-size:calc(16px*var(--tsc))}
       <div class="flow-step reveal d3"><div class="flow-circle">4</div><h4>改善・翌年更新</h4><p>課題に応じた追加研修で改善へ。毎年くり返し、組織のレベルを引き上げます。</p></div>
     </div>
 
-    <!-- 医療機関向け：スリースター制度の一部としてのスキルマスター -->
+    <!--
+      ============================================================
+      [一時非表示] 医療AIスキルマスター（#skillmaster）
+      スリースター制度の一部／医療機関向け。今後復活の可能性あり。
+      復活手順: このコメントブロックを解除する。関連CSSは .skillmaster-panel を参照。
+      参考コミット: a12b411（配置）, 本ブロックをコメント化したコミット
+      ============================================================
     <div class="skillmaster-panel reveal" id="skillmaster">
       <span class="eyebrow">FOR MEDICAL INSTITUTIONS</span>
       <h3>医療AIスキルマスター<span style="font-size:.62em;color:var(--teal);font-weight:700;margin-left:.5em;letter-spacing:.04em">スリースター制度の一部</span></h3>
@@ -768,6 +776,7 @@ body{font-size:calc(16px*var(--tsc))}
       </ul>
       <a href="#threestar" class="more">スリースター制度の詳細を見る <span class="arrow">→</span></a>
     </div>
+    ============================================================ -->
   </div>
 </section>
 
