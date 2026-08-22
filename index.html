@@ -368,7 +368,7 @@ body{font-size:calc(16px*var(--tsc))}
 /* ---------- Individual certification ---------- */
 .individual{background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);position:relative;overflow:hidden}
 .individual .biz-ph{max-width:560px;margin:0 auto}
-.individual .dom-grid{grid-template-columns:repeat(2,1fr)}
+.individual .dom-grid{grid-template-columns:1fr;max-width:560px;margin:0 auto}
 .indiv-notice{
   margin:24px auto 0;max-width:720px;text-align:center;
   background:#fff;border:1px solid var(--line);border-radius:12px;
@@ -380,6 +380,24 @@ body{font-size:calc(16px*var(--tsc))}
   padding:6px 14px;border-radius:6px;margin-bottom:10px;
 }
 .indiv-notice p{color:var(--muted);font-size:14px;line-height:1.7;margin:0}
+
+/* ---------- Skill Master (医療機関向け・スリースターの一部) ---------- */
+.skillmaster{background:#fff;padding-top:0}
+.skillmaster .wrap{padding-top:0}
+.skillmaster-panel{
+  margin-top:56px;background:var(--bg-soft);border:1px solid var(--line);
+  border-radius:var(--radius);padding:40px 42px;box-shadow:var(--shadow);
+}
+.skillmaster-panel .eyebrow{margin-bottom:10px}
+.skillmaster-panel h3{font-size:24px;font-weight:900;margin-bottom:8px}
+.skillmaster-panel .lead{color:var(--muted);font-size:15px;margin-top:14px;max-width:720px}
+.skillmaster-panel ul{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.skillmaster-panel li{position:relative;padding-left:32px;font-size:14.5px}
+.skillmaster-panel li::before{content:"★";position:absolute;left:0;top:0;color:var(--teal);font-size:15px}
+.skillmaster-panel li b{color:var(--ink);font-weight:700}
+.skillmaster-panel .more{display:inline-block;margin-top:22px;color:var(--teal);font-weight:700;font-size:14px}
+.skillmaster-panel .more .arrow{transition:transform .3s;display:inline-block}
+.skillmaster-panel .more:hover .arrow{transform:translateX(5px)}
 
 /* ---------- Responsive ---------- */
 @media(max-width:1280px){
@@ -422,7 +440,7 @@ body{font-size:calc(16px*var(--tsc))}
   .biz-row.rev .biz-ph{order:1}
   .biz-row.rev .biz-tx{order:2}
   .star-ladder,.dom-grid,.individual .dom-grid{grid-template-columns:1fr;gap:18px}
-  .ts-notes{padding:28px 24px}
+  .ts-notes,.skillmaster-panel{padding:28px 24px}
   .curr-ph{aspect-ratio:16/10}
   .member-row{padding:28px 24px}
   .flow-line{display:none}
@@ -572,11 +590,11 @@ body{font-size:calc(16px*var(--tsc))}
         <div class="biz-tx">
           <span class="num">02 &nbsp;/&nbsp; THREE-STAR</span>
           <h3>法人認定制度<span class="tag">スリースター</span></h3>
-          <p class="lead">組織全体を毎年評価し、達成度を星1〜3で認定。正職員から派遣・アルバイトまで「全員」の受講を前提に、医療機関・施設単位でAI活用の質を可視化します。個人資格と違い、“組織そのもの”を評価するのが本協会ならではの特長です。</p>
+          <p class="lead">組織全体を毎年評価し、達成度を星1〜3で認定。正職員から派遣・アルバイトまで「全員」の受講を前提に、医療機関・施設単位でAI活用の質を可視化します。職員向けの「医療AIスキルマスター」も、この医療機関向けの仕組みの一部として位置づけています。</p>
           <ul>
             <li>組織診断（理解／ルール／対応／体制の4領域）で現状を可視化</li>
             <li>評価して終わりでなく、弱点＋改善策まで返す</li>
-            <li>三ツ星医療機関を公開</li>
+            <li>三ツ星医療機関を公開／職員のスキルマスター認定と連携</li>
           </ul>
           <a href="#threestar" class="more">制度の詳細を見る <span class="arrow">→</span></a>
         </div>
@@ -588,12 +606,13 @@ body{font-size:calc(16px*var(--tsc))}
         <div class="biz-tx">
           <span class="num">03 &nbsp;/&nbsp; CERTIFICATE</span>
           <h3>オンライン認定書発行<span class="tag">個人認定</span></h3>
-          <p class="lead">研修受講と認定要件の充足に応じて、職員一人ひとりに「医療AIスキルマスター」「医療AIガバナンス管理士」の2資格の認定書をオンラインで発行。個人のスキルアップとコンプライアンス意識を、目に見える形で証明します。</p>
+          <p class="lead">所定の研修・認定要件に応じて、「医療AIガバナンス管理士」の認定書をオンラインで発行。医療機関に限らず、どなたでも取得できる個人認定です。組織向けのスリースターとは別に、個人の学びとガバナンス判断力を目に見える形で証明します。</p>
           <ul>
-            <li>実践寄り／統括寄りの2資格それぞれに認定書を発行</li>
-            <li>各部署から事前に集めた質問を設問に反映し“刺さる”内容に</li>
+            <li>職種・所属を問わず受講・取得できるオープンな個人認定</li>
+            <li>今年度は講習受講による認定（プレ資格）、翌年以降は試験認定へ</li>
             <li>取得後は資格証で個人の学びの成果を証明</li>
           </ul>
+          <a href="#individual" class="more">個人認定の詳細を見る <span class="arrow">→</span></a>
         </div>
       </div>
 
@@ -736,10 +755,23 @@ body{font-size:calc(16px*var(--tsc))}
       <div class="flow-step reveal d2"><div class="flow-circle">3</div><h4>フィードバック・認定</h4><p>数字とテキストで濃くフィードバック。達成度に応じて個人・法人を認定します。</p></div>
       <div class="flow-step reveal d3"><div class="flow-circle">4</div><h4>改善・翌年更新</h4><p>課題に応じた追加研修で改善へ。毎年くり返し、組織のレベルを引き上げます。</p></div>
     </div>
+
+    <!-- 医療機関向け：スリースター制度の一部としてのスキルマスター -->
+    <div class="skillmaster-panel reveal" id="skillmaster">
+      <span class="eyebrow">FOR MEDICAL INSTITUTIONS</span>
+      <h3>医療AIスキルマスター<span style="font-size:.62em;color:var(--teal);font-weight:700;margin-left:.5em;letter-spacing:.04em">スリースター制度の一部</span></h3>
+      <p class="lead">医療機関・施設向けのスリースター制度のなかで、職員一人ひとりの実践力を担保する認定です。生成AIを医療現場で安全・効果的に使いこなす力（患者情報の扱い、適切な指示、出力の検証など）を、研修と試験を通じて証明します。</p>
+      <ul>
+        <li><b>対象は医療機関・施設の職員。</b> 組織単位の法人認定（スリースター）と連動した、現場プレーヤー向けの個人認定です。</li>
+        <li><b>試験に合格して認定。</b> 実践的な判断を問う認定試験に合格した方を認定し、確かな知識と判断力を担保します。</li>
+        <li><b>成果を、目に見える形で。</b> 認定書をオンラインで発行。組織の取り組みと個人の学びをあわせて証明します。</li>
+      </ul>
+      <a href="#threestar" class="more">スリースター制度の詳細を見る <span class="arrow">→</span></a>
+    </div>
   </div>
 </section>
 
-<!-- ============ S5b INDIVIDUAL（個人認定） ============ -->
+<!-- ============ S5b INDIVIDUAL（個人認定：ガバナンス管理士） ============ -->
 <section class="individual" id="individual">
   <div class="wrap">
     <div class="head-center reveal">
@@ -750,24 +782,18 @@ body{font-size:calc(16px*var(--tsc))}
         <span class="indiv-notice-badge">2026年度限定｜講習受講で認定できるプレ資格</span>
         <p>2027年より資格試験を開始します。それに先立ち、今年度（2026年度）に限り、講習の受講による認定を実施します。</p>
       </div>
-      <p class="sec-lead">スリースターが医療機関・施設“全体”を評価する制度なら、こちらは職員一人ひとりのAIスキルを担保する個人認定です。<br>所定のテキストで学び、要件を満たした方を、医療現場でAIを安全に活用できる人材——現場でAI管理を担える人——として認定します。<br>汎用のAI資格ではなく「医療 × AI管理」に特化しているのが特長です。</p>
+      <p class="sec-lead">「医療AIガバナンス管理士」は、医療機関に限らずどなたでも受講・取得できる個人認定です。<br>院内ルール・法令・インシデント対応を踏まえ、組織のAIガバナンスを統括・助言できる人材を認定します。<br>汎用のAI資格ではなく「AIガバナンス管理」に特化しているのが特長です。</p>
     </div>
 
-    <img class="biz-ph reveal" src="images/individual01.png" alt="個人認定制度 2つの資格のイメージ">
+    <img class="biz-ph reveal" src="images/individual01.png" alt="医療AIガバナンス管理士 個人認定のイメージ">
 
     <div class="ts-domains">
-      <p class="ts-domains-h reveal">2つの資格</p>
+      <p class="ts-domains-h reveal">資格の概要</p>
       <div class="dom-grid">
         <div class="dom reveal">
-          <span class="k">医療AIスキルマスター</span>
-          <span class="dom-role">実践・プレーヤー寄り</span>
-          <p>生成AIを医療現場で安全・効果的に使いこなす実践力。患者情報の扱い、適切な指示（プロンプト）、出力の検証など、現場で“正しく使う”判断ができます。（AI活用研修で養成）</p>
-          <p class="dom-scheme"><b>取得の流れ：</b>試験に合格して認定。実践的な判断を問う認定試験に合格した方を認定し、確かな知識と判断力を担保します。</p>
-        </div>
-        <div class="dom reveal d1">
           <span class="k">医療AIガバナンス管理士</span>
-          <span class="dom-role">統括・マネージャー寄り</span>
-          <p>院内ルール・法令・インシデント対応を踏まえ、医療機関全体のAIガバナンスを統括・助言する力。「これは入力してよいか」を正しく判断し、組織として導けるようになります。（AIガバナンス研修で養成）</p>
+          <span class="dom-role">統括・マネージャー寄り｜どなたでも受講可</span>
+          <p>院内ルール・法令・インシデント対応を踏まえ、AIガバナンスを統括・助言する力。「これは入力してよいか」を正しく判断し、組織として導けるようになります。（AIガバナンス研修で養成）</p>
           <p class="dom-scheme"><b>取得の流れ：</b>今年度は所定の研修を受講した方に資格を付与します。翌年からは試験による認定に切り替わります。</p>
         </div>
       </div>
@@ -775,9 +801,10 @@ body{font-size:calc(16px*var(--tsc))}
 
     <div class="ts-notes reveal">
       <ul>
-        <li><b>テキストで体系的に学ぶ。</b> AI活用とAIガバナンスの2領域を、医療現場の事例に沿って学習します。</li>
-        <li><b>資格ごとに認定。</b> スキルマスターは試験合格、ガバナンス管理士は今年度は研修受講により認定します。</li>
-        <li><b>成果を、目に見える形で。</b> 認定書をオンラインで発行。個人の学びと現場での判断力を証明します。</li>
+        <li><b>対象の制限なし。</b> 医療機関の職員に限らず、どなたでも受講・取得できる仕組みです。</li>
+        <li><b>テキストで体系的に学ぶ。</b> AIガバナンスを、現場の事例に沿って学習します。</li>
+        <li><b>今年度は講習で認定。</b> 所定の研修を受講した方に付与し、翌年からは試験認定に移行します。</li>
+        <li><b>成果を、目に見える形で。</b> 認定書をオンラインで発行。個人の学びと判断力を証明します。</li>
       </ul>
       <span class="btn btn-primary is-soon">受講・お申し込みについて｜準備中</span>
     </div>
