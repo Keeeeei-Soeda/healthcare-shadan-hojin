@@ -354,6 +354,7 @@ body{font-size:calc(16px*var(--tsc))}
 .dom{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 22px;position:relative}
 .dom::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;background:linear-gradient(var(--teal),var(--teal-light));border-radius:3px}
 .dom .k{display:block;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:16px;margin-bottom:8px}
+.dom .dom-role{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--teal);background:rgba(20,163,163,.08);padding:4px 10px;border-radius:6px;margin:0 0 12px}
 .dom p{color:var(--muted);font-size:13.5px}
 .ts-notes{margin-top:56px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 38px;box-shadow:var(--shadow)}
 .ts-notes ul{list-style:none;display:flex;flex-direction:column;gap:15px}
@@ -735,13 +736,21 @@ body{font-size:calc(16px*var(--tsc))}
       <p class="sec-lead">スリースターが医療機関・施設“全体”を評価する制度なら、こちらは職員一人ひとりのAIスキルを担保する個人認定です。<br>所定のテキストで学び、認定試験に合格した方を、医療現場でAIを安全に活用できる人材——現場でAI管理を担える人——として認定します。<br>汎用のAI資格ではなく「医療 × AI管理」に特化しているのが特長です。</p>
     </div>
 
-    <img class="biz-ph reveal" src="images/individual01.png" alt="医療AIスキルマスター 個人認定のイメージ">
+    <img class="biz-ph reveal" src="images/individual01.png" alt="個人認定制度 2つの資格のイメージ">
 
     <div class="ts-domains">
-      <p class="ts-domains-h reveal">この資格が証明する2つの力</p>
+      <p class="ts-domains-h reveal">2つの資格</p>
       <div class="dom-grid">
-        <div class="dom reveal"><span class="k">AI活用力</span><p>生成AIを業務で安全かつ効果的に使う力。患者情報の扱い、適切な指示（プロンプト）、出力の検証など、現場で“正しく使う”判断ができます。（AI活用研修で養成）</p></div>
-        <div class="dom reveal d1"><span class="k">AIガバナンス力</span><p>院内ルール・法令・インシデント対応を理解し、「これは入力してよいか」を正しく判断できる力。（AIガバナンス研修で養成）</p></div>
+        <div class="dom reveal">
+          <span class="k">医療AIスキルマスター</span>
+          <span class="dom-role">実践・プレーヤー寄り</span>
+          <p>生成AIを医療現場で安全・効果的に使いこなす実践力。患者情報の扱い、適切な指示（プロンプト）、出力の検証など、現場で“正しく使う”判断ができます。（AI活用研修で養成）</p>
+        </div>
+        <div class="dom reveal d1">
+          <span class="k">医療AIガバナンス管理士</span>
+          <span class="dom-role">統括・マネージャー寄り</span>
+          <p>院内ルール・法令・インシデント対応を踏まえ、医療機関全体のAIガバナンスを統括・助言する力。「これは入力してよいか」を正しく判断し、組織として導けるようになります。（AIガバナンス研修で養成）</p>
+        </div>
       </div>
     </div>
 
