@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一般社団法人 国際ヘルスケアAI管理推進協会</title>
+<meta name="description" content="医療・福祉分野におけるAIの適正かつ安全な活用を推進する一般社団法人 国際ヘルスケアAI管理推進協会。安全性・コンプライアンスを軸に、研修、個人認定、組織単位の法人認定（スリースター）を通じて、医療機関のAI活用と職員育成を支援します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B3B66;
+  --navy-deep:#072A4A;
+  --teal:#14A3A3;
+  --teal-light:#3CC9C9;
+  --ink:#1B2A38;
+  --muted:#5E7081;
+  --bg:#FFFFFF;
+  --bg-soft:#F2F7FA;
+  --line:#E2EAF0;
+  --shadow:0 18px 50px -22px rgba(11,59,102,.35);
+  --radius:16px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans JP",sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,.display{font-family:"Zen Kaku Gothic New",sans-serif;}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{
+  display:inline-block;font-size:13px;letter-spacing:.18em;font-weight:700;
+  color:var(--teal);margin-bottom:14px;
+}
+.eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--teal);vertical-align:middle;margin-right:10px;transform:translateY(-3px)}
+.sec-title{font-size:clamp(26px,4vw,40px);font-weight:900;line-height:1.35;letter-spacing:.02em}
+.sec-lead{color:var(--muted);margin-top:18px;font-size:16px;max-width:680px}
+
+/* ---------- Header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  transition:background .35s ease, box-shadow .35s ease, padding .35s ease;
+  padding:22px 0;
+}
+header.scrolled{background:rgba(255,255,255,.97);box-shadow:0 6px 24px -16px rgba(7,42,74,.4);padding:14px 0}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;color:#fff;transition:color .35s ease}
+header.scrolled .logo{color:var(--navy)}
+.logo-mark{flex:none;display:block;line-height:0}
+.logo-img{height:44px;width:auto;display:block;object-fit:contain}
+.logo-text{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:15px;line-height:1.25;letter-spacing:.01em}
+.logo-text small{display:block;font-size:9px;letter-spacing:.06em;font-weight:500;opacity:.7;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:18px}
+.nav-links a{color:rgba(255,255,255,.9);font-size:13px;font-weight:500;transition:color .3s;position:relative;letter-spacing:.02em}
+header.scrolled~.nav-links a:not(.nav-cta){color:var(--ink)}
+.nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--teal);transition:width .3s}
+.nav-links a:not(.nav-cta):hover::after{width:100%}
+.nav-cta{
+  background:var(--teal);color:#fff!important;padding:11px 18px;border-radius:30px;font-weight:700;
+  box-shadow:0 10px 22px -10px rgba(20,163,163,.8);transition:transform .25s, box-shadow .25s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 16px 28px -10px rgba(20,163,163,.9)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(7,42,74,.45);z-index:250;opacity:0;transition:opacity .35s ease}
+.nav-overlay.show{display:block;opacity:1}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:6px}
+.burger span{width:26px;height:2px;background:#fff;transition:.3s}
+header.scrolled .burger span{background:var(--navy)}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  color:#fff;overflow:hidden;
+  /* 画像差し替え: 下の url(...) を実際のヒーロー画像に変更してください */
+  background:
+    linear-gradient(115deg, rgba(7,42,74,.92) 0%, rgba(11,59,102,.82) 45%, rgba(20,163,163,.55) 100%);
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:radial-gradient(circle at 75% 30%, #0d4f86 0%, #072a4a 60%);
+}
+.hero-grid{position:absolute;inset:0;z-index:1;opacity:.5}
+.hero-glow{
+  position:absolute;width:560px;height:560px;border-radius:50%;z-index:1;
+  background:radial-gradient(circle,rgba(60,201,201,.45) 0%,transparent 70%);
+  top:-160px;right:-120px;filter:blur(10px);
+}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero-inner{max-width:760px}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.1em;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+  padding:8px 16px;border-radius:30px;margin-bottom:28px;
+}
+.hero-tag i{width:7px;height:7px;border-radius:50%;background:var(--teal-light);box-shadow:0 0 10px var(--teal-light)}
+.hero h1{
+  font-size:clamp(34px,6vw,64px);font-weight:900;line-height:1.28;letter-spacing:.01em;
+  text-shadow:0 4px 30px rgba(0,0,0,.25);
+}
+.hero h1 .accent{color:var(--teal-light)}
+.hero p.sub{margin-top:26px;font-size:clamp(15px,2.2vw,19px);font-weight:500;color:rgba(255,255,255,.92);max-width:600px}
+.hero-cta{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;
+  padding:16px 30px;border-radius:32px;transition:transform .25s, box-shadow .25s, background .25s;cursor:pointer;border:0;
+}
+.btn-primary{background:var(--teal);color:#fff;box-shadow:0 16px 34px -14px rgba(20,163,163,.9)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(20,163,163,1)}
+.btn.is-soon{
+  background:var(--line);
+  color:#6B7C8C;
+  pointer-events:none;
+  cursor:default;
+  box-shadow:none;
+}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.btn-ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-3px)}
+.btn .arrow{transition:transform .25s}
+.btn:hover .arrow{transform:translateX(4px)}
+.scroll-hint{position:absolute;left:50%;bottom:32px;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.2em;text-align:center}
+.scroll-hint span{display:block;width:1px;height:46px;background:linear-gradient(rgba(255,255,255,.7),transparent);margin:10px auto 0;animation:scrollline 2s infinite}
+@keyframes scrollline{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- Sections base ---------- */
+section{padding:110px 0}
+.about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-copy p{color:var(--muted);margin-top:22px;font-size:16px}
+.about-keys{display:flex;flex-direction:column;gap:16px}
+.key-card{
+  display:flex;gap:18px;align-items:flex-start;padding:24px 26px;border-radius:var(--radius);
+  background:var(--bg-soft);border:1px solid var(--line);transition:transform .3s, box-shadow .3s;
+}
+.key-card:hover{transform:translateX(6px);box-shadow:var(--shadow)}
+.key-num{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:22px;color:var(--teal);flex:none;line-height:1.4}
+.key-card h4{font-size:17px;font-weight:700;margin-bottom:4px}
+.key-card p{font-size:14px;color:var(--muted);margin:0}
+
+/* ---------- Business (3 pillars) ---------- */
+.business{background:var(--bg-soft);position:relative}
+.head-center{text-align:center;margin-bottom:60px}
+.head-center .sec-lead{margin-left:auto;margin-right:auto}
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{
+  background:#fff;border-radius:var(--radius);padding:0;border:1px solid var(--line);
+  transition:transform .35s, box-shadow .35s, border-color .35s;position:relative;overflow:hidden;
+}
+.business-ph{aspect-ratio:4/3}
+.card-body{padding:32px 30px 36px}
+.card::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:linear-gradient(90deg,var(--teal),var(--teal-light));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+.card:hover::before{transform:scaleX(1)}
+.card-icon{
+  width:62px;height:62px;border-radius:16px;display:grid;place-items:center;margin-bottom:24px;
+  background:linear-gradient(135deg,rgba(20,163,163,.12),rgba(60,201,201,.18));color:var(--navy);
+}
+.card-icon svg{width:30px;height:30px}
+.card h3{font-size:20px;font-weight:700;margin-bottom:14px}
+.card h3 .card-sub{display:block;font-size:.72em;font-weight:500;color:var(--muted);margin-top:8px;letter-spacing:.02em;line-height:1.5}
+.card p{color:var(--muted);font-size:14.5px}
+
+/* ---------- AI管理とは ---------- */
+.aimgmt{background:var(--bg-soft);position:relative}
+.aimgmt .card::before{transform:scaleX(1)}
+.aimgmt-body{
+  max-width:720px;margin:0 auto 56px;
+  color:var(--muted);font-size:16px;line-height:1.95;
+}
+.aimgmt-body p + p{margin-top:1.25em}
+.aimgmt-close{
+  text-align:center;margin:48px auto 0;max-width:720px;
+  color:var(--muted);font-size:15px;line-height:1.9;
+}
+
+/* ---------- 写真（img）共通：未設置時はフォールバックの縞が見える ---------- */
+.curr-ph,.why-ph,.business-ph,.biz-ph{
+  width:100%;display:block;object-fit:cover;
+  background:repeating-linear-gradient(45deg,rgba(11,59,102,.05) 0 12px,rgba(11,59,102,.09) 12px 24px);
+}
+.curr-ph{background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 12px,rgba(255,255,255,.1) 12px 24px)}
+
+/* ---------- Curriculum（写真+テキスト 3段） ---------- */
+.curriculum{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+.curriculum .hero-glow{top:auto;bottom:-200px;left:-150px;right:auto;opacity:.6}
+.curriculum .eyebrow{color:var(--teal-light)}
+.curriculum .sec-lead{color:rgba(255,255,255,.7)}
+.curr-rows{display:flex;flex-direction:column;gap:26px;margin-top:56px;position:relative;z-index:2}
+.curr-row{
+  display:grid;grid-template-columns:.92fr 1.08fr;gap:0;align-items:stretch;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius);overflow:hidden;transition:background .3s, transform .3s;
+}
+.curr-row:hover{background:rgba(255,255,255,.08);transform:translateY(-4px)}
+.curr-ph{aspect-ratio:3/2;min-height:100%}
+.curr-tx{padding:34px 38px;display:flex;flex-direction:column;justify-content:center}
+.curr-no{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:14px;color:var(--navy-deep);background:var(--teal-light);width:34px;height:34px;border-radius:9px;display:grid;place-items:center;margin-bottom:16px}
+.curr-tx h4{font-size:20px;font-weight:700;margin-bottom:10px}
+.curr-tx p{font-size:14px;color:rgba(255,255,255,.72);margin:0}
+
+/* ---------- Why（写真上+テキスト下 カード） ---------- */
+.why{background:var(--bg)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:58px}
+.why-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .35s, box-shadow .35s, border-color .35s}
+.why-card:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+.why-ph{aspect-ratio:4/3}
+.why-body{padding:26px 26px 30px}
+.why-body h3{font-size:18px;font-weight:700;margin-bottom:12px}
+.why-body p{color:var(--muted);font-size:14.5px}
+
+/* ---------- Flow ---------- */
+.flow{background:var(--bg-soft)}
+.flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:58px;position:relative}
+.flow-line{position:absolute;top:46px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--teal),var(--teal-light));z-index:0;opacity:.4}
+.flow-step{text-align:center;position:relative;z-index:1}
+.flow-circle{
+  width:92px;height:92px;border-radius:50%;margin:0 auto 24px;display:grid;place-items:center;
+  background:#fff;border:2px solid var(--teal);color:var(--navy);
+  font-family:"Zen Kaku Gothic New";font-weight:900;font-size:30px;box-shadow:0 14px 30px -16px rgba(20,163,163,.7);
+}
+.flow-step h4{font-size:18px;font-weight:700;margin-bottom:10px}
+.flow-step p{color:var(--muted);font-size:14px;padding:0 10px}
+
+/* ===== VISION ===== */
+.vision{background:var(--bg)}
+.vision-steps{display:flex;flex-direction:column;gap:26px;margin-top:58px;position:relative}
+.vision-line{display:none}
+.vision-step{
+  display:grid;grid-template-columns:.92fr 1.08fr;gap:0;align-items:stretch;
+  background:var(--navy-deep);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;transition:transform .3s, box-shadow .3s;
+}
+.vision-step:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.vision-step .vs-illust{
+  display:block;width:100%;height:100%;min-height:100%;aspect-ratio:3/2;
+  object-fit:contain;object-position:center;margin:0;border-radius:0;background:#fff;
+}
+.vision-step .vs-tx{padding:34px 38px;display:flex;flex-direction:column;justify-content:center}
+.vision-step .vs-no{
+  display:grid;place-items:center;width:34px;height:34px;border-radius:9px;
+  background:var(--teal-light);color:var(--navy-deep);
+  font-family:"Zen Kaku Gothic New";font-weight:900;font-size:14px;margin-bottom:16px;
+}
+.vision-step .vs-tx h4{font-size:20px;font-weight:700;margin-bottom:10px;color:#fff}
+.vision-step .vs-tx p{color:rgba(255,255,255,.72);font-size:14px;margin:0;line-height:1.85}
+.vision-step .vs-role{
+  display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;
+  color:var(--teal-light);background:rgba(60,201,201,.14);
+  padding:5px 11px;border-radius:6px;margin-top:18px;align-self:flex-start;
+}
+.vision-body{max-width:820px;margin:56px auto 0}
+.vision-body p{color:var(--ink);font-size:15.5px;line-height:2}
+.vision-body p + p{margin-top:18px}
+.vision-mission{margin-top:56px;text-align:center;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:44px 38px}
+.vm-lead{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:22px;color:var(--navy)}
+.vm-txt{margin-top:16px;color:var(--muted);font-size:15px;line-height:2;max-width:720px;margin-left:auto;margin-right:auto}
+.vision-mission .btn{margin-top:28px}
+
+/* ===== TOPDOWN（研修のかたち） ===== */
+.topdown{margin-top:52px;position:relative;z-index:2;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:32px 34px}
+.topdown-badge{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--navy-deep);background:var(--teal-light);padding:5px 12px;border-radius:6px;margin-bottom:22px}
+.topdown-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.td-step .td-no{display:block;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:13px;color:var(--teal-light);margin-bottom:8px}
+.td-step h5{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+.td-step p{font-size:13.5px;color:rgba(255,255,255,.72);margin:0}
+.topdown-note{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);font-size:13.5px;color:rgba(255,255,255,.72)}
+
+/* ---------- Members / Advisors（理事・アドバイザー紹介 / テキスト縦積み） ---------- */
+.members{background:var(--bg)}
+.advisors{background:var(--bg-soft)}
+.member-rows{display:flex;flex-direction:column;gap:24px;margin-top:64px}
+.member-row{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px 36px;transition:transform .3s, box-shadow .3s;
+}
+.member-row:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.member-tx .role{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--teal);background:rgba(20,163,163,.1);padding:6px 14px;border-radius:30px;margin-bottom:16px}
+.member-tx h3{font-size:26px;font-weight:900;line-height:1.35}
+.member-tx h3 .en{display:block;font-size:12px;font-weight:500;letter-spacing:.16em;color:var(--muted);margin-top:6px}
+.member-tx p{color:var(--muted);font-size:15px;margin-top:18px}
+.member-tx .member-link{display:inline-block;margin-top:18px;color:var(--teal);font-weight:700;font-size:14px}
+.member-tx .member-link .arrow{transition:transform .3s;display:inline-block}
+.member-tx .member-link:hover .arrow{transform:translateX(5px)}
+
+/* ---------- CTA band ---------- */
+.cta-band{
+  background:linear-gradient(115deg,var(--navy-deep),var(--navy) 55%,var(--teal));
+  color:#fff;text-align:center;position:relative;overflow:hidden;padding:90px 0;
+}
+.cta-band .hero-grid{opacity:.4}
+.cta-band h2{font-size:clamp(26px,4vw,38px);font-weight:900;position:relative;z-index:2;text-wrap:balance}
+.cta-band p{margin:20px auto 38px;color:rgba(255,255,255,.85);max-width:680px;position:relative;z-index:2;text-wrap:balance}
+.cta-band .btn-primary{background:#fff;color:var(--navy);position:relative;z-index:2}
+.cta-band .btn-primary:hover{background:#eafafa}
+
+/* ---------- Footer ---------- */
+footer{background:#06223c;color:rgba(255,255,255,.72);padding:70px 0 30px;font-size:14px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:46px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-brand .logo{color:#fff;margin-bottom:18px}
+.foot-brand p{font-size:13.5px;color:rgba(255,255,255,.6);max-width:320px}
+.foot-col h5{color:#fff;font-size:14px;font-weight:700;margin-bottom:18px;font-family:"Zen Kaku Gothic New"}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-col a{color:rgba(255,255,255,.65);font-size:13.5px;transition:color .25s}
+.foot-col a:hover{color:var(--teal-light)}
+.foot-info dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:13px;color:rgba(255,255,255,.6)}
+.foot-info dt{color:rgba(255,255,255,.45)}
+.copyright{text-align:center;padding-top:26px;font-size:12px;color:rgba(255,255,255,.4)}
+
+/* ---------- Reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+/* ===== 確認用：文字サイズ倍率（--tsc で見出し・本文が連動スケール）。決定後はこのブロックと右下パネルを削除可 ===== */
+:root{--tsc:1}
+body{font-size:calc(16px*var(--tsc))}
+.eyebrow{font-size:calc(13px*var(--tsc))}
+.sec-title{font-size:calc(clamp(26px,4vw,40px)*var(--tsc))}
+.sec-lead{font-size:calc(16px*var(--tsc))}
+.logo-text{font-size:calc(15px*var(--tsc))}
+.logo-text small{font-size:calc(9px*var(--tsc))}
+.aimgmt-body{font-size:calc(16px*var(--tsc))}
+.aimgmt-close{font-size:calc(15px*var(--tsc))}
+.member-tx .member-link{font-size:calc(14px*var(--tsc))}
+.nav-links a{font-size:calc(13px*var(--tsc))}
+.hero-tag{font-size:calc(13px*var(--tsc))}
+.hero h1{font-size:calc(clamp(34px,6vw,64px)*var(--tsc))}
+.hero p.sub{font-size:calc(clamp(15px,2.2vw,19px)*var(--tsc))}
+.btn{font-size:calc(15px*var(--tsc))}
+.scroll-hint{font-size:calc(11px*var(--tsc))}
+.about-copy p{font-size:calc(16px*var(--tsc))}
+.key-num{font-size:calc(22px*var(--tsc))}
+.key-card h4{font-size:calc(17px*var(--tsc))}
+.key-card p{font-size:calc(14px*var(--tsc))}
+.card h3{font-size:calc(20px*var(--tsc))}
+.card p{font-size:calc(14.5px*var(--tsc))}
+.curr-no{font-size:calc(14px*var(--tsc))}
+.curr-tx h4{font-size:calc(20px*var(--tsc))}
+.curr-tx p{font-size:calc(14px*var(--tsc))}
+.why-body h3{font-size:calc(18px*var(--tsc))}
+.why-body p{font-size:calc(14.5px*var(--tsc))}
+.flow-circle{font-size:calc(30px*var(--tsc))}
+.flow-step h4{font-size:calc(18px*var(--tsc))}
+.flow-step p{font-size:calc(14px*var(--tsc))}
+.vision-step .vs-no{font-size:calc(14px*var(--tsc))}
+.vision-step .vs-tx h4{font-size:calc(20px*var(--tsc))}
+.vision-step .vs-tx p{font-size:calc(14px*var(--tsc))}
+.vision-body p{font-size:calc(15.5px*var(--tsc))}
+.vm-lead{font-size:calc(22px*var(--tsc))}
+.vm-txt{font-size:calc(15px*var(--tsc))}
+.td-step h5{font-size:calc(16px*var(--tsc))}
+.td-step p,.topdown-note{font-size:calc(13.5px*var(--tsc))}
+.vision-step .vs-role{font-size:calc(12px*var(--tsc))}
+.member-tx .role{font-size:calc(12px*var(--tsc))}
+.member-tx h3{font-size:calc(26px*var(--tsc))}
+.member-tx h3 .en{font-size:calc(12px*var(--tsc))}
+.member-tx p{font-size:calc(15px*var(--tsc))}
+.cta-band h2{font-size:calc(clamp(26px,4vw,38px)*var(--tsc))}
+.cta-band p{font-size:calc(16px*var(--tsc))}
+.foot-brand p{font-size:calc(13.5px*var(--tsc))}
+.foot-col h5{font-size:calc(14px*var(--tsc))}
+.foot-col a{font-size:calc(13.5px*var(--tsc))}
+.foot-info dl{font-size:calc(13px*var(--tsc))}
+.copyright{font-size:calc(12px*var(--tsc))}
+
+/* ---------- Business (rich rows) ---------- */
+.biz-rows{display:flex;flex-direction:column;gap:60px;margin-top:64px}
+.biz-row{display:grid;grid-template-columns:1.05fr 1.25fr;gap:52px;align-items:center}
+.biz-row.rev{grid-template-columns:1.25fr 1.05fr}
+.biz-row.rev .biz-ph{order:2}
+.biz-row.rev .biz-tx{order:1}
+.biz-ph{aspect-ratio:4/3;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.biz-tx .num{display:inline-block;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:14px;letter-spacing:.16em;color:var(--teal);margin-bottom:12px}
+.biz-tx h3{font-size:25px;font-weight:900;line-height:1.4}
+.biz-tx h3 .tag{font-size:.62em;color:var(--teal);font-weight:700;margin-left:.5em;letter-spacing:.04em}
+.biz-tx .lead{color:var(--muted);font-size:15px;margin-top:16px}
+.biz-tx ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:11px}
+.biz-tx li{position:relative;padding-left:24px;font-size:14.5px}
+.biz-tx li::before{content:"";position:absolute;left:0;top:12px;width:13px;height:2px;background:var(--teal)}
+.biz-tx .more{display:inline-block;margin-top:22px;color:var(--teal);font-weight:700;font-size:14px}
+.biz-tx .more .arrow{transition:transform .3s;display:inline-block}
+.biz-tx .more:hover .arrow{transform:translateX(5px)}
+
+/* ---------- Three-Star ---------- */
+.threestar{background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);position:relative;overflow:hidden}
+.star-ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:58px}
+.star-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 28px;text-align:center;transition:transform .35s,box-shadow .35s}
+.star-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.star-card .stars{font-size:32px;letter-spacing:5px;line-height:1;color:var(--teal)}
+.star-card .stars i{color:var(--line);font-style:normal}
+.star-card .lv{display:block;font-family:"Zen Kaku Gothic New";text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--muted);font-weight:700;margin:18px 0 12px}
+.star-card p{color:var(--muted);font-size:14px}
+.star-card.feature{background:linear-gradient(150deg,var(--navy),var(--navy-deep));border-color:transparent;box-shadow:var(--shadow);color:#fff}
+.star-card.feature .stars{color:var(--teal-light)}
+.star-card.feature .lv{color:rgba(255,255,255,.72)}
+.star-card.feature p{color:rgba(255,255,255,.85)}
+.ts-domains{margin-top:66px}
+.ts-domains-h{text-align:center;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:20px;margin-bottom:30px}
+.dom-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.dom{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 22px;position:relative}
+.dom::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;background:linear-gradient(var(--teal),var(--teal-light));border-radius:3px}
+.dom .k{display:block;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:16px;margin-bottom:8px}
+.dom .dom-role{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--teal);background:rgba(20,163,163,.08);padding:4px 10px;border-radius:6px;margin:0 0 12px}
+.dom p{color:var(--muted);font-size:13.5px}
+.dom .dom-scheme{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.7}
+.dom .dom-scheme b{color:var(--ink);font-weight:700}
+.ts-notes{margin-top:56px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 38px;box-shadow:var(--shadow)}
+.ts-notes ul{list-style:none;display:flex;flex-direction:column;gap:15px}
+.ts-notes li{position:relative;padding-left:32px;font-size:15px}
+.ts-notes li::before{content:"★";position:absolute;left:0;top:0;color:var(--teal);font-size:15px}
+.ts-notes li b{color:var(--ink);font-weight:700}
+.ts-notes .btn{margin-top:28px}
+
+/* ---------- Individual certification ---------- */
+.individual{background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);position:relative;overflow:hidden}
+.individual .biz-ph{max-width:560px;margin:0 auto}
+.individual .dom-grid{grid-template-columns:1fr;max-width:560px;margin:0 auto}
+.individual .head-center .sec-lead{max-width:920px}
+.indiv-notice{
+  margin:24px auto 0;max-width:720px;text-align:center;
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:18px 22px;box-shadow:var(--shadow);
+}
+.indiv-notice-badge{
+  display:inline-block;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:13px;
+  letter-spacing:.06em;color:#fff;background:var(--navy);
+  padding:6px 14px;border-radius:6px;margin-bottom:10px;
+}
+.indiv-notice p{color:var(--muted);font-size:14px;line-height:1.7;margin:0}
+
+/* ---------- Skill Master (一時非表示中・復活時にHTMLコメント解除) ---------- */
+/* #skillmaster パネル用。本文は index.html #flow 内のコメントブロックを参照 */
+.skillmaster{background:#fff;padding-top:0}
+.skillmaster .wrap{padding-top:0}
+.skillmaster-panel{
+  margin-top:56px;background:var(--bg-soft);border:1px solid var(--line);
+  border-radius:var(--radius);padding:40px 42px;box-shadow:var(--shadow);
+}
+.skillmaster-panel .eyebrow{margin-bottom:10px}
+.skillmaster-panel h3{font-size:24px;font-weight:900;margin-bottom:8px}
+.skillmaster-panel .lead{color:var(--muted);font-size:15px;margin-top:14px;max-width:720px}
+.skillmaster-panel ul{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.skillmaster-panel li{position:relative;padding-left:32px;font-size:14.5px}
+.skillmaster-panel li::before{content:"★";position:absolute;left:0;top:0;color:var(--teal);font-size:15px}
+.skillmaster-panel li b{color:var(--ink);font-weight:700}
+.skillmaster-panel .more{display:inline-block;margin-top:22px;color:var(--teal);font-weight:700;font-size:14px}
+.skillmaster-panel .more .arrow{transition:transform .3s;display:inline-block}
+.skillmaster-panel .more:hover .arrow{transform:translateX(5px)}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1280px){
+  .nav-links{
+    position:fixed;top:0;right:0;bottom:0;width:min(320px,86vw);
+    margin:0;padding:88px 32px 32px;
+    background:var(--navy-deep);
+    flex-direction:column;align-items:stretch;justify-content:flex-start;
+    gap:0;transform:translate3d(100%,0,0);transition:transform .35s ease;
+    overflow:visible;z-index:260;box-shadow:-8px 0 32px rgba(7,42,74,.25);
+  }
+  .nav-links.open{transform:translate3d(0,0,0)}
+  .nav-links a{
+    color:#fff!important;font-size:17px;font-weight:500;
+    padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav-links a:not(.nav-cta)::after{display:none}
+  .nav-links .nav-cta{
+    margin-top:16px;text-align:center;justify-content:center;width:100%;
+    box-shadow:none;
+  }
+  .burger{display:flex;position:relative;z-index:270}
+}
+@media(min-width:1281px){
+  .nav-links{
+    position:fixed;top:0;left:0;right:0;
+    max-width:var(--maxw);margin:0 auto;padding:22px 24px;
+    display:flex;align-items:center;justify-content:flex-end;gap:18px;
+    background:transparent;box-shadow:none;transform:none!important;
+    z-index:201;pointer-events:none;
+  }
+  header.scrolled~.nav-links{padding-top:14px;padding-bottom:14px}
+  .nav-links a,.nav-links .nav-cta{pointer-events:auto}
+}
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:44px}
+  .cards-3,.why-grid,.flow-steps,.topdown-steps{grid-template-columns:1fr}
+  .vision-step{grid-template-columns:1fr}
+  .vision-step .vs-illust{aspect-ratio:16/10;min-height:0}
+  .vision-step .vs-tx{padding:28px 24px}
+  .vision-line{display:none}
+  .curr-row{grid-template-columns:1fr;gap:0}
+  .biz-row,.biz-row.rev{grid-template-columns:1fr;gap:26px}
+  .biz-row.rev .biz-ph{order:1}
+  .biz-row.rev .biz-tx{order:2}
+  .star-ladder,.dom-grid,.individual .dom-grid{grid-template-columns:1fr;gap:18px}
+  .ts-notes,.skillmaster-panel{padding:28px 24px}
+  .curr-ph{aspect-ratio:16/10}
+  .member-row{padding:28px 24px}
+  .flow-line{display:none}
+  .foot-grid{grid-template-columns:1fr;gap:36px}
+  section{padding:80px 0}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
+:focus-visible{outline:3px solid var(--teal-light);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- ============ S0 HEADER ============ -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="一般社団法人 国際ヘルスケアAI管理推進協会">
+      <span class="logo-mark"><img src="images/logo.png" alt="" class="logo-img" width="240" height="240"></span>
+      <span class="logo-text">国際ヘルスケアAI管理推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="nav-links" id="navLinks">
+  <a href="#about">協会について</a>
+  <a href="#aimgmt">AI管理とは</a>
+  <a href="#business">事業内容</a>
+  <a href="#threestar">法人評価制度</a>
+  <a href="#curriculum">研修内容</a>
+  <a href="#flow">認定制度</a>
+  <a href="#vision">私たちが描く未来</a>
+  <a href="#individual">個人認定</a>
+  <a href="#members">理事紹介</a>
+  <a href="#contact" class="nav-cta">お問い合わせ</a>
+</nav>
+<div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+<!-- ============ S1 HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <svg class="hero-grid" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+        <path d="M46 0H0V46" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)"/>
+  </svg>
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="hero-tag" data-hero><i></i>医療・福祉 × AI を、安心とともに</span>
+      <h1 data-hero>医療の現場に、<br><span class="accent">正しいAIを。</span></h1>
+      <p class="sub" data-hero>医療・福祉分野におけるAIの適正かつ安全な活用を推進。安全性とコンプライアンスを軸に、研修・個人認定・組織単位の法人認定を通じて、職員一人ひとりと組織全体のAI活用を支えます。</p>
+      <div class="hero-cta" data-hero>
+        <a href="#business" class="btn btn-primary">事業内容を見る <span class="arrow">→</span></a>
+        <a href="#contact" class="btn btn-ghost">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL<span></span></div>
+</section>
+
+<!-- ============ S2 ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <span class="eyebrow">ABOUT US</span>
+      <h2 class="sec-title">医療・福祉のAI活用を、<br>「安全に」根づかせる。</h2>
+      <p>AI技術が急速に進化するなか、医療・福祉の現場でも診療支援・業務改善・患者対応・情報管理など幅広い活用が期待されています。一方で、個人情報保護、情報の安全管理、説明責任、法令遵守、倫理的配慮といった課題も少なくありません。</p>
+      <p>当協会は、医療・福祉分野におけるAIの適正かつ安全な活用を推進する団体として、医療の質向上・職員の育成・業務の効率化・持続可能な医療提供体制の実現に貢献します。</p>
+    </div>
+    <div class="about-keys reveal d1">
+      <div class="key-card"><div class="key-num">01</div><div><h4>安全性とコンプライアンス</h4><p>患者の安全・個人情報保護・情報セキュリティ・法令遵守を前提とした信頼できるAI環境の整備</p></div></div>
+      <div class="key-card"><div class="key-num">02</div><div><h4>医療職員の育成</h4><p>医師・看護師・薬剤師・医療事務・介護職員などのAIリテラシーとデータ活用力の向上</p></div></div>
+      <div class="key-card"><div class="key-num">03</div><div><h4>質向上と持続可能な経営</h4><p>職員の負担軽減と組織運営の改善による、安心できる医療提供体制の実現</p></div></div>
+      <div class="key-card"><div class="key-num">04</div><div><h4>AIの進化への対応</h4><p>最新動向のキャッチアップと、情報提供・研修・運用支援・評価の継続的な実施</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S3 AIMGMT ============ -->
+<section class="aimgmt" id="aimgmt">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">AI MANAGEMENT</span>
+      <h2 class="sec-title">AI管理とは何か？</h2>
+    </div>
+    <div class="aimgmt-body reveal">
+      <p>医療現場へのAI導入は、「導入するかどうか」の段階を過ぎ、「どう管理するか」の段階に入っています。そして、その次には「どう組織再編するか」となります。</p>
+      <p>使い方を理解するだけでは、誤情報・情報漏洩・責任の所在といったリスクは減りません。個人のスピードが上がっても、組織全体の生産性が上がるとは限りません。</p>
+      <p>当協会は、AIを安全に使い"続ける"ための管理の仕組みや、生産性を高める管理の仕組み、職務設計や再編成に至るまで、AI管理のあり方を研究し、支援します。</p>
+    </div>
+    <div class="cards-3">
+      <div class="card reveal">
+        <div class="card-body">
+          <h3>リスク管理<span class="card-sub">― 「使う」前に「守る」</span></h3>
+          <p>AIの出力には誤りが含まれます。患者情報を安易に入力すれば漏洩のリスクが生じます。そして問題が起きたとき、責任は誰にあるのか。これらを曖昧にしたまま導入を進めること自体が、最大のリスクです。</p>
+        </div>
+      </div>
+      <div class="card reveal d1">
+        <div class="card-body">
+          <h3>ガバナンス<span class="card-sub">― ルールと記録を組織に残す</span></h3>
+          <p>院内のAI利用ルールを明文化し、利用ログを残し、責任者を置く。属人的な運用から、組織として説明できる運用へ。監査や第三者への説明にも耐えられる体制を整えます。</p>
+        </div>
+      </div>
+      <div class="card reveal d2">
+        <div class="card-body">
+          <h3>教育<span class="card-sub">― 全員が同じ基準で判断できる状態へ</span></h3>
+          <p>一部の職員だけが使いこなしている状態は、組織にとってリスクです。リテラシーの格差をなくし、「これは入力してよいか」を全員が同じ基準で判断できること。それが、AI管理の土台になります。</p>
+        </div>
+      </div>
+    </div>
+    <p class="aimgmt-close reveal">一般社団法人国際ヘルスケアAI管理推進協会は、この3つを一体で整えるための<br>研修・認定制度を提供しています。</p>
+  </div>
+</section>
+
+<!-- ============ S4 BUSINESS ============ -->
+<section class="business" id="business">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">OUR BUSINESS</span>
+      <h2 class="sec-title">事業内容</h2>
+      <p class="sec-lead">医療機関・施設が組織全体でAIを安全に活用できるよう、3つの柱で支援します。管理者が学び、組織へ展開する。目指すのは「組織全体に基準が行き渡る」仕組みづくりです。</p>
+    </div>
+    <div class="biz-rows">
+
+      <!-- 01 研修 -->
+      <div class="biz-row reveal">
+        <img class="biz-ph" src="images/business01.png" alt="研修の様子">
+        <div class="biz-tx">
+          <span class="num">01 &nbsp;/&nbsp; TRAINING</span>
+          <h3>研修<span class="tag">AIリテラシー研修</span></h3>
+          <p class="lead">コンプライアンスを核に、「やってはいけないこと」を医療版ヒヤリハット事例で体感。研修は<b>管理者・上長が受講し、院内へ周知・展開する</b>トップダウン型。全職員を一斉に集める負担をかけずに、組織全体へ同じ基準を行き渡らせます。</p>
+          <ul>
+            <li>受講するのは管理者・上長。院内展開用の資料と周知手順まで提供</li>
+            <li>患者情報を外部AIに入れない等、現場の実践ルールを事例で</li>
+            <li>オンライン／現地の双方に対応した密度の高いプログラム</li>
+            <li>医師・看護・薬剤・医療事務・介護など職種別モジュール</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 02 法人認定（スリースター） -->
+      <div class="biz-row rev reveal">
+        <img class="biz-ph" src="images/business03.png" alt="法人認定制度 スリースター">
+        <div class="biz-tx">
+          <span class="num">02 &nbsp;/&nbsp; THREE-STAR</span>
+          <h3>法人認定制度<span class="tag">スリースター</span></h3>
+          <p class="lead">組織全体を毎年評価し、達成度を星1〜3で認定。管理者が受講し、院内へ周知する。その結果として全職員に基準が行き渡っているかを、医療機関・施設単位で可視化します。個人資格と違い、“組織そのもの”を評価するのが本協会ならではの特長です。</p>
+          <ul>
+            <li>組織診断（理解／ルール／対応／体制の4領域）で現状を可視化</li>
+            <li>評価して終わりでなく、弱点＋改善策まで返す</li>
+            <li>三ツ星医療機関を公開</li>
+          </ul>
+          <a href="#threestar" class="more">制度の詳細を見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- 03 オンライン認定書発行（個人認定） -->
+      <div class="biz-row reveal">
+        <img class="biz-ph" src="images/business02.png" alt="オンライン認定書発行">
+        <div class="biz-tx">
+          <span class="num">03 &nbsp;/&nbsp; CERTIFICATE</span>
+          <h3>オンライン認定書発行<span class="tag">個人認定</span></h3>
+          <p class="lead">所定の研修・認定要件に応じて、「医療AIガバナンス管理士」の認定書をオンラインで発行。医療機関に限らず、どなたでも取得できる個人認定です。組織向けのスリースターとは別に、個人の学びとガバナンス判断力を目に見える形で証明します。</p>
+          <ul>
+            <li>職種・所属を問わず受講・取得できるオープンな個人認定</li>
+            <li>今年度は講習受講による認定（プレ資格）、翌年以降は試験認定へ</li>
+            <li>取得後は資格証で個人の学びの成果を証明</li>
+          </ul>
+          <a href="#individual" class="more">個人認定の詳細を見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ S5 THREE-STAR ============ -->
+
+<section class="threestar" id="threestar">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">THREE-STAR CERTIFICATION</span>
+      <h2 class="sec-title">法人認定制度「スリースター」</h2>
+      <p class="sec-lead">個人資格の多くは「一人が学ぶだけ」。本協会は、医療機関・施設“全体”を評価する法人認定です。受けさせて終わりでなく、評価 → 改善策 → 翌年の再評価まで伴走し、組織のAI活用の質を星1〜3で可視化します。</p>
+    </div>
+
+    <div class="star-ladder">
+      <div class="star-card reveal">
+        <div class="stars">★<i>★★</i></div>
+        <span class="lv">star 1</span>
+        <p>組織診断10項目のうち8項目以上を達成。組織としての基礎ができている状態。</p>
+      </div>
+      <div class="star-card reveal d1">
+        <div class="stars">★★<i>★</i></div>
+        <span class="lv">star 2</span>
+        <p>10項目すべてを達成し、管理者の受講と全職員への周知が完了。全職員が理解度確認をクリア。</p>
+      </div>
+      <div class="star-card feature reveal d2">
+        <div class="stars">★★★</div>
+        <span class="lv">star 3</span>
+        <p>star 2に加え、前年からの改善・運用実績など継続の証跡あり。三ツ星医療機関として公開。</p>
+      </div>
+    </div>
+
+    <div class="ts-domains">
+      <p class="ts-domains-h reveal">組織診断で見る4つの領域</p>
+      <div class="dom-grid">
+        <div class="dom reveal"><span class="k">理解</span><p>周知が行き渡り、全職員が正しく理解しているか。周知到達率・テスト正解率で測定。</p></div>
+        <div class="dom reveal d1"><span class="k">ルール</span><p>生成AIの利用ルール・許可ツール一覧が文書化・周知されているか。</p></div>
+        <div class="dom reveal d2"><span class="k">対応</span><p>誤情報・情報漏洩など、事故発生時の報告フローと責任分界が明確か。</p></div>
+        <div class="dom reveal d3"><span class="k">体制</span><p>管理責任者が置かれ、年1回以上ルールと運用を見直す仕組みがあるか。</p></div>
+      </div>
+    </div>
+
+    <div class="ts-notes reveal">
+      <ul>
+        <li><b>毎年、再評価。</b>受け続けないと星は下がる仕組み（＝毎年アップデートするのが前提）。</li>
+        <li><b>策まで返す。</b>返却レポートに弱点Top3と改善策の雛形（院内AI利用ポリシー／インシデント報告フロー／許可ツール一覧）を同梱。</li>
+        <li><b>三ツ星医療機関を公開。</b>組織の取り組みを対外的に証明します。</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary" style="background:var(--teal);color:#fff">導入・料金を相談する <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S6 CURRICULUM ============ -->
+<section class="curriculum" id="curriculum">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="reveal" style="max-width:680px">
+      <span class="eyebrow">CURRICULUM</span>
+      <h2 class="sec-title">研修・セミナーで扱う内容</h2>
+      <p class="sec-lead">「使っていいのか分からないから使えない」を解消。基礎・組織のルールから、法令・倫理、現場での線引きまでを一貫してカバーします。</p>
+    </div>
+    <div class="topdown reveal">
+      <span class="topdown-badge">研修のかたち｜トップダウン型</span>
+      <div class="topdown-steps">
+        <div class="td-step">
+          <span class="td-no">01</span>
+          <h5>管理者・上長が受講</h5>
+          <p>判断の責任を持つ層が、まず体系的に学びます。</p>
+        </div>
+        <div class="td-step">
+          <span class="td-no">02</span>
+          <h5>院内へ周知・展開</h5>
+          <p>提供する展開用資料をもとに、各部署へ基準を伝えます。</p>
+        </div>
+        <div class="td-step">
+          <span class="td-no">03</span>
+          <h5>全職員の理解度を測定</h5>
+          <p>周知が行き渡ったかを確認し、組織評価に反映します。</p>
+        </div>
+      </div>
+      <p class="topdown-note">全職員を一斉に集める必要がないため、シフト・人員体制への負担を抑えながら、組織全体へ同じ基準を行き渡らせることができます。</p>
+    </div>
+    <div class="curr-rows">
+      <div class="curr-row reveal">
+        <img class="curr-ph" src="images/content01.png" alt="AIの基礎と組織のルールに関する研修">
+        <div class="curr-tx">
+          <div class="curr-no">01</div>
+          <h4>AIの基礎と、組織で安全に使う土台</h4>
+          <p>生成AIの仕組みと、医療・福祉の現場でやってよいこと・避けるべきことの線引き。個人任せにせず、チーム・組織として安全に運用するためのルールづくりまで扱います。</p>
+        </div>
+      </div>
+      <div class="curr-row reveal">
+        <img class="curr-ph" src="images/content02.png" alt="法律・倫理・情報セキュリティの研修">
+        <div class="curr-tx">
+          <div class="curr-no">02</div>
+          <h4>法律・倫理・情報セキュリティとネットリテラシー</h4>
+          <p>個人情報保護法、厚労省ガイドライン、薬機法・医療機器該当性などの要点。「AIに個人情報を載せてよいか」といった日常業務のリスクとインシデント対応も押さえます。</p>
+        </div>
+      </div>
+      <div class="curr-row reveal">
+        <img class="curr-ph" src="images/content03.png" alt="事例で学ぶ現場での線引き">
+        <div class="curr-tx">
+          <div class="curr-no">03</div>
+          <h4>実際の事例で学ぶ、現場での線引き</h4>
+          <p>ヒヤリハットや「これはアウト・これはOK」の具体事例、うまく活用できている現場の例を紹介。グループワークを通じて、明日から使える判断力を養います。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S7 WHY ============ -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">WHY US</span>
+      <h2 class="sec-title">選ばれる理由</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <img class="why-ph" src="images/reason01.png" alt="組織全体を評価する取り組み">
+        <div class="why-body">
+          <h3>組織全体を評価する独自性</h3>
+          <p>個人の学習で完結させず、医師から医療事務まで含めた「医療機関・施設全体」を評価・サポート対象に据える、数少ないアプローチです。</p>
+        </div>
+      </div>
+      <div class="why-card reveal d1">
+        <img class="why-ph" src="images/reason02.png" alt="評価から改善まで伴走する様子">
+        <div class="why-body">
+          <h3>評価から改善まで一気通貫</h3>
+          <p>受けさせて終わりにしません。現状把握 → 評価 → 数字とテキストによる濃いフィードバック → 改善策・サポートまで伴走します。</p>
+        </div>
+      </div>
+      <div class="why-card reveal d2">
+        <img class="why-ph" src="images/reason03.png" alt="国際・最新の知見の収集">
+        <div class="why-body">
+          <h3>国際・最新の知見</h3>
+          <p>海外の医療AI事例や国際動向を継続的に収集し、研修や発信に反映。他ではまだ扱われにくい、独自の情報をお届けします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S8 FLOW ============ -->
+<section class="flow" id="flow">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">CERTIFICATION CYCLE</span>
+      <h2 class="sec-title">認定と改善のサイクル</h2>
+      <p class="sec-lead">受けて終わりにしない。毎年くり返すことで、組織が着実に変わっていく仕組みです。</p>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-line"></div>
+      <div class="flow-step reveal"><div class="flow-circle">1</div><h4>組織診断</h4><p>アンケートと簡易テストで、スタッフのAI活用・リテラシーの現状を把握します。</p></div>
+      <div class="flow-step reveal d1"><div class="flow-circle">2</div><h4>研修・周知・評価</h4><p>管理者が受講し、院内へ周知。その後に全職員へテストを実施し、Before/Afterで変化を可視化します。</p></div>
+      <div class="flow-step reveal d2"><div class="flow-circle">3</div><h4>フィードバック・認定</h4><p>数字とテキストで濃くフィードバック。達成度に応じて個人・法人を認定します。</p></div>
+      <div class="flow-step reveal d3"><div class="flow-circle">4</div><h4>改善・翌年更新</h4><p>課題に応じた追加研修で改善へ。毎年くり返し、組織のレベルを引き上げます。</p></div>
+    </div>
+
+    <!--
+      ============================================================
+      [一時非表示] 医療AIスキルマスター（#skillmaster）
+      スリースター制度の一部／医療機関向け。今後復活の可能性あり。
+      復活手順: このコメントブロックを解除する。関連CSSは .skillmaster-panel を参照。
+      参考コミット: a12b411（配置）, 本ブロックをコメント化したコミット
+      ============================================================
+    <div class="skillmaster-panel reveal" id="skillmaster">
+      <span class="eyebrow">FOR MEDICAL INSTITUTIONS</span>
+      <h3>医療AIスキルマスター<span style="font-size:.62em;color:var(--teal);font-weight:700;margin-left:.5em;letter-spacing:.04em">スリースター制度の一部</span></h3>
+      <p class="lead">医療機関・施設向けのスリースター制度のなかで、職員一人ひとりの実践力を担保する認定です。生成AIを医療現場で安全・効果的に使いこなす力（患者情報の扱い、適切な指示、出力の検証など）を、研修と試験を通じて証明します。</p>
+      <ul>
+        <li><b>対象は医療機関・施設の職員。</b> 組織単位の法人認定（スリースター）と連動した、現場プレーヤー向けの個人認定です。</li>
+        <li><b>試験に合格して認定。</b> 実践的な判断を問う認定試験に合格した方を認定し、確かな知識と判断力を担保します。</li>
+        <li><b>成果を、目に見える形で。</b> 認定書をオンラインで発行。組織の取り組みと個人の学びをあわせて証明します。</li>
+      </ul>
+      <a href="#threestar" class="more">スリースター制度の詳細を見る <span class="arrow">→</span></a>
+    </div>
+    ============================================================ -->
+  </div>
+</section>
+
+<!-- ============ S8.5 VISION（私たちが描く未来） ============ -->
+<section class="vision" id="vision">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">OUR VISION</span>
+      <h2 class="sec-title">私たちが描く、これからの病院</h2>
+      <p class="sec-lead">AI管理のルールが整った先で、医療機関は「誰が何をするか」そのものを組み替えていきます。すでに、その動きは始まっています。</p>
+    </div>
+
+    <div class="vision-steps">
+      <div class="vision-step reveal">
+        <img class="vs-illust" src="images/vision01.png" alt="従来：電話と確認が交錯する院内コミュニケーションの概念図" width="960" height="720">
+        <div class="vs-tx">
+          <span class="vs-no">01</span>
+          <h4>従来</h4>
+          <p>電話と確認を人が繰り返す。情報が各部署に分散し、判断のたびに人の手間が積み上がります。</p>
+          <span class="vs-role">人の役割：情報収集・調整</span>
+        </div>
+      </div>
+      <div class="vision-step reveal d1">
+        <img class="vs-illust" src="images/vision02.png" alt="コマンドセンター：院内状況を一箇所に集約・可視化する概念図" width="960" height="720">
+        <div class="vs-tx">
+          <span class="vs-no">02</span>
+          <h4>コマンドセンター</h4>
+          <p>院内の状況を一箇所に集約し、可視化する。確認の回数が減り、病院全体を見ながら集中的に調整できるようになります。</p>
+          <span class="vs-role">人の役割：集中監視・調整</span>
+        </div>
+      </div>
+      <div class="vision-step reveal d2">
+        <img class="vs-illust" src="images/vision03.png" alt="AIによる横断統合：病床・配置・予定などをAIが統合する概念図" width="960" height="720">
+        <div class="vs-tx">
+          <span class="vs-no">03</span>
+          <h4>AIによる横断統合</h4>
+          <p>病床・看護配置・手術予定・院内ルール・過去の判断を、AIが横断して統合し、案を提示する。人は最終承認と例外対応に集中します。</p>
+          <span class="vs-role">人の役割：判断・最終承認・責任</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vision-body reveal">
+      <p>この流れの中で、院内のAI導入を旗振りする役割を担うのがコマンドセンターです。しかし、そこで問われるのはAIの操作スキルではありません。<b>どこまでAIに任せ、どこから人が責任を持つのか</b>を線引きし、院内ルールと法令に照らして組織を導く力です。</p>
+      <p>当協会が「医療AIガバナンス管理士」を設けているのは、この役割を担える人材が、これから求められると考えているからです。技術がどれだけ進んでも、責任の設計は人が担い続けます。</p>
+    </div>
+
+    <div class="vision-mission reveal">
+      <p class="vm-lead">私たちは、この将来像を実現するために動いています。</p>
+      <p class="vm-txt">AIの研修を医療現場に広げること。それによって、限られたリソースを適切に配分し、効率のよい病院運営ができる状態をつくること。目指しているのは、そこです。</p>
+      <a href="#individual" class="btn btn-primary">医療AIガバナンス管理士について <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S5b INDIVIDUAL（個人認定：ガバナンス管理士） ============ -->
+<section class="individual" id="individual">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">INDIVIDUAL CERTIFICATION</span>
+      <h2 class="sec-title">個人認定制度</h2>
+      <p class="sec-lead">詳細については準備中</p>
+      <div class="indiv-notice">
+        <span class="indiv-notice-badge">2026年度限定｜講習受講で認定できるプレ資格</span>
+        <p>2027年より資格試験を開始します。それに先立ち、今年度（2026年度）に限り、講習の受講による認定を実施します。</p>
+      </div>
+      <p class="sec-lead">「医療AIガバナンス管理士」は、医療機関に限らずどなたでも受講・取得できる個人認定です。<br>院内ルール・法令・インシデント対応を踏まえ、組織のAIガバナンスを統括・助言できる人材を認定します。<br>汎用のAI資格ではなく「AIガバナンス管理」に特化しているのが特長です。</p>
+      <p class="sec-lead">院内のAI導入を旗振りするコマンドセンターの担い手にも、この判断力が求められると考えています。</p>
+    </div>
+
+    <img class="biz-ph reveal" src="images/individual01.png" alt="医療AIガバナンス管理士 個人認定のイメージ">
+
+    <div class="ts-domains">
+      <p class="ts-domains-h reveal">資格の概要</p>
+      <div class="dom-grid">
+        <div class="dom reveal">
+          <span class="k">医療AIガバナンス管理士</span>
+          <span class="dom-role">統括・マネージャー寄り｜どなたでも受講可</span>
+          <p>院内ルール・法令・インシデント対応を踏まえ、AIガバナンスを統括・助言する力。「これは入力してよいか」を正しく判断し、組織として導けるようになります。（AIガバナンス研修で養成）</p>
+          <p class="dom-scheme"><b>取得の流れ：</b>今年度は所定の研修を受講した方に資格を付与します。翌年からは試験による認定に切り替わります。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ts-notes reveal">
+      <ul>
+        <li><b>対象の制限なし。</b> 医療機関の職員に限らず、どなたでも受講・取得できる仕組みです。</li>
+        <li><b>テキストで体系的に学ぶ。</b> AIガバナンスを、現場の事例に沿って学習します。</li>
+        <li><b>今年度は講習で認定。</b> 所定の研修を受講した方に付与し、翌年からは試験認定に移行します。</li>
+        <li><b>成果を、目に見える形で。</b> 認定書をオンラインで発行。個人の学びと判断力を証明します。</li>
+      </ul>
+      <span class="btn btn-primary is-soon">受講・お申し込みについて｜準備中</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S9 MEMBERS（理事紹介） ============ -->
+<section class="members" id="members">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">MEMBERS</span>
+      <h2 class="sec-title">理事紹介</h2>
+      <p class="sec-lead">医療・福祉とAIの現場を知るメンバーが、協会の活動を支えています。</p>
+    </div>
+    <div class="member-rows">
+
+      <div class="member-row reveal">
+        <div class="member-tx">
+          <span class="role">会長</span>
+          <h3>大友 達也<span class="en">OTOMO Tatsuya</span></h3>
+          <!-- 本文は仮。確定プロフィールに差し替えてください -->
+          <p>医療・福祉分野に長く携わり、現場と経営の双方の視点から協会の活動を牽引。医療AIの健全な普及に向けた方針づくりを担う。一般社団法人日本レセプト学会理事長、就実大学教授。</p>
+        </div>
+      </div>
+
+      <div class="member-row reveal d1">
+        <div class="member-tx">
+          <span class="role">理事・事務局</span>
+          <h3>鈴木 崚平<span class="en">SUZUKI Ryohei</span></h3>
+          <!-- 本文は仮。確定プロフィールに差し替えてください -->
+          <p>協会の運営全般を統括し、研修・認定プログラムの企画と、医療機関との窓口・調整を担当する。</p>
+        </div>
+      </div>
+
+      <div class="member-row reveal d2">
+        <div class="member-tx">
+          <span class="role">理事・講師／監修</span>
+          <h3>副田 渓<span class="en">SOEDA Kei</span></h3>
+          <!-- 本文は仮。確定プロフィールに差し替えてください -->
+          <p>Web・AI領域を専門に、医療現場向けのAI活用・教育コンテンツの開発と研修監修を担当する。</p>
+        </div>
+      </div>
+
+      <div class="member-row reveal">
+        <div class="member-tx">
+          <span class="role">理事・グロービス経営大学院　教授</span>
+          <h3>小熊 英國<span class="en">OGUMA Hidekuni</span></h3>
+          <p>経営学者。日本レセプト学会の理事と併任。これからの時代に合致した組織、サービスについて研究。</p>
+          <a href="https://mba.globis.ac.jp/faculty/detail/ccm/teacher/oguma_hidekuni.html" class="member-link" target="_blank" rel="noopener noreferrer">プロフィールを見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="member-row reveal d1">
+        <div class="member-tx">
+          <span class="role">理事・姫路獨協大学　教授</span>
+          <h3>清水 隆明<span class="en">SHIMIZU Takaaki</span></h3>
+          <p>医療情報、医療福祉経営を専門とし、AI活用、管理の可能性を探る。</p>
+        </div>
+      </div>
+
+      <div class="member-row reveal d2">
+        <div class="member-tx">
+          <span class="role">理事・北海道情報大学　准教授</span>
+          <h3>佐瀬 雄治<span class="en">SASE Yuuji</span></h3>
+          <p>医療情報学、診療所マネジメントを専門領域とし、ICPC-2を用いたプライマリケア領域における診療の可視化等の研究に取り組む。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ S9b ADVISORS（アドバイザー紹介） ============ -->
+<section class="advisors" id="advisors">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">ADVISORS</span>
+      <h2 class="sec-title">アドバイザー紹介</h2>
+      <p class="sec-lead">専門知見から協会の活動を支えるアドバイザーです。</p>
+    </div>
+    <div class="member-rows">
+
+      <div class="member-row reveal">
+        <div class="member-tx">
+          <span class="role">アドバイザー</span>
+          <h3>増田 雅史<span class="en">ますだ・まさふみ / MASUDA Masafumi</span></h3>
+          <p>森・濱田松本法律事務所パートナー（弁護士・ニューヨーク州弁護士）、立教大学大学院人工知能科学研究科客員教授。</p>
+          <p>スタンフォード大学ロースクール（LL.M.）修了。工学のバックグラウンドから法曹界へ転じ、IT・デジタル法実務の最前線を拓く。知財やFintechの強固な基盤を礎に、近時はAI・Web3・メタバース分野に深くコミット。「政・官・産・学」のあらゆる局面から、テクノロジーが導く未来社会を共創する様々な活動に参与。日本商工会議所知的財産専門委員会 学識委員、東京科学大学 リーダーシップ教育院 学外アドバイザーなど、多くの公職に従事。</p>
+          <p>『生成AI法律入門』（朝日新聞出版）、『生成AIの法務 第1巻 総論』（中央経済社）などAIに関する著作・講演多数。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-band" id="contact">
+  <svg class="hero-grid" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="url(#grid)"/></svg>
+  <div class="wrap">
+    <h2>医療現場のAI活用、<br>まずはご相談ください。</h2>
+    <p>セミナー・研修・認定制度に関するお問い合わせ、導入のご相談を承っています。</p>
+    <a href="contact.html" class="btn btn-primary">お問い合わせはこちら <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="logo">
+          <span class="logo-mark"><img src="images/logo.png" alt="" class="logo-img" width="240" height="240"></span>
+          <span class="logo-text">国際ヘルスケアAI管理推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
+        </a>
+        <p>医療・福祉分野におけるAIの適正かつ安全な活用を推進する一般社団法人です。</p>
+      </div>
+      <div class="foot-col">
+        <h5>メニュー</h5>
+        <ul>
+          <li><a href="#about">協会について</a></li>
+          <li><a href="#aimgmt">AI管理とは</a></li>
+          <li><a href="#business">事業内容</a></li>
+          <li><a href="#threestar">法人評価制度</a></li>
+          <li><a href="#curriculum">研修内容</a></li>
+          <li><a href="#flow">認定制度</a></li>
+          <li><a href="#individual">個人認定</a></li>
+          <li><a href="#members">理事紹介</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div class="foot-col foot-info">
+        <h5>法人概要</h5>
+        <dl>
+          <dt>名称</dt><dd>一般社団法人 国際ヘルスケアAI管理推進協会</dd>
+          <dt>事業</dt><dd>研修／個人認定／法人認定（スリースター）</dd>
+          <dt>所在地</dt><dd>〒732-0065 広島市東区牛田中1-1-11</dd>
+          <dt>連絡先</dt><dd><a href="contact.html">お問い合わせフォーム</a></dd>
+        </dl>
+      </div>
+    </div>
+    <div class="copyright">© 2026 一般社団法人 国際ヘルスケアAI管理推進協会 All Rights Reserved.</div>
+  </div>
+</footer>
+
+<script>
+// ---- Header scroll state ----
+const header=document.getElementById('header');
+const onScroll=()=>{header.classList.toggle('scrolled',window.scrollY>40)};
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// ---- Mobile menu ----
+const burger=document.getElementById('burger');
+const navLinks=document.getElementById('navLinks');
+const navOverlay=document.getElementById('navOverlay');
+const setMenuOpen=(open)=>{
+  navLinks.classList.toggle('open',open);
+  navOverlay.classList.toggle('show',open);
+  navOverlay.setAttribute('aria-hidden',open?'false':'true');
+  burger.setAttribute('aria-expanded',open?'true':'false');
+  document.body.style.overflow=open?'hidden':'';
+};
+burger.addEventListener('click',()=>setMenuOpen(!navLinks.classList.contains('open')));
+navOverlay.addEventListener('click',()=>setMenuOpen(false));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenuOpen(false)));
+
+// ---- Scroll reveal (IntersectionObserver) ----
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// ---- Hero load-in sequence ----
+window.addEventListener('load',()=>{
+  document.querySelectorAll('[data-hero]').forEach((el,i)=>{
+    el.style.opacity='0';el.style.transform='translateY(28px)';
+    el.style.transition='opacity .8s ease, transform .8s ease';
+    setTimeout(()=>{el.style.opacity='1';el.style.transform='none';},180+i*140);
+  });
+});
+
+// ---- Hero parallax (respects reduced motion) ----
+const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(!reduce){
+  const glow=document.querySelectorAll('.hero-glow');
+  window.addEventListener('scroll',()=>{
+    const y=window.scrollY;
+    glow.forEach(g=>g.style.transform=`translateY(${y*.18}px)`);
+  },{passive:true});
+}
+</script>
+<!-- ===== 確認用：文字サイズ調整パネル（本番前に、この<style>〜<script>までをまとめて削除可） ===== -->
+<style>
+#tsc-fab{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;align-items:center;gap:7px;
+  background:var(--navy);color:#fff;border:0;border-radius:30px;padding:11px 17px;cursor:pointer;
+  font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:13px;box-shadow:0 14px 30px -12px rgba(11,59,102,.7)}
+#tsc-fab b{font-size:16px;font-weight:900}
+#tsc-panel{position:fixed;right:18px;bottom:18px;z-index:9999;width:238px;display:none;
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 17px 15px;
+  font-family:"Noto Sans JP",sans-serif;box-shadow:0 22px 55px -18px rgba(11,59,102,.55)}
+#tsc-panel.open{display:block}
+#tsc-panel .th{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+#tsc-panel .th span{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:13px;color:var(--ink)}
+#tsc-panel .th button{background:none;border:0;font-size:18px;line-height:1;color:var(--muted);cursor:pointer;padding:2px 4px}
+#tsc-range{width:100%;accent-color:var(--teal);cursor:pointer;margin:2px 0 10px}
+#tsc-read{font-size:12px;color:var(--muted);line-height:1.9}
+#tsc-read b{color:var(--teal);font-size:15px}
+#tsc-reset{margin-top:10px;width:100%;background:var(--bg-soft);border:1px solid var(--line);border-radius:9px;
+  padding:8px;font-family:inherit;font-size:12px;font-weight:700;color:var(--ink);cursor:pointer}
+#tsc-note{margin-top:9px;font-size:10.5px;color:var(--muted);line-height:1.6}
+</style>
+<button id="tsc-fab" aria-label="文字サイズを調整"><b>Aa</b> 文字サイズ</button>
+<div id="tsc-panel" role="dialog" aria-label="文字サイズ調整（確認用）">
+  <div class="th"><span>文字サイズ（確認用）</span><button id="tsc-close" aria-label="閉じる">×</button></div>
+  <input type="range" id="tsc-range" min="0.8" max="1.5" step="0.01" value="1">
+  <div id="tsc-read">倍率 <b id="tsc-val">100%</b><br>本文 <span id="tsc-b">16</span>px ／ 見出し <span id="tsc-h">40</span>px</div>
+  <button id="tsc-reset">標準（100%）に戻す</button>
+  <p id="tsc-note">見出しと本文が連動して拡大・縮小します。決めたい大きさが決まったら、その値を教えてください。</p>
+</div>
+<script>
+(function(){
+  const root=document.documentElement,fab=document.getElementById('tsc-fab'),panel=document.getElementById('tsc-panel'),
+        range=document.getElementById('tsc-range'),val=document.getElementById('tsc-val'),
+        vb=document.getElementById('tsc-b'),vh=document.getElementById('tsc-h');
+  function upd(v){root.style.setProperty('--tsc',v);val.textContent=Math.round(v*100)+'%';vb.textContent=Math.round(16*v);vh.textContent=Math.round(40*v);}
+  range.addEventListener('input',e=>upd(parseFloat(e.target.value)));
+  fab.addEventListener('click',()=>{panel.classList.add('open');fab.style.display='none';});
+  document.getElementById('tsc-close').addEventListener('click',()=>{panel.classList.remove('open');fab.style.display='flex';});
+  document.getElementById('tsc-reset').addEventListener('click',()=>{range.value=1;upd(1);});
+  upd(1);
+})();
+</script>
+</body>
+</html>
