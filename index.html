@@ -454,6 +454,26 @@ body{font-size:calc(16px*var(--tsc))}
   .reveal{opacity:1!important;transform:none!important}
 }
 :focus-visible{outline:3px solid var(--teal-light);outline-offset:3px;border-radius:4px}
+
+/* ===== NEWS BAND (期間限定：2026年10月告知) ===== */
+.newsband{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0}
+.newsband .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.newsband-inner{display:flex;gap:22px;align-items:flex-start;background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:var(--radius);padding:22px 26px;box-shadow:var(--shadow)}
+.newsband-label{flex:0 0 auto;display:flex;flex-direction:column;gap:6px;padding-top:2px}
+.newsband-tag{display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.newsband-date{font-size:13px;font-weight:700;color:var(--navy);white-space:nowrap;letter-spacing:.02em}
+.newsband-body{flex:1 1 auto;min-width:0}
+.newsband-body h3{font-size:17px;line-height:1.6;color:var(--navy-deep);margin:0 0 8px;font-weight:700}
+.newsband-body p{font-size:14.5px;line-height:1.85;color:var(--muted);margin:0 0 6px}
+.newsband-body p:last-child{margin-bottom:0}
+.newsband-body .newsband-strong{color:var(--navy);font-weight:700}
+.cta-note{margin-top:18px;font-size:13.5px;line-height:1.8;opacity:.85}
+@media(max-width:760px){
+  .newsband{padding:20px 0}
+  .newsband-inner{flex-direction:column;gap:14px;padding:20px 20px}
+  .newsband-label{flex-direction:row;align-items:center;gap:12px;padding-top:0}
+  .newsband-body h3{font-size:16px}
+}
 </style>
 </head>
 <body>
@@ -505,6 +525,23 @@ body{font-size:calc(16px*var(--tsc))}
     </div>
   </div>
   <div class="scroll-hint">SCROLL<span></span></div>
+</section>
+
+<!-- ============ NEWS BAND（期間限定・2026年10月末に削除） ============ -->
+<section class="newsband" id="news" aria-label="お知らせ">
+  <div class="wrap">
+    <div class="newsband-inner">
+      <div class="newsband-label">
+        <span class="newsband-tag">NEWS</span>
+        <span class="newsband-date">2026.10.04</span>
+      </div>
+      <div class="newsband-body">
+        <h3>日本レセプト学会 学術研究会にて、病院向けAI研修の整理券を配布いたします</h3>
+        <p>2026年10月4日（日）、昭和女子大学【要確定：キャンパス・会場名】にて開催される日本レセプト学会 学術研究会の会場において、当協会の病院向けAI研修の整理券を配布いたします。【要確定：配布時間・配布枚数】</p>
+        <p><span class="newsband-strong">整理券に関するお問い合わせの受付は、2026年10月8日（木）より開始いたします。</span>それ以前にお送りいただいたお問い合わせにつきましても、10月8日以降に順次ご返信いたします。</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ S2 ABOUT ============ -->
@@ -949,6 +986,7 @@ body{font-size:calc(16px*var(--tsc))}
   <div class="wrap">
     <h2>医療現場のAI活用、<br>まずはご相談ください。</h2>
     <p>セミナー・研修・認定制度に関するお問い合わせ、導入のご相談を承っています。</p>
+    <p class="cta-note">※ 2026年10月4日の日本レセプト学会 学術研究会で配布する整理券に関するお問い合わせは、10月8日（木）より受付を開始いたします。</p>
     <a href="contact.html" class="btn btn-primary">お問い合わせはこちら <span class="arrow">→</span></a>
   </div>
 </section>
