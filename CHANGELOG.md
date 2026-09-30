@@ -14,6 +14,8 @@
 | `entry/index.html` | 整理券申込ページ（入力→確認→整理番号＋確認コード、キャンセル待ち表示、noindex） |
 | `google-apps-script/entry-ticket.gs` | 番号割当・確認コード・ドメイン実在チェック・Resend送信・到達確認（お問い合わせとは別プロジェクト） |
 | `docs/entry-ticket.md` | 構成・セットアップ・当日運用 |
+| `docs/entry-ticket-test-report.md` | 本番での動作確認結果（発行・再送信・キャンセル待ち・ドメインエラー）とスクリーンショット |
+| `scripts/entry-prod-shots.js` / `scripts/entry-wait-shot.js` | 本番画面の Playwright 撮影スクリプト |
 
 ---
 
