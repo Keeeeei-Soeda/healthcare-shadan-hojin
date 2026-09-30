@@ -6,3 +6,6 @@ package-lock.json
 .DS_Store
 
 # Playwright PDF は docs/ に保存（コミット可）
+
+# ローカル専用の退避場所（公開サイトに含めない）
+archive/
