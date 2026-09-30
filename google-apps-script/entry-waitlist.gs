@@ -319,7 +319,7 @@ function sendWaitMail_(program, email, r) {
   return sendMail_(program, email, r, {
     subject: '【' + LIST_NAME + ' ' + r.position + '番目】' + P.label,
     intro: P.label + 'の' + LIST_NAME + 'に登録しました。',
-    extra: '参加枠に空きが出た場合は、受付順に協会よりメールでご連絡いたします。',
+    extra: '会場配布資料のQRコードからお申し込みの方が優先されます。空きが出た場合は、その後に受付順で協会よりメールにてご連絡いたします。',
     label: LIST_NAME,
     value: r.position + '番目',
     idem: 'live-wait-' + r.position,

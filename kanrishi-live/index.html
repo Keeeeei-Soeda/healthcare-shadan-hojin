@@ -64,6 +64,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,2
 .form-card{scroll-margin-top:96px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:38px 36px;box-shadow:var(--shadow)}
 .lead{font-size:14.5px;color:var(--muted);margin-bottom:26px}
 .lead strong{color:var(--navy)}
+.priority-note{margin:-12px 0 26px;padding:12px 14px;border-radius:10px;background:#FFF6DC;border:1px solid #F1DFA6;color:#6B4E00;font-size:13px;line-height:1.7}
 .field{margin-bottom:22px}
 .field label{display:block;font-size:14px;font-weight:700;margin-bottom:8px;color:var(--ink)}
 .req{color:var(--teal);font-size:12px;font-weight:700;margin-left:6px}
@@ -197,6 +198,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:40px 0 24px;font-s
           <li class="on">入力</li><li>確認</li><li>受付順</li>
         </ol>
         <p class="lead">以下をご入力ください。<br>送信後、その場で<strong>受付順</strong>が表示されます。</p>
+        <p class="priority-note">会場配布資料のQRコードからお申し込みの方が優先されます。空きが出た場合は、その後に受付順でご連絡いたします。</p>
 
         <!-- bot 用おとり欄（人には非表示） -->
         <div class="hp" aria-hidden="true">
@@ -253,7 +255,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:40px 0 24px;font-s
         <div class="check"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
         <h2>会場参加用<br><span class="nb">ウェイティングリストに</span><span class="nb">登録しました</span></h2>
         <p class="repeat-badge" id="waitRepeatBadge">このメールアドレスは登録済みです（受付順は変わりません）</p>
-        <p class="wait-lead">参加枠に空きが出た場合は、<br>受付順にメールでご連絡いたします。</p>
+        <p class="wait-lead">会場配布資料のQRコードからお申し込みの方が優先されます。<br>空きが出た場合は、その後に受付順でメールにてご連絡いたします。</p>
         <div class="ticket-box">
           <div class="prog-tag">医療AIガバナンス管理士</div>
           <div class="ticket-label">会場参加用ウェイティングリスト</div>
@@ -262,7 +264,7 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:40px 0 24px;font-s
           <div class="ticket-who"><span id="wName"></span> 様<small id="wFacility"></small></div>
         </div>
         <ul class="guide">
-          <li>参加枠に空きが出た場合、受付順にご連絡します</li>
+          <li>会場配布資料のQRコードからお申し込みの方が優先されます。空きが出た場合は、その後に受付順でご連絡します</li>
           <li>お問い合わせの際は、<strong>受付順と確認コード</strong>をお伝えください</li>
           <li><span class="mail-to" id="wEmail"></span> に控えをお送りしました。届かない場合は迷惑メールフォルダをご確認ください</li>
         </ul>
