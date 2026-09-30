@@ -1,5 +1,5 @@
 /**
- * 10/4 会場参加用ウェイティングリスト API（会場投影用 QR コードの入口・2制度対応）
+ * 10/4 投影資料用ウェイティングリスト API（会場投影用 QR コードの入口・2制度対応）
  *   entry-live/index.html    … 病院向けAI研修（program: 'hospital'）
  *   kanrishi-live/index.html … 医療AIガバナンス管理士（program: 'kanrishi'）
  *   → この Apps Script（Web アプリ）→ Google スプレッドシート
@@ -42,7 +42,7 @@ const CODE_LENGTH = 4;
 const MAIL_FROM_NAME = '一般社団法人 国際ヘルスケアAI管理推進協会';
 const EVENT_INFO = '2026年10月4日（日）日本レセプト学会 学術研究会（昭和女子大学）';
 const SITE_URL = 'https://www.iha-as.com/';
-const LIST_NAME = '会場参加用ウェイティングリスト';
+const LIST_NAME = '投影資料用ウェイティングリスト';
 
 // ====== 制度ごとの設定 ======
 const DEFAULT_PROGRAM = 'hospital';

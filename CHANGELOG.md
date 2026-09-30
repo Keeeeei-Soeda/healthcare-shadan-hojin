@@ -6,13 +6,24 @@
 
 ---
 
-## 2026-10-01（会場投影用）
+## 2026-10-01（表記の整理）
 
-### 会場参加用ウェイティングリスト（会場投影用 QR の入口）追加
+### 配布用・投影用の呼び方を区別
 | ファイル | 内容 |
 |---|---|
-| `entry-live/index.html` | 病院向けAI研修 会場参加用ウェイティングリスト登録ページ（noindex） |
-| `kanrishi-live/index.html` | 医療AIガバナンス管理士 会場参加用ウェイティングリスト登録ページ（noindex） |
+| `entry/index.html`・`kanrishi/index.html` | 見出し・タイトルを「会場配布資料用 整理券のお申し込み」に変更 |
+| `google-apps-script/entry-ticket.gs` | メール件名・本文の名称を「〇〇 会場配布資料用 整理券」に変更 |
+| `entry-live/index.html`・`kanrishi-live/index.html`・`google-apps-script/entry-waitlist.gs` | 「会場参加用ウェイティングリスト」→「投影資料用ウェイティングリスト」 |
+
+---
+
+## 2026-10-01（会場投影用）
+
+### 投影資料用ウェイティングリスト（会場投影用 QR の入口）追加
+| ファイル | 内容 |
+|---|---|
+| `entry-live/index.html` | 病院向けAI研修 投影資料用ウェイティングリスト登録ページ（noindex） |
+| `kanrishi-live/index.html` | 医療AIガバナンス管理士 投影資料用ウェイティングリスト登録ページ（noindex） |
 | `google-apps-script/entry-waitlist.gs` | 受付順の登録のみ（整理券なし）。会場配布用とは別プロジェクト・別タブ、確認コードは配布用とも重複なし |
 | `docs/entry-waitlist.md` | 構成・セットアップ・当日運用 |
 

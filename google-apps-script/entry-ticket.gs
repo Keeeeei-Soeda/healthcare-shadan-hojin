@@ -53,7 +53,7 @@ const PROGRAMS = {
     count: 50,
     prefix: '',
     waitLimit: 0,
-    title: '病院向けAI研修 整理券',
+    title: '病院向けAI研修 会場配布資料用 整理券',
     inquiry: '整理券に関するお問い合わせは、2026年10月8日（木）より受け付けます。',
   },
   kanrishi: {
@@ -63,7 +63,7 @@ const PROGRAMS = {
     count: 50,
     prefix: 'K-',
     waitLimit: 0,
-    title: '医療AIガバナンス管理士 整理券',
+    title: '医療AIガバナンス管理士 会場配布資料用 整理券',
     inquiry: '整理券に関するお問い合わせは、2026年10月8日（木）より受け付けます。',
   },
 };
