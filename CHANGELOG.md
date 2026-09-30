@@ -6,6 +6,18 @@
 
 ---
 
+## 2026-10-01
+
+### 医療AIガバナンス管理士 整理券ページ追加
+| ファイル | 内容 |
+|---|---|
+| `kanrishi/index.html` | 管理士（個人認定）の整理券申込ページ（K-001〜、noindex） |
+| `google-apps-script/entry-ticket.gs` | 2制度対応（病院向け／管理士）、打ち間違いドメイン判定、重複送信防止キー修正、メール形式厳格化、未セットアップ時の案内 |
+| `google-apps-script/appsscript.json` | 到達確認トリガー用スコープ（script.scriptapp）追加 |
+| `docs/entry-ticket.md` | 2制度版の構成・セットアップ・当日運用 |
+
+---
+
 ## 2026-09-30
 
 ### 10/4 整理券発行システム追加

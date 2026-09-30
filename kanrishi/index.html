@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医療AIガバナンス管理士 整理券のお申し込み｜一般社団法人 国際ヘルスケアAI管理推進協会</title>
+<meta name="description" content="2026年10月4日 日本レセプト学会 学術研究会で配布する、医療AIガバナンス管理士（個人認定）の整理券お申し込みページです。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B3B66;
+  --navy-deep:#072A4A;
+  --teal:#14A3A3;
+  --teal-light:#3CC9C9;
+  --ink:#1B2A38;
+  --muted:#5E7081;
+  --bg:#FFFFFF;
+  --bg-soft:#F2F7FA;
+  --line:#E2EAF0;
+  --shadow:0 18px 50px -22px rgba(11,59,102,.35);
+  --radius:16px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);
+  line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,.display{font-family:"Zen Kaku Gothic New",sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;font-weight:700;color:var(--teal);margin-bottom:14px}
+.eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--teal);vertical-align:middle;margin-right:10px;transform:translateY(-3px)}
+
+/* ---------- Header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px -16px rgba(7,42,74,.4);padding:14px 0}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;color:var(--navy)}
+.logo-mark{flex:none;display:block;line-height:0}
+.logo-img{height:44px;width:auto;display:block;object-fit:contain}
+.logo-text{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:15px;line-height:1.25;letter-spacing:.01em}
+.logo-text small{display:block;font-size:9px;letter-spacing:.06em;font-weight:500;opacity:.7;white-space:nowrap}
+
+/* ---------- Page banner ---------- */
+.banner{
+  position:relative;padding:130px 0 60px;color:#fff;overflow:hidden;
+  background:radial-gradient(circle at 78% 25%,#0d4f86 0%,#072a4a 62%);
+}
+.banner-grid{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+.banner .wrap{position:relative;z-index:2}
+.banner .eyebrow{color:var(--teal-light)}
+.banner h1{font-size:clamp(26px,5vw,40px);font-weight:900;line-height:1.35}
+.banner p{margin-top:14px;color:rgba(255,255,255,.85);max-width:620px;font-size:14.5px}
+.event-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:13.5px;color:rgba(255,255,255,.9)}
+.event-meta span{display:inline-flex;align-items:center;gap:6px}
+.event-meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal-light)}
+
+/* ---------- Body ---------- */
+.entry{padding:56px 0 90px;background:var(--bg-soft)}
+.entry .wrap{max-width:640px}
+.form-card{scroll-margin-top:96px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:38px 36px;box-shadow:var(--shadow)}
+.lead{font-size:14.5px;color:var(--muted);margin-bottom:26px}
+.lead strong{color:var(--navy)}
+.field{margin-bottom:22px}
+.field label{display:block;font-size:14px;font-weight:700;margin-bottom:8px;color:var(--ink)}
+.req{color:var(--teal);font-size:12px;font-weight:700;margin-left:6px}
+.field input{
+  width:100%;font-family:inherit;font-size:16px;color:var(--ink);
+  padding:13px 15px;border:1.5px solid var(--line);border-radius:11px;background:var(--bg-soft);
+  transition:border-color .25s, box-shadow .25s, background .25s;
+}
+.field input:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 4px rgba(20,163,163,.12)}
+.field-note{font-size:12.5px;color:var(--muted);margin-top:6px}
+.consent{display:flex;gap:12px;align-items:flex-start;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:26px}
+.consent input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--teal);cursor:pointer}
+.consent label{font-size:13px;color:var(--muted);font-weight:500;line-height:1.7}
+.submit{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;font-weight:700;font-size:16px;font-family:inherit;
+  padding:17px 34px;border-radius:32px;border:0;cursor:pointer;color:#fff;
+  background:var(--teal);box-shadow:0 16px 34px -14px rgba(20,163,163,.9);transition:transform .25s, box-shadow .25s;
+}
+.submit:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(20,163,163,1)}
+.submit:disabled{opacity:.65;cursor:not-allowed;transform:none}
+.form-error{display:none;margin-top:14px;padding:12px 14px;border-radius:10px;background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;font-size:13.5px;line-height:1.6}
+.form-error.visible{display:block}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ---------- Result ---------- */
+.result{display:none;text-align:center}
+.result.visible{display:block}
+.result .check{width:62px;height:62px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff}
+.result h2{font-size:21px;font-weight:900;color:var(--navy)}
+.repeat-badge{display:none;margin:12px auto 0;font-size:12.5px;background:#FFF6DC;color:#8A6300;border-radius:8px;padding:6px 12px;width:fit-content}
+.repeat-badge.visible{display:block}
+.ticket-box{margin:22px 0 20px;border:2px dashed var(--teal);border-radius:18px;padding:22px 16px 20px;background:linear-gradient(180deg,#fff 0%,#EFF9F9 100%)}
+.ticket-label{font-size:13px;letter-spacing:.2em;font-weight:700;color:var(--teal)}
+.ticket-no{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:clamp(64px,18vw,92px);line-height:1.1;color:var(--navy);letter-spacing:.04em;margin:4px 0 10px}
+.ticket-who{font-size:15px;font-weight:700}
+.ticket-who small{display:block;font-size:13px;color:var(--muted);font-weight:500}
+.guide{list-style:none;text-align:left;background:var(--bg-soft);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.guide li{position:relative;padding-left:17px;font-size:13.5px;color:var(--ink)}
+.guide li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--teal-light)}
+.wait .check{background:linear-gradient(135deg,#8A6300,#D9A520)}
+.wait .ticket-box{border-color:#D9A520;background:linear-gradient(180deg,#fff 0%,#FFF8E6 100%)}
+.wait .ticket-label{color:#8A6300}
+.wait-lead{font-size:14px;color:var(--muted);margin-top:12px}
+.pos-unit{font-size:.42em;font-weight:700;margin:0 .08em}
+.closed{display:none;text-align:center;padding:20px 0}
+.closed.visible{display:block}
+.closed h2{font-size:20px;font-weight:900;color:var(--navy);margin-bottom:10px}
+.closed p{font-size:14px;color:var(--muted)}
+.inquiry-note{margin-top:22px;font-size:12.5px;color:var(--muted);text-align:center}
+
+/* ---------- Steps / Confirm ---------- */
+.steps{list-style:none;display:flex;gap:6px;margin-bottom:22px;counter-reset:st}
+.steps li{flex:1;counter-increment:st;font-size:12px;font-weight:700;color:var(--muted);text-align:center;padding-top:10px;border-top:3px solid var(--line)}
+.steps li::before{content:counter(st) ". "}
+.steps li.on{color:var(--teal);border-top-color:var(--teal)}
+.steps li.done{color:var(--navy);border-top-color:var(--navy)}
+.confirm{display:none}
+.confirm.visible{display:block}
+.confirm-list{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:15px;padding:18px 20px;border:1px solid var(--line);border-radius:12px;margin-bottom:14px}
+.confirm-list dt{color:var(--muted);font-weight:700;font-size:13px;padding-top:2px;white-space:nowrap}
+.confirm-list dd{font-weight:700;word-break:break-all}
+.confirm-mail{border:2px solid var(--teal);background:#EFF9F9;border-radius:12px;padding:16px 18px;margin-bottom:24px}
+.confirm-mail span{display:block;font-size:12.5px;font-weight:700;color:var(--teal);margin-bottom:4px}
+.confirm-mail strong{display:block;font-size:19px;color:var(--navy);word-break:break-all;line-height:1.5;font-family:ui-monospace,Menlo,Consolas,monospace}
+.btn-ghost{display:block;width:100%;margin-top:12px;padding:14px;font-family:inherit;font-size:15px;font-weight:700;color:var(--muted);background:transparent;border:1.5px solid var(--line);border-radius:32px;cursor:pointer}
+.btn-ghost:hover{color:var(--navy);border-color:var(--navy)}
+.btn-ghost:disabled{opacity:.5;cursor:not-allowed}
+.code-chip{display:inline-flex;align-items:center;gap:10px;margin:0 0 12px;padding:6px 14px;border-radius:10px;background:#fff;border:1px solid var(--line);font-size:12.5px;font-weight:700;color:var(--muted)}
+.code-chip strong{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:24px;letter-spacing:.18em;color:var(--navy)}
+.mail-to{font-weight:700;word-break:break-all}
+.guide li strong{color:var(--navy)}
+
+.prog-tag{display:inline-block;margin-bottom:10px;padding:3px 12px;border-radius:999px;background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:.04em}
+
+/* ---------- Footer ---------- */
+footer{background:#06223c;color:rgba(255,255,255,.72);padding:40px 0 24px;font-size:14px}
+.foot-inner{display:flex;justify-content:center;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-inner .logo{color:#fff}
+.copyright{text-align:center;padding-top:20px;font-size:12px;color:rgba(255,255,255,.4)}
+
+:focus-visible{outline:3px solid var(--teal-light);outline-offset:3px;border-radius:4px}
+
+@media(max-width:600px){
+  .wrap{padding:0 16px}
+  .logo-text{font-size:13px}
+  .logo-img{height:38px}
+  .banner{padding:110px 0 46px}
+  .entry{padding:36px 0 70px}
+  .form-card{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a href="../index.html" class="logo" aria-label="一般社団法人 国際ヘルスケアAI管理推進協会 トップへ">
+      <span class="logo-mark"><img src="../images/logo.png" alt="" class="logo-img" width="240" height="240"></span>
+      <span class="logo-text">国際ヘルスケアAI管理推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
+    </a>
+  </div>
+</header>
+
+<!-- ============ BANNER ============ -->
+<section class="banner">
+  <svg class="banner-grid" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs><pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse"><path d="M46 0H0V46" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#grid)"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">CERTIFICATION ENTRY</span>
+    <h1>医療AIガバナンス管理士<br>整理券のお申し込み</h1>
+    <div class="event-meta">
+      <span>2026年10月4日（日）</span>
+      <span>日本レセプト学会 学術研究会</span>
+      <span>昭和女子大学</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENTRY ============ -->
+<section class="entry">
+  <div class="wrap">
+    <div class="form-card">
+
+      <!-- STEP 1: 入力 -->
+      <form id="entryForm" novalidate>
+        <ol class="steps" aria-label="お申し込みの流れ">
+          <li class="on">入力</li><li>確認</li><li>整理番号</li>
+        </ol>
+        <p class="lead">以下をご入力ください。<br>送信後、その場で<strong>整理番号</strong>が表示されます。</p>
+
+        <!-- bot 用おとり欄（人には非表示） -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="name">お名前<span class="req">必須</span></label>
+          <input type="text" id="name" name="name" required maxlength="50" autocomplete="name" placeholder="山田 太郎">
+        </div>
+
+        <div class="field">
+          <label for="facility">ご所属（施設名・会社名など）<span class="req">必須</span></label>
+          <input type="text" id="facility" name="facility" required maxlength="100" autocomplete="organization" placeholder="◯◯病院 薬剤部 / ◯◯株式会社">
+        </div>
+
+        <div class="field">
+          <label for="email">メールアドレス<span class="req">必須</span></label>
+          <input type="email" id="email" name="email" required maxlength="254" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" placeholder="example@hospital.jp">
+          <p class="field-note">整理番号の控えをこのアドレスにお送りします。</p>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="agree" name="agree">
+          <label for="agree">お預かりした個人情報は、整理券の発行・医療AIガバナンス管理士のご案内のみに利用し、適切に管理します。内容に同意のうえ送信します。</label>
+        </div>
+
+        <button type="submit" class="submit" id="nextBtn">入力内容を確認する <span class="arrow">→</span></button>
+        <p class="form-error" id="formError" role="alert"></p>
+      </form>
+
+      <!-- STEP 2: 確認 -->
+      <div class="confirm" id="confirm">
+        <ol class="steps" aria-label="お申し込みの流れ">
+          <li class="done">入力</li><li class="on">確認</li><li>整理番号</li>
+        </ol>
+        <p class="lead">入力内容をご確認ください。<br>特に<strong>メールアドレス</strong>に誤りがないかご確認ください。</p>
+        <dl class="confirm-list">
+          <dt>お名前</dt><dd id="cName"></dd>
+          <dt>ご所属</dt><dd id="cFacility"></dd>
+        </dl>
+        <div class="confirm-mail">
+          <span>整理番号の送信先</span>
+          <strong id="cEmail"></strong>
+        </div>
+        <button type="button" class="submit" id="sendBtn">この内容で送信する <span class="arrow">→</span></button>
+        <button type="button" class="btn-ghost" id="backBtn">← 修正する</button>
+        <p class="form-error" id="sendError" role="alert"></p>
+      </div>
+
+      <!-- STEP 3a: 整理番号 -->
+      <div class="result" id="result" aria-live="polite">
+        <div class="check"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h2>整理券を発行しました</h2>
+        <p class="repeat-badge" id="repeatBadge">このメールアドレスは登録済みのため、発行済みの番号を表示しています</p>
+        <div class="ticket-box">
+          <div class="prog-tag">医療AIガバナンス管理士</div>
+          <div class="ticket-label">整理番号</div>
+          <div class="ticket-no" id="ticketNo">---</div>
+          <div class="code-chip">確認コード<strong id="ticketCode">----</strong></div>
+          <div class="ticket-who"><span id="rName"></span> 様<small id="rFacility"></small></div>
+        </div>
+        <ul class="guide">
+          <li>この画面を受付スタッフにご提示ください（スクリーンショットの保存をおすすめします）</li>
+          <li>受付・お問い合わせの際は、<strong>整理番号と確認コード</strong>をお伝えください</li>
+          <li><span class="mail-to" id="rEmail"></span> に控えをお送りしました。届かない場合は迷惑メールフォルダをご確認のうえ、受付スタッフにお声がけください</li>
+        </ul>
+      </div>
+
+      <!-- STEP 3b: キャンセル待ち -->
+      <div class="result wait" id="waitResult" aria-live="polite">
+        <div class="check"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h2>キャンセル待ちで<br>受け付けました</h2>
+        <p class="repeat-badge" id="waitRepeatBadge">このメールアドレスはキャンセル待ちに登録済みです（受付順は変わりません）</p>
+        <p class="wait-lead">整理券は定員に達しました。<br>空きが出た場合は、受付順にメールでご連絡いたします。</p>
+        <div class="ticket-box">
+          <div class="prog-tag">医療AIガバナンス管理士</div>
+          <div class="ticket-label">キャンセル待ち</div>
+          <div class="ticket-no"><span id="waitPos">-</span><span class="pos-unit">番目</span></div>
+          <div class="code-chip">確認コード<strong id="waitCode">----</strong></div>
+          <div class="ticket-who"><span id="wName"></span> 様<small id="wFacility"></small></div>
+        </div>
+        <ul class="guide">
+          <li>整理券に空きが出た場合、キャンセル待ちの受付順にご連絡します</li>
+          <li>お問い合わせの際は、<strong>受付順と確認コード</strong>をお伝えください</li>
+          <li><span class="mail-to" id="wEmail"></span> に控えをお送りしました。届かない場合は迷惑メールフォルダをご確認ください</li>
+        </ul>
+      </div>
+
+      <!-- 受付終了 -->
+      <div class="closed" id="closed">
+        <h2>整理券の配布を終了しました</h2>
+        <p id="closedMsg">多数のお申し込みありがとうございました。</p>
+      </div>
+
+      <p class="inquiry-note">整理券に関するお問い合わせは、2026年10月8日（木）より受け付けます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark"><img src="../images/logo.png" alt="" class="logo-img" width="240" height="240"></span>
+        <span class="logo-text">国際ヘルスケアAI管理推進協会<small>INTERNATIONAL HEALTHCARE AI ASSOCIATION</small></span>
+      </a>
+    </div>
+    <div class="copyright">© 2026 一般社団法人 国際ヘルスケアAI管理推進協会 All Rights Reserved.</div>
+  </div>
+</footer>
+
+<script>
+// Apps Script Web App URL（docs/entry-ticket.md 手順で発行した /exec の URL を設定）
+const TICKET_API_URL = 'https://script.google.com/macros/s/AKfycbwoKO0oOLRYqFbQypXDen5fMvQolrvw5x2qSiBQvli7_zmzK_RCgFUFQQ6NsmLOJEvstg/exec';
+
+const $ = id => document.getElementById(id);
+const form = $('entryForm');
+const panels = ['entryForm', 'confirm', 'result', 'waitResult', 'closed'];
+const sendBtn = $('sendBtn');
+const sendBtnHtml = sendBtn.innerHTML;
+const strip = s => String(s || '').replace(/^'/, '');
+let data = null;
+
+function show(id){
+  panels.forEach(p => { $(p).classList.toggle('visible', p === id); });
+  form.style.display = id === 'entryForm' ? '' : 'none';
+  document.querySelector('.form-card').scrollIntoView({behavior:'smooth'});
+}
+
+function formError(msg, focusId){
+  const el = $('formError');
+  el.textContent = msg;
+  el.classList.add('visible');
+  if (focusId) $(focusId).focus();
+}
+
+// STEP 1 → 2
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  $('formError').classList.remove('visible');
+  data = {
+    name: $('name').value.trim(),
+    facility: $('facility').value.trim(),
+    email: $('email').value.trim().replace(/[＠]/g, '@'),
+    agree: $('agree').checked,
+    website: $('website').value,
+    program: 'kanrishi'
+  };
+  $('email').value = data.email;
+  if (!data.name || !data.facility || !data.email) return formError('未入力の項目があります。');
+  if (!/^[A-Za-z0-9][A-Za-z0-9._%+\-]*@[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?)+$/.test(data.email)) return formError('メールアドレスの形式が正しくありません。', 'email');
+  if (!data.agree) return formError('個人情報の取り扱いへの同意にチェックしてください。');
+
+  $('cName').textContent = data.name;
+  $('cFacility').textContent = data.facility;
+  $('cEmail').textContent = data.email;
+  $('sendError').classList.remove('visible');
+  show('confirm');
+});
+
+// STEP 2 → 1
+$('backBtn').addEventListener('click', () => show('entryForm'));
+
+// STEP 2 → 3
+sendBtn.addEventListener('click', async () => {
+  $('sendError').classList.remove('visible');
+  sendBtn.disabled = true;
+  $('backBtn').disabled = true;
+  sendBtn.innerHTML = '送信中…';
+
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 30000); // サーバー側ロック待ち(最大20秒)＋処理時間
+  try {
+    // Content-Type を text/plain にすることで CORS プリフライトを回避（Apps Script の仕様）
+    const r = await fetch(TICKET_API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain;charset=utf-8'},
+      body: JSON.stringify(data),
+      signal: ctrl.signal
+    });
+    const res = await r.json();
+    if (res.ok && res.waitlist) return showWaitlist(res);
+    if (res.ok) return showTicket(res);
+    if (res.full || res.closed) { if (res.message) $('closedMsg').textContent = res.message; return show('closed'); }
+    if (res.field === 'email') { show('entryForm'); return formError(res.message, 'email'); }
+    sendError(res.message || '送信に失敗しました。もう一度お試しください。');
+  } catch (_) {
+    sendError('通信エラーが発生しました。電波の良い場所で、もう一度送信してください。');
+  } finally {
+    clearTimeout(timer);
+    sendBtn.disabled = false;
+    $('backBtn').disabled = false;
+    sendBtn.innerHTML = sendBtnHtml;
+  }
+});
+
+function sendError(msg){
+  $('sendError').textContent = msg;
+  $('sendError').classList.add('visible');
+}
+
+function showTicket(res){
+  $('ticketNo').textContent = res.ticket;
+  $('ticketCode').textContent = res.code || '';
+  $('rName').textContent = strip(res.name);
+  $('rFacility').textContent = strip(res.facility);
+  $('rEmail').textContent = res.email || data.email;
+  $('repeatBadge').classList.toggle('visible', !!res.repeat);
+  show('result');
+}
+
+function showWaitlist(res){
+  $('waitPos').textContent = res.position;
+  $('waitCode').textContent = res.code || '';
+  $('wName').textContent = strip(res.name);
+  $('wFacility').textContent = strip(res.facility);
+  $('wEmail').textContent = res.email || data.email;
+  $('waitRepeatBadge').classList.toggle('visible', !!res.repeat);
+  show('waitResult');
+}
+</script>
+</body>
+</html>
