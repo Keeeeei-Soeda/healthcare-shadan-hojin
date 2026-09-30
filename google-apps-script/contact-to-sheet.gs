@@ -1,5 +1,10 @@
 /**
- * お問い合わせフォーム → Google スプレッドシート同期 + 送信者への自動返信
+ * お問い合わせフォーム → Google スプレッドシート同期
+ * + 送信者への自動返信
+ * + 協会宛ての整理済み通知メール（Formspree の保険）
+ *
+ * GAS 編集画面:
+ * https://script.google.com/home/projects/12x7yEys49M6TYArRk0NdSdVQy0ES0_Fr4CNMsXtt8QMYmOJiMFfDG_mr/edit
  *
  * セットアップ手順は docs/google-sheets-sync.md を参照してください。
  */
@@ -12,6 +17,13 @@ const SHEET_NAME = 'contact_form';
 
 /** 自動返信メールの送信者表示名 */
 const AUTO_REPLY_FROM_NAME = '一般社団法人 国際ヘルスケアAI推進協会';
+
+/**
+ * 協会宛通知のデフォルト宛先（カンマ区切り可）。
+ * スクリプトプロパティ ASSOCIATION_NOTIFY_TO があればそちらを優先する。
+ * 例: 'info@iha-ac.com, other@example.com'
+ */
+const ASSOCIATION_NOTIFY_TO_FALLBACK = 'info@iha-ac.com';
 
 /** スクリプトプロパティ SHEET_SYNC_TOKEN と一致させる（未設定ならトークン検証スキップ） */
 const SYNC_TOKEN = PropertiesService.getScriptProperties().getProperty('SHEET_SYNC_TOKEN') || '';
@@ -26,6 +38,7 @@ const HEADERS = [
   'お問い合わせ内容',
   '個人情報同意',
   '自動返信',
+  '協会通知',
 ];
 
 function doPost(e) {
@@ -50,8 +63,13 @@ function doPost(e) {
 
     appendRow_(payload);
     const autoReplyStatus = sendAutoReply_(payload);
-    updateAutoReplyStatus_(autoReplyStatus);
-    return jsonOutput({ ok: true, autoReply: autoReplyStatus });
+    const notifyStatus = sendAssociationNotify_(payload);
+    updateStatusColumns_(autoReplyStatus, notifyStatus);
+    return jsonOutput({
+      ok: true,
+      autoReply: autoReplyStatus,
+      associationNotify: notifyStatus,
+    });
   } catch (err) {
     return jsonOutput({ ok: false, error: String(err.message || err) });
   } finally {
@@ -61,6 +79,16 @@ function doPost(e) {
 
 function doGet() {
   return jsonOutput({ ok: true, service: 'contact-to-sheet' });
+}
+
+/**
+ * メール送信権限の承認用（エディタから手動実行）。
+ * これを1回実行すると「権限を確認」ダイアログが出ます。
+ * doGet では MailApp を使わないため、承認画面が出ません。
+ */
+function authorizeMail() {
+  const remaining = MailApp.getRemainingDailyQuota();
+  Logger.log('MailApp 権限OK。本日の残り送信数: ' + remaining);
 }
 
 function parsePayload_(e) {
@@ -85,16 +113,13 @@ function getSheet_() {
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
   }
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow(HEADERS);
-    sheet.setFrozenRows(1);
-    sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
-  }
+  ensureHeaders_(sheet);
   return sheet;
 }
 
 function appendRow_(payload) {
   const sheet = getSheet_();
+  ensureHeaders_(sheet);
   sheet.appendRow([
     Utilities.formatDate(new Date(), 'Asia/Tokyo', 'yyyy-MM-dd HH:mm:ss'),
     payload.name,
@@ -105,24 +130,54 @@ function appendRow_(payload) {
     payload.message,
     payload.consent,
     '送信中',
+    '送信中',
   ]);
 }
 
-function updateAutoReplyStatus_(status) {
-  const sheet = getSheet_();
-  const lastRow = sheet.getLastRow();
-  if (lastRow < 2) return;
-  const colCount = sheet.getLastColumn();
-  if (colCount < HEADERS.length) {
+function ensureHeaders_(sheet) {
+  if (sheet.getLastRow() === 0) {
     sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
     sheet.setFrozenRows(1);
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
+    return;
   }
-  sheet.getRange(lastRow, HEADERS.length).setValue(status);
+  // 既存シートは列構成を壊さない。不足している末尾ステータス列だけ補う。
+  if (sheet.getLastColumn() < 9 || !String(sheet.getRange(1, 9).getValue() || '').trim()) {
+    sheet.getRange(1, 9).setValue('自動返信').setFontWeight('bold');
+  }
+  if (sheet.getLastColumn() < 10 || !String(sheet.getRange(1, 10).getValue() || '').trim()) {
+    sheet.getRange(1, 10).setValue('協会通知').setFontWeight('bold');
+  }
+  sheet.setFrozenRows(1);
+}
+
+function updateStatusColumns_(autoReplyStatus, notifyStatus) {
+  const sheet = getSheet_();
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) return;
+  ensureHeaders_(sheet);
+  sheet.getRange(lastRow, 9).setValue(autoReplyStatus);
+  sheet.getRange(lastRow, 10).setValue(notifyStatus);
 }
 
 function getAssociationReplyTo_() {
   return PropertiesService.getScriptProperties().getProperty('ASSOCIATION_REPLY_TO') || '';
+}
+
+/** 協会宛通知先（プロパティ優先、なければ FALLBACK）。カンマ／セミコロン／空白区切り可 */
+function getAssociationNotifyTo_() {
+  const raw =
+    PropertiesService.getScriptProperties().getProperty('ASSOCIATION_NOTIFY_TO') ||
+    ASSOCIATION_NOTIFY_TO_FALLBACK ||
+    '';
+  return String(raw)
+    .split(/[,;\s]+/)
+    .map(function (s) {
+      return s.trim();
+    })
+    .filter(function (s) {
+      return s && isValidEmail_(s);
+    });
 }
 
 function isValidEmail_(email) {
@@ -151,6 +206,99 @@ function sendAutoReply_(payload) {
   } catch (err) {
     return '送信失敗: ' + String(err.message || err);
   }
+}
+
+/**
+ * 協会宛て通知（Formspree の保険）。
+ * 問い合わせ内容を整理して複数宛先へ転送する。
+ * Reply-To は問い合わせ者メールに設定し、そのまま返信できるようにする。
+ */
+function sendAssociationNotify_(payload) {
+  const recipients = getAssociationNotifyTo_();
+  if (!recipients.length) return '宛先未設定';
+
+  const receivedAt = Utilities.formatDate(new Date(), 'Asia/Tokyo', 'yyyy-MM-dd HH:mm:ss');
+  const topic = payload.topic || '（未選択）';
+  const name = payload.name || '（未記入）';
+  const subject = '【お問い合わせ通知】' + topic + ' / ' + name;
+  const plainBody = buildAssociationNotifyPlain_(payload, receivedAt);
+  const htmlBody = buildAssociationNotifyHtml_(payload, receivedAt);
+  const options = {
+    htmlBody: htmlBody,
+    name: AUTO_REPLY_FROM_NAME,
+  };
+  if (payload.email && isValidEmail_(payload.email)) {
+    options.replyTo = payload.email;
+  }
+
+  try {
+    MailApp.sendEmail(recipients.join(','), subject, plainBody, options);
+    return '送信済 (' + recipients.length + '件)';
+  } catch (err) {
+    return '送信失敗: ' + String(err.message || err);
+  }
+}
+
+function buildAssociationNotifyPlain_(payload, receivedAt) {
+  return (
+    'ウェブサイトのお問い合わせフォームから新規の問い合わせがありました。\n' +
+    '（Formspree 通知の保険として Apps Script からも送信しています）\n\n' +
+    '━━━━━━━━━━━━━━━━━━━━\n' +
+    '■ 受付日時\n' + receivedAt + '\n\n' +
+    '■ お名前\n' + (payload.name || '（未記入）') + '\n\n' +
+    '■ 法人名・所属\n' + (payload.org || '（未記入）') + '\n\n' +
+    '■ メールアドレス\n' + (payload.email || '（未記入）') + '\n\n' +
+    '■ 電話番号\n' + (payload.tel || '（未記入）') + '\n\n' +
+    '■ お問い合わせ種別\n' + (payload.topic || '（未選択）') + '\n\n' +
+    '■ お問い合わせ内容\n' + (payload.message || '（未記入）') + '\n\n' +
+    '■ 個人情報同意\n' + (payload.consent || '（未記入）') + '\n' +
+    '━━━━━━━━━━━━━━━━━━━━\n\n' +
+    '※ このメールに返信すると、問い合わせ者（Reply-To）へ返信できます。\n' +
+    '※ 記録先: スプレッドシート「contact_form」\n'
+  );
+}
+
+function buildAssociationNotifyHtml_(payload, receivedAt) {
+  const esc = function (s) {
+    return String(s || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  };
+  const row = function (label, value, multiline) {
+    const v = multiline
+      ? esc(value || '（未記入）').replace(/\n/g, '<br>')
+      : esc(value || '（未記入）');
+    return (
+      '<tr>' +
+      '<th style="text-align:left;vertical-align:top;padding:10px 12px;width:140px;background:#F2F7FA;border-bottom:1px solid #E2EAF0;color:#0B3B66;font-size:13px">' +
+      esc(label) +
+      '</th>' +
+      '<td style="padding:10px 12px;border-bottom:1px solid #E2EAF0;font-size:14px;line-height:1.7">' +
+      v +
+      '</td>' +
+      '</tr>'
+    );
+  };
+  return (
+    '<div style="font-family:sans-serif;line-height:1.7;color:#1B2A38;max-width:680px">' +
+    '<p style="margin:0 0 8px;font-size:15px"><strong>新規お問い合わせ（協会宛通知）</strong></p>' +
+    '<p style="margin:0 0 18px;font-size:13px;color:#5E7081">Formspree 通知の保険として Apps Script からも送信しています。</p>' +
+    '<table style="width:100%;border-collapse:collapse;border:1px solid #E2EAF0;border-radius:8px;overflow:hidden">' +
+    row('受付日時', receivedAt, false) +
+    row('お名前', payload.name, false) +
+    row('法人名・所属', payload.org, false) +
+    row('メールアドレス', payload.email, false) +
+    row('電話番号', payload.tel, false) +
+    row('お問い合わせ種別', payload.topic || '（未選択）', false) +
+    row('お問い合わせ内容', payload.message, true) +
+    row('個人情報同意', payload.consent, false) +
+    '</table>' +
+    '<p style="margin-top:18px;font-size:13px;color:#5E7081">※ このメールに返信すると、問い合わせ者（Reply-To）へ返信できます。<br>' +
+    '※ 記録先: スプレッドシート「contact_form」</p>' +
+    '</div>'
+  );
 }
 
 function buildAutoReplyPlain_(name, payload) {

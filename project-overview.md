@@ -80,9 +80,12 @@
 | ファイル | 内容 |
 |---|---|
 | `google-apps-script/contact-to-sheet.gs` | Apps Script 本体 |
+| `google-apps-script/templates/sheet-email-notify.gs` | 他プロジェクト再利用用テンプレート（シート追記→複数宛先通知） |
 | `docs/google-sheets-sync.md` | セットアップ手順 |
+| `docs/sheet-email-notify-template.md` | 再利用テンプレートのセットアップ手順 |
 
 - スプレッドシート: [国際ヘルスケアAI推進機構_プロジェクトファイル](https://docs.google.com/spreadsheets/d/190L3DfU8S-xpa9-EEyv0FgkUQ8vD6fEgL0lt2rbcVfc/edit)（ID: `190L3DfU8S-xpa9-EEyv0FgkUQ8vD6fEgL0lt2rbcVfc`）
+- GAS 編集画面: https://script.google.com/home/projects/12x7yEys49M6TYArRk0NdSdVQy0ES0_Fr4CNMsXtt8QMYmOJiMFfDG_mr/edit
 - 書き込み先シート: `contact_form`
 
 `contact.html` の `SHEET_SYNC_URL` に Web アプリ URL を設定すると同期が開始されます。未設定の間は Formspree のみ動作します。

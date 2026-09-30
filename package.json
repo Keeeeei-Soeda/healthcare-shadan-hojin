@@ -1,0 +1,14 @@
+{
+  "name": "healthcare-shadan-hojin-1",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:pdf": "playwright test && node scripts/export-test-report-pdf.js",
+    "test:flow-pdf": "playwright test tests/contact-flow.spec.js && node scripts/export-flow-report-pdf.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}
