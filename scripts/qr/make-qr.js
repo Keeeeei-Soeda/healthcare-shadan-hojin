@@ -1,4 +1,4 @@
-// 整理券・ウェイティングリスト用 QR コードを docs/entry-qr/ に生成し、読み取り結果を検証する
+// 整理券・ウェイティングリスト・メディキャンバス問い合わせ用 QR コードを docs/entry-qr/ に生成し、読み取り結果を検証する
 //   cd scripts/qr && npm install && node make-qr.js
 const fs = require('fs');
 const QRCode = require('qrcode');
@@ -11,6 +11,7 @@ const TARGETS = [
   { name: 'kanrishi-qr', url: 'https://www.iha-as.com/kanrishi/' },
   { name: 'entry-live-qr', url: 'https://www.iha-as.com/entry-live/' },
   { name: 'kanrishi-live-qr', url: 'https://www.iha-as.com/kanrishi-live/' },
+  { name: 'medicanvas-qr', url: 'https://www.iha-as.com/medicanvas/' },
 ];
 const opts = { errorCorrectionLevel: 'H', margin: 4, color: { dark: '#0B3B66', light: '#FFFFFF' } };
 

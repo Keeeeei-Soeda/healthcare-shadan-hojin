@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ｜株式会社メディキャンバス</title>
+<meta name="description" content="2026年10月4日 日本レセプト学会 学術研究会でご紹介した、株式会社メディキャンバスへのお問い合わせページです。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B3B66;
+  --navy-deep:#072A4A;
+  --teal:#14A3A3;
+  --teal-light:#3CC9C9;
+  --ink:#1B2A38;
+  --muted:#5E7081;
+  --bg:#FFFFFF;
+  --bg-soft:#F2F7FA;
+  --line:#E2EAF0;
+  --shadow:0 18px 50px -22px rgba(11,59,102,.35);
+  --radius:16px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);
+  line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3{font-family:"Zen Kaku Gothic New",sans-serif}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;font-weight:700;color:var(--teal-light);margin-bottom:14px}
+.eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--teal-light);vertical-align:middle;margin-right:10px;transform:translateY(-3px)}
+
+/* ---------- Header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px -16px rgba(7,42,74,.4);padding:18px 0}
+.brand{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:16px;line-height:1.25;color:var(--navy)}
+.brand small{display:block;font-size:9px;letter-spacing:.12em;font-weight:500;opacity:.7}
+
+/* ---------- Page banner ---------- */
+.banner{
+  position:relative;padding:130px 0 60px;color:#fff;overflow:hidden;
+  background:radial-gradient(circle at 78% 25%,#0d4f86 0%,#072a4a 62%);
+}
+.banner-grid{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+.banner .wrap{position:relative;z-index:2}
+.banner h1{font-size:clamp(26px,5vw,40px);font-weight:900;line-height:1.35}
+.banner p{margin-top:14px;color:rgba(255,255,255,.85);max-width:620px;font-size:14.5px}
+.event-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:13.5px;color:rgba(255,255,255,.9)}
+.event-meta span{display:inline-flex;align-items:center;gap:6px}
+.event-meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal-light)}
+
+/* ---------- Body ---------- */
+.entry{padding:56px 0 90px;background:var(--bg-soft)}
+.entry .wrap{max-width:640px}
+.form-card{scroll-margin-top:96px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:38px 36px;box-shadow:var(--shadow)}
+.lead{font-size:14.5px;color:var(--muted);margin-bottom:26px}
+.lead strong{color:var(--navy)}
+.field{margin-bottom:22px}
+.field label{display:block;font-size:14px;font-weight:700;margin-bottom:8px;color:var(--ink)}
+.req,.opt{font-size:12px;font-weight:700;margin-left:6px}
+.req{color:var(--teal)}
+.opt{color:var(--muted)}
+.field input,.field select,.field textarea{
+  width:100%;font-family:inherit;font-size:16px;color:var(--ink);
+  padding:13px 15px;border:1.5px solid var(--line);border-radius:11px;background:var(--bg-soft);
+  transition:border-color .25s, box-shadow .25s, background .25s;
+}
+.field textarea{min-height:120px;resize:vertical;line-height:1.7}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 4px rgba(20,163,163,.12)}
+.field-note{font-size:12.5px;color:var(--muted);margin-top:6px}
+.consent{display:flex;gap:12px;align-items:flex-start;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:26px}
+.consent input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--teal);cursor:pointer}
+.consent label{font-size:13px;color:var(--muted);font-weight:500;line-height:1.7}
+.submit{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;font-weight:700;font-size:16px;font-family:inherit;
+  padding:17px 34px;border-radius:32px;border:0;cursor:pointer;color:#fff;
+  background:var(--teal);box-shadow:0 16px 34px -14px rgba(20,163,163,.9);transition:transform .25s, box-shadow .25s;
+}
+.submit:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(20,163,163,1)}
+.submit:disabled{opacity:.65;cursor:not-allowed;transform:none}
+.form-error{display:none;margin-top:14px;padding:12px 14px;border-radius:10px;background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;font-size:13.5px;line-height:1.6}
+.form-error.visible{display:block}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.nb{display:inline-block}
+
+/* ---------- Steps / Confirm ---------- */
+.steps{list-style:none;display:flex;gap:6px;margin-bottom:22px;counter-reset:st}
+.steps li{flex:1;counter-increment:st;font-size:12px;font-weight:700;color:var(--muted);text-align:center;padding-top:10px;border-top:3px solid var(--line)}
+.steps li::before{content:counter(st) ". "}
+.steps li.on{color:var(--teal);border-top-color:var(--teal)}
+.steps li.done{color:var(--navy);border-top-color:var(--navy)}
+.confirm{display:none}
+.confirm.visible{display:block}
+.confirm-list{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:15px;padding:18px 20px;border:1px solid var(--line);border-radius:12px;margin-bottom:14px}
+.confirm-list dt{color:var(--muted);font-weight:700;font-size:13px;padding-top:2px;white-space:nowrap}
+.confirm-list dd{font-weight:700;word-break:break-all;white-space:pre-wrap}
+.confirm-mail{border:2px solid var(--teal);background:#EFF9F9;border-radius:12px;padding:16px 18px;margin-bottom:24px}
+.confirm-mail span{display:block;font-size:12.5px;font-weight:700;color:var(--teal);margin-bottom:4px}
+.confirm-mail strong{display:block;font-size:19px;color:var(--navy);word-break:break-all;line-height:1.5;font-family:ui-monospace,Menlo,Consolas,monospace}
+.btn-ghost{display:block;width:100%;margin-top:12px;padding:14px;font-family:inherit;font-size:15px;font-weight:700;color:var(--muted);background:transparent;border:1.5px solid var(--line);border-radius:32px;cursor:pointer}
+.btn-ghost:hover{color:var(--navy);border-color:var(--navy)}
+.btn-ghost:disabled{opacity:.5;cursor:not-allowed}
+
+/* ---------- Result ---------- */
+.result,.closed{display:none;text-align:center}
+.result.visible,.closed.visible{display:block}
+.result .check{width:62px;height:62px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff}
+.result h2,.closed h2{font-size:21px;font-weight:900;color:var(--navy)}
+.result-lead{font-size:14px;color:var(--muted);margin:12px 0 22px}
+.guide{list-style:none;text-align:left;background:var(--bg-soft);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.guide li{position:relative;padding-left:17px;font-size:13.5px;color:var(--ink)}
+.guide li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--teal-light)}
+.mail-to{font-weight:700;word-break:break-all}
+.closed p{font-size:14px;color:var(--muted);margin-top:10px}
+
+/* ---------- Footer ---------- */
+footer{background:#06223c;color:rgba(255,255,255,.72);padding:32px 0 24px;font-size:14px;text-align:center}
+footer .brand{color:#fff}
+.copyright{padding-top:16px;font-size:12px;color:rgba(255,255,255,.4)}
+
+:focus-visible{outline:3px solid var(--teal-light);outline-offset:3px;border-radius:4px}
+
+@media(max-width:600px){
+  .wrap{padding:0 16px}
+  .banner{padding:110px 0 46px}
+  .entry{padding:36px 0 70px}
+  .form-card{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap">
+    <div class="brand">株式会社メディキャンバス<small>MEDICANVAS INC.</small></div>
+  </div>
+</header>
+
+<!-- ============ BANNER ============ -->
+<section class="banner">
+  <svg class="banner-grid" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs><pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse"><path d="M46 0H0V46" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#grid)"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">CONTACT</span>
+    <h1>株式会社メディキャンバス<br><span class="nb">お問い合わせ</span></h1>
+    <p>医療機関向けのアプリ開発・AIによる業務の自動化について、お気軽にご相談ください。</p>
+    <div class="event-meta">
+      <span>2026年10月4日（日）</span>
+      <span>日本レセプト学会 学術研究会</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENTRY ============ -->
+<section class="entry">
+  <div class="wrap">
+    <div class="form-card">
+
+      <!-- STEP 1: 入力 -->
+      <form id="entryForm" novalidate>
+        <ol class="steps" aria-label="お問い合わせの流れ">
+          <li class="on">入力</li><li>確認</li><li>完了</li>
+        </ol>
+        <p class="lead">以下をご入力ください。<br>担当者より、ご入力の<strong>メールアドレス</strong>へご連絡いたします。</p>
+
+        <!-- bot 用おとり欄（人には非表示） -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="name">お名前<span class="req">必須</span></label>
+          <input type="text" id="name" name="name" required maxlength="50" autocomplete="name" placeholder="山田 太郎">
+        </div>
+
+        <div class="field">
+          <label for="facility">ご所属（施設名・会社名など）<span class="req">必須</span></label>
+          <input type="text" id="facility" name="facility" required maxlength="100" autocomplete="organization" placeholder="◯◯病院 薬剤部 / ◯◯株式会社">
+        </div>
+
+        <div class="field">
+          <label for="email">メールアドレス<span class="req">必須</span></label>
+          <input type="email" id="email" name="email" required maxlength="254" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" placeholder="example@hospital.jp">
+          <p class="field-note">受付の控えをこのアドレスにお送りします。</p>
+        </div>
+
+        <div class="field">
+          <label for="tel">電話番号<span class="opt">任意</span></label>
+          <input type="tel" id="tel" name="tel" maxlength="20" autocomplete="tel" inputmode="tel" placeholder="03-0000-0000">
+        </div>
+
+        <div class="field">
+          <label for="topic">ご用件<span class="opt">任意</span></label>
+          <select id="topic" name="topic">
+            <option value="">選択してください</option>
+            <option>資料請求</option>
+            <option>開発・導入のご相談</option>
+            <option>その他</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">ご相談内容<span class="opt">任意</span></label>
+          <textarea id="message" name="message" maxlength="2000" placeholder="「自院でアプリを作りたい」「この業務をAIで自動化したい」など、自由にご記入ください。"></textarea>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="agree" name="agree">
+          <label for="agree">お預かりした個人情報は、お問い合わせへの回答とご案内のみに利用し、適切に管理します。内容に同意のうえ送信します。</label>
+        </div>
+
+        <button type="submit" class="submit">入力内容を確認する <span>→</span></button>
+        <p class="form-error" id="formError" role="alert"></p>
+      </form>
+
+      <!-- STEP 2: 確認 -->
+      <div class="confirm" id="confirm">
+        <ol class="steps" aria-label="お問い合わせの流れ">
+          <li class="done">入力</li><li class="on">確認</li><li>完了</li>
+        </ol>
+        <p class="lead">入力内容をご確認ください。<br>特に<strong>メールアドレス</strong>に誤りがないかご確認ください。</p>
+        <dl class="confirm-list">
+          <dt>お名前</dt><dd id="cName"></dd>
+          <dt>ご所属</dt><dd id="cFacility"></dd>
+          <dt>電話番号</dt><dd id="cTel"></dd>
+          <dt>ご用件</dt><dd id="cTopic"></dd>
+          <dt>ご相談内容</dt><dd id="cMessage"></dd>
+        </dl>
+        <div class="confirm-mail">
+          <span>ご連絡先のメールアドレス</span>
+          <strong id="cEmail"></strong>
+        </div>
+        <button type="button" class="submit" id="sendBtn">この内容で送信する <span>→</span></button>
+        <button type="button" class="btn-ghost" id="backBtn">← 修正する</button>
+        <p class="form-error" id="sendError" role="alert"></p>
+      </div>
+
+      <!-- STEP 3: 完了 -->
+      <div class="result" id="done" aria-live="polite">
+        <div class="check"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <h2>お問い合わせを<span class="nb">受け付けました</span></h2>
+        <p class="result-lead">ありがとうございます。担当者より順次ご連絡いたします。</p>
+        <ul class="guide">
+          <li><span class="mail-to" id="dEmail"></span> に受付の控えをお送りしました</li>
+          <li>届かない場合は、迷惑メールフォルダをご確認ください</li>
+        </ul>
+      </div>
+
+      <!-- 受付停止 -->
+      <div class="closed" id="closed">
+        <h2>受付を停止しています</h2>
+        <p id="closedMsg">恐れ入りますが、しばらくしてからお試しください。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="brand">株式会社メディキャンバス<small>MEDICANVAS INC.</small></div>
+    <div class="copyright">© 2026 MediCanvas Inc. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<script>
+// Apps Script Web App URL（docs/medicanvas-contact.md 手順で発行した /exec の URL を設定）
+const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbxLWMUBX8OW7Xiw_JSkWsq6vtBkL4McBMCcumAMFE_SyS6z9yt5YaU0wDAfTunyV4F4/exec';
+
+const $ = id => document.getElementById(id);
+const form = $('entryForm');
+const panels = ['entryForm', 'confirm', 'done', 'closed'];
+const sendBtn = $('sendBtn');
+const sendBtnHtml = sendBtn.innerHTML;
+let data = null;
+
+function show(id){
+  panels.forEach(p => { $(p).classList.toggle('visible', p === id); });
+  form.style.display = id === 'entryForm' ? '' : 'none';
+  document.querySelector('.form-card').scrollIntoView({behavior:'smooth'});
+}
+
+function formError(msg, focusId){
+  const el = $('formError');
+  el.textContent = msg;
+  el.classList.add('visible');
+  if (focusId) $(focusId).focus();
+}
+
+function sendError(msg){
+  $('sendError').textContent = msg;
+  $('sendError').classList.add('visible');
+}
+
+// STEP 1 → 2
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  $('formError').classList.remove('visible');
+  data = {
+    name: $('name').value.trim(),
+    facility: $('facility').value.trim(),
+    email: $('email').value.trim().replace(/[＠]/g, '@'),
+    tel: $('tel').value.trim(),
+    topic: $('topic').value,
+    message: $('message').value.trim(),
+    agree: $('agree').checked,
+    website: $('website').value
+  };
+  $('email').value = data.email;
+  if (!data.name || !data.facility || !data.email) return formError('未入力の項目があります。');
+  if (!/^[A-Za-z0-9][A-Za-z0-9._%+\-]*@[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?)+$/.test(data.email)) return formError('メールアドレスの形式が正しくありません。', 'email');
+  if (!data.agree) return formError('個人情報の取り扱いへの同意にチェックしてください。');
+
+  $('cName').textContent = data.name;
+  $('cFacility').textContent = data.facility;
+  $('cTel').textContent = data.tel || '（未記入）';
+  $('cTopic').textContent = data.topic || '（未選択）';
+  $('cMessage').textContent = data.message || '（未記入）';
+  $('cEmail').textContent = data.email;
+  $('sendError').classList.remove('visible');
+  show('confirm');
+});
+
+// STEP 2 → 1
+$('backBtn').addEventListener('click', () => show('entryForm'));
+
+// STEP 2 → 3
+sendBtn.addEventListener('click', async () => {
+  $('sendError').classList.remove('visible');
+  sendBtn.disabled = true;
+  $('backBtn').disabled = true;
+  sendBtn.innerHTML = '送信中…';
+
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 30000); // サーバー側ロック待ち(最大20秒)＋処理時間
+  try {
+    // Content-Type を text/plain にすることで CORS プリフライトを回避（Apps Script の仕様）
+    const r = await fetch(CONTACT_API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain;charset=utf-8'},
+      body: JSON.stringify(data),
+      signal: ctrl.signal
+    });
+    const res = await r.json();
+    if (res.ok) {
+      $('dEmail').textContent = data.email;
+      return show('done');
+    }
+    if (res.closed) { if (res.message) $('closedMsg').textContent = res.message; return show('closed'); }
+    if (res.field === 'email') { show('entryForm'); return formError(res.message, 'email'); }
+    sendError(res.message || '送信に失敗しました。もう一度お試しください。');
+  } catch (_) {
+    sendError('通信エラーが発生しました。電波の良い場所で、もう一度送信してください。');
+  } finally {
+    clearTimeout(timer);
+    sendBtn.disabled = false;
+    $('backBtn').disabled = false;
+    sendBtn.innerHTML = sendBtnHtml;
+  }
+});
+</script>
+</body>
+</html>
