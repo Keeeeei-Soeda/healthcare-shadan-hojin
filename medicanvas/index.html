@@ -367,5 +367,16 @@ sendBtn.addEventListener('click', async () => {
   }
 });
 </script>
+<script>
+// QR コードから開かれた回数の記録（docs/qr-access-log.md）。URL に ?nolog を付けると記録しない
+(function () {
+  const ACCESS_LOG_URL = 'https://script.google.com/macros/s/AKfycbxmEzwUIMRqTBS9boKQGDfjPC428DQO07Ea5FnXUOqSaLgAjQiImRBX11vQh_JAbNo/exec';
+  if (location.search.indexOf('nolog') >= 0 || !navigator.sendBeacon) return;
+  const ua = navigator.userAgent;
+  const isTablet = /iPad|Tablet/i.test(ua) || (/Android/i.test(ua) && !/Mobi/i.test(ua)) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  const device = isTablet ? 'タブレット' : /Mobi|iPhone|Android/i.test(ua) ? 'スマホ' : 'PC';
+  navigator.sendBeacon(ACCESS_LOG_URL, JSON.stringify({ page: 'medicanvas', device: device }));
+})();
+</script>
 </body>
 </html>
