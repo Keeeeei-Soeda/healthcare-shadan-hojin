@@ -39,7 +39,7 @@ const g = {
 };
 const src = fs.readFileSync(__dirname + '/../../google-apps-script/apply.gs', 'utf8');
 const api = new Function(...Object.keys(g), src + '\nreturn { setupApply, doGet, doPost };')(...Object.values(g));
-const post = body => api.doPost({ postData: { contents: JSON.stringify(Object.assign({ name: '山田', facility: '病院', agree: true }, body)) } });
+const post = body => api.doPost({ postData: { contents: JSON.stringify(Object.assign({ name: '山田', facility: '病院', ticket: 'なし', agree: true }, body)) } });
 const ok = (label, cond) => { assert.ok(cond, label); console.log('OK ', label); };
 
 // 10/4 のタブ（確認コード AAAA を使用中）を再現
@@ -66,7 +66,9 @@ ok('code not used by event tab', k1.code !== 'AAAA');
 const mc = mails.length;
 const k1r = post({ email: 'taro@example.jp', program: 'kanrishi' });
 ok('repeat same number & code, no mail', k1r.repeat && k1r.number === 'P-001' && k1r.code === k1.code && mails.length === mc);
-ok('kanrishi #2 without ticket', post({ email: 'jiro@example.jp', program: 'kanrishi' }).number === 'P-002');
+ok('ticket required', post({ email: 'jiro@example.jp', program: 'kanrishi', ticket: '' }).field === 'ticket');
+const k2 = post({ email: 'jiro@example.jp', program: 'kanrishi' });
+ok('kanrishi #2 with no ticket (なし)', k2.number === 'P-002' && k2.ticket === 'なし');
 
 const h1 = post({ email: 'taro@example.jp', program: 'hospital', ticket: '001' });
 ok('hospital #1 independent tab', h1.number === 'H-001' && h1.ticket === '001' && sheets['申込_医療機関'].getLastRow() === 2);

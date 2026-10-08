@@ -75,6 +75,9 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,2
 }
 .field input:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 4px rgba(20,163,163,.12)}
 .field-note{font-size:12.5px;color:var(--muted);margin-top:6px}
+.field .no-ticket{display:inline-flex;align-items:center;gap:8px;margin:10px 0 0;font-size:13.5px;font-weight:700;cursor:pointer}
+.field .no-ticket input{width:18px;height:18px;padding:0;flex:none;accent-color:var(--teal);cursor:pointer}
+.field input:disabled{opacity:.5}
 .consent{display:flex;gap:12px;align-items:flex-start;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:26px}
 .consent input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--teal);cursor:pointer}
 .consent label{font-size:13px;color:var(--muted);font-weight:500;line-height:1.7}
@@ -236,9 +239,10 @@ footer{background:#06223c;color:rgba(255,255,255,.72);padding:40px 0 24px;font-s
         </div>
 
         <div class="field">
-          <label for="ticket">整理券番号<span class="opt">任意</span></label>
+          <label for="ticket">整理券番号<span class="req">必須</span></label>
           <input type="text" id="ticket" name="ticket" maxlength="10" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="001">
-          <p class="field-note">2026年10月4日の日本レセプト学会 学術研究会で整理券を受け取った方は、整理番号をご入力ください。</p>
+          <p class="field-note">2026年10月4日の日本レセプト学会 学術研究会で受け取った整理券の整理番号をご入力ください。</p>
+          <label class="no-ticket"><input type="checkbox" id="noTicket"> 整理券を持っていない</label>
         </div>
 
         <div class="consent">
@@ -324,12 +328,21 @@ const panels = ['entryForm', 'confirm', 'result', 'closed'];
 const sendBtn = $('sendBtn');
 const sendBtnHtml = sendBtn.innerHTML;
 const strip = s => String(s || '').replace(/^'/, '');
+const NO_TICKET = 'なし';
 const toHalf = s => s.replace(/[Ａ-Ｚａ-ｚ０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0));
 let data = null;
 
 // 案内メールのリンク（?ticket=001）から開いたときは整理券番号を入力済みにする
 const ticketParam = new URLSearchParams(location.search).get('ticket');
-if (ticketParam) $('ticket').value = ticketParam.slice(0, 10);
+if (ticketParam === 'none') $('noTicket').checked = true;
+else if (ticketParam) $('ticket').value = ticketParam.slice(0, 10);
+
+function syncNoTicket(){
+  $('ticket').disabled = $('noTicket').checked;
+  if ($('noTicket').checked) $('ticket').value = '';
+}
+$('noTicket').addEventListener('change', syncNoTicket);
+syncNoTicket();
 
 function show(id){
   panels.forEach(p => { $(p).classList.toggle('visible', p === id); });
@@ -352,21 +365,22 @@ form.addEventListener('submit', e => {
     name: $('name').value.trim(),
     facility: $('facility').value.trim(),
     email: $('email').value.trim().replace(/[＠]/g, '@'),
-    ticket: toHalf($('ticket').value).replace(/[‐－―ー−]/g, '-').replace(/\s/g, '').toUpperCase(),
+    ticket: $('noTicket').checked ? NO_TICKET : toHalf($('ticket').value).replace(/[‐－―ー−]/g, '-').replace(/\s/g, '').toUpperCase(),
     agree: $('agree').checked,
     website: $('website').value,
     program: 'hospital'
   };
   $('email').value = data.email;
-  $('ticket').value = data.ticket;
+  if (data.ticket !== NO_TICKET) $('ticket').value = data.ticket;
   if (!data.name || !data.facility || !data.email) return formError('未入力の項目があります。');
   if (!/^[A-Za-z0-9][A-Za-z0-9._%+\-]*@[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?)+$/.test(data.email)) return formError('メールアドレスの形式が正しくありません。', 'email');
-  if (data.ticket && !/^[A-Z0-9][A-Z0-9\-]{0,9}$/.test(data.ticket)) return formError('整理券番号は、整理券に記載の番号（例：001）をご入力ください。', 'ticket');
+  if (!data.ticket) return formError('整理券番号を入力するか、「整理券を持っていない」にチェックしてください。', 'ticket');
+  if (data.ticket !== NO_TICKET && !/^[A-Z0-9][A-Z0-9\-]{0,9}$/.test(data.ticket)) return formError('整理券番号は、整理券に記載の番号（例：001）をご入力ください。', 'ticket');
   if (!data.agree) return formError('個人情報の取り扱いへの同意にチェックしてください。');
 
   $('cName').textContent = data.name;
   $('cFacility').textContent = data.facility;
-  $('cTicket').textContent = data.ticket || 'なし';
+  $('cTicket').textContent = data.ticket;
   $('cEmail').textContent = data.email;
   $('sendError').classList.remove('visible');
   show('confirm');

@@ -175,7 +175,7 @@ function summary_(list) {
 function buildMail_(r) {
   const P = PROGRAMS[r.program];
   const ticket = r.group === 'ticket';
-  const link = ticket ? P.url + '?ticket=' + encodeURIComponent(r.no) : P.url;
+  const link = P.url + '?ticket=' + (ticket ? encodeURIComponent(r.no) : 'none');
   const thanks = ticket
     ? EVENT_INFO + 'では、' + P.eventLabel + 'の整理券（整理番号 ' + r.no + '）をお受け取りいただき、ありがとうございました。'
     : EVENT_INFO + 'では、' + P.eventLabel + 'の' + r.listName + '（受付順 ' + r.no + '番目）にご登録いただき、ありがとうございました。';
@@ -184,7 +184,7 @@ function buildMail_(r) {
     : 'お待たせいたしました。' + P.label + 'のお申し込み受付を、2026年10月8日（木）より開始いたしました。ウェイティングリストにご登録の皆さまにも、お申し込みいただけるようになりましたのでご案内いたします。';
   const ticketNote = ticket
     ? 'お申し込みフォームの「整理券番号」欄に、整理番号「' + r.no + '」をご入力ください（下記のリンクから開くと入力済みになります）。'
-    : 'お申し込みフォームの「整理券番号」欄は、空欄のままで構いません。';
+    : 'お申し込みフォームの「整理券番号」欄は、「整理券を持っていない」にチェックしてください（下記のリンクから開くとチェック済みになります）。';
 
   const text =
     r.name + ' 様\n\n' +

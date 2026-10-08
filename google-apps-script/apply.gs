@@ -7,7 +7,7 @@
  * 機能
  *   1. 受付番号（個人 P-001〜／医療機関 H-001〜）＋確認コード（ランダム4文字）を発行
  *      確認コードは 10/4 整理券・ウェイティングのタブとも重複しない（それらのタブは読み取りのみ）
- *   2. 10/4 で受け取った整理券番号を任意で記録
+ *   2. 10/4 で受け取った整理券番号を記録（必須。整理券を持っていない人は「なし」）
  *   3. メールドメインの実在チェック＋よくある打ち間違いドメインの検出
  *   4. 確認メール（今後の流れ・振込先は後日送付の旨）を送信。Resend 未設定・失敗時は Gmail(MailApp) で代替送信
  *   5. Resend の配信結果（到達／不達／遅延）を5分ごとに取得してシートに記録
@@ -113,8 +113,9 @@ const DELIVERY_UNTRACKED = '確認不可（Gmail送信）';
 
 /** メールアドレスとして受け付ける形（先頭は英数字。= + - @ 始まりはシートで数式扱いになるため不可） */
 const EMAIL_RE = /^[A-Za-z0-9][A-Za-z0-9._%+\-]*@[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?)+$/;
-/** 整理券番号（001／K-001 など。半角英数字とハイフン、先頭は英数字） */
+/** 整理券番号（001／K-001 など。半角英数字とハイフン、先頭は英数字）。必須で、整理券を持っていない人は NO_TICKET */
 const TICKET_RE = /^[A-Z0-9][A-Z0-9\-]{0,9}$/;
+const NO_TICKET = 'なし';
 
 // ============================================================
 // 初期セットアップ（エディタから実行。何度実行しても既存タブは変更しない）
@@ -188,7 +189,8 @@ function doPost(e) {
 
   if (!name || !facility || !email) return json_({ ok: false, message: '未入力の項目があります。' });
   if (!EMAIL_RE.test(email)) return json_({ ok: false, field: 'email', message: 'メールアドレスの形式が正しくありません。' });
-  if (ticket && !TICKET_RE.test(ticket)) return json_({ ok: false, field: 'ticket', message: '整理券番号は、整理券に記載の番号（例：001、K-001）を半角でご入力ください。' });
+  if (!ticket) return json_({ ok: false, field: 'ticket', message: '整理券番号を入力するか、「整理券を持っていない」にチェックしてください。' });
+  if (ticket !== NO_TICKET && !TICKET_RE.test(ticket)) return json_({ ok: false, field: 'ticket', message: '整理券番号は、整理券に記載の番号（例：001、K-001）を半角でご入力ください。' });
   if (!p.agree) return json_({ ok: false, message: '個人情報の取り扱いへの同意が必要です。' });
   if (!isAccepting_(program)) return json_({ ok: false, closed: true, message: '現在、お申し込みの受付を行っていません。' });
 

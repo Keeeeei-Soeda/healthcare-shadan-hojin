@@ -54,7 +54,7 @@ ok('yamada kanrishi gets ticket version only once', mails.filter(m => m.to === '
   && mails.find(m => m.to === 'yamada@example.jp' && m.subject.includes('管理士')).text.includes('整理番号 K-001'));
 ok('ticket link prefilled', mails[0].text.includes('kanrishi-apply/?ticket=K-001'));
 ok('sato already applied -> skipped', !mails.some(m => m.to === 'sato@example.jp'));
-ok('suzuki waitlist version', mails.find(m => m.to === 'suzuki@example.jp').text.includes('ウェイティングリスト（受付順 2番目）') && mails.find(m => m.to === 'suzuki@example.jp').text.includes('空欄のままで'));
+ok('suzuki waitlist version', mails.find(m => m.to === 'suzuki@example.jp').text.includes('ウェイティングリスト（受付順 2番目）') && mails.find(m => m.to === 'suzuki@example.jp').text.includes('「整理券を持っていない」にチェック') && mails.find(m => m.to === 'suzuki@example.jp').text.includes('kanrishi-apply/?ticket=none'));
 ok('hospital ticket: tanaka 001, price', mails.find(m => m.to === 'tanaka@example.jp').text.includes('hospital-apply/?ticket=001') && mails.find(m => m.to === 'tanaka@example.jp').text.includes('600,000円'));
 ok('same person gets each program separately', mails.some(m => m.to === 'yamada@example.jp' && m.text.includes('hospital-apply/?ticket=002')));
 console.log(to);
