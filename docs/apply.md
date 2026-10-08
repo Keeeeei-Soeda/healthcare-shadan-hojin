@@ -61,6 +61,16 @@ Apps Script Web アプリ（apply.gs・プロジェクト entry-apply）
 - 確認コードは 10/4 の6タブとも重複しない（10/4 のタブは読み取りのみ）
 - 整理券番号は自己申告。10/4 のタブとの照合は担当者がシートで行う
 
+## 本番の設定値（2026-10-08 設定済み）
+
+| 項目 | 値 |
+|---|---|
+| Apps Script プロジェクト | `entry-apply`（所有者 `info@iha-as.com`）<br>https://script.google.com/d/1rQnHDF5RL1CDLPIAjU6mngp4qddDeKUCg87Ft3LEcyD9kZdc_og4X-1o/edit |
+| Web アプリ URL（`APPLY_API_URL`） | https://script.google.com/macros/s/AKfycbzVIljdqtDeU-bQ4310-eqTsp0_8XHuwPAmvQbWA_AciHK9XBchuMnTbSWtSBUqwA/exec |
+| メール送信 | Gmail（`info@iha-as.com`）。Resend は未設定 |
+
+clasp で更新する場合：`clasp --user iha push` → `clasp --user iha create-version` → `clasp --user iha create-deployment -i <上記 URL の AKfycb… の部分> -V <版>`（URL は変わらない）
+
 ## セットアップ
 
 1. https://script.google.com/create を `info@iha-as.com`（申込シートの編集者）で開き、名前を `entry-apply` にする
