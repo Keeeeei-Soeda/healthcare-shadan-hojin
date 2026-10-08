@@ -71,6 +71,7 @@ ok('kanrishi #2 without ticket', post({ email: 'jiro@example.jp', program: 'kanr
 const h1 = post({ email: 'taro@example.jp', program: 'hospital', ticket: '001' });
 ok('hospital #1 independent tab', h1.number === 'H-001' && h1.ticket === '001' && sheets['申込_医療機関'].getLastRow() === 2);
 ok('hospital mail mentions portal', mails.at(-1).text.includes('ポータルサイト'));
+ok('hospital mail mentions payment later & period', mails.at(-1).text.includes('お振込先は、後日') && mails.at(-1).text.includes('10月20日（火）〜10月31日（土）'));
 ok('codes unique', new Set([k1.code, h1.code]).size === 2);
 ok('event tab untouched', JSON.stringify(ev.data) === evBefore);
 
