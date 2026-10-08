@@ -327,6 +327,10 @@ const strip = s => String(s || '').replace(/^'/, '');
 const toHalf = s => s.replace(/[Ａ-Ｚａ-ｚ０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0));
 let data = null;
 
+// 案内メールのリンク（?ticket=K-001）から開いたときは整理券番号を入力済みにする
+const ticketParam = new URLSearchParams(location.search).get('ticket');
+if (ticketParam) $('ticket').value = ticketParam.slice(0, 10);
+
 function show(id){
   panels.forEach(p => { $(p).classList.toggle('visible', p === id); });
   form.style.display = id === 'entryForm' ? '' : 'none';

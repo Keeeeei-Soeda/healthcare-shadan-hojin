@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-10-08（10/4 登録者への受付開始の案内メール）
+
+| ファイル | 内容 |
+|---|---|
+| `google-apps-script/entry-invite.gs` | 10/4 の整理券・ウェイティング登録者へ案内メールを送信（管理士／医療機関 × 整理券／ウェイティングの4文面、重複・申込済み除外、送信記録） |
+| `kanrishi-apply/index.html`・`hospital-apply/index.html` | 案内メールのリンク（`?ticket=`）から開くと整理券番号を入力済みにする |
+| `scripts/gas-mock/entry-invite.test.js`・`docs/entry-invite.md` | モックテスト・手順 |
+
+---
+
 ## 2026-10-08（受講・研修のお申し込み受付開始）
 
 ### 個人（医療AIガバナンス管理士）・医療機関向けの申込ページを追加
