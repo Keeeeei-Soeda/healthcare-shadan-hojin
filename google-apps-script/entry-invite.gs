@@ -82,9 +82,28 @@ function sendTestInvites() {
   ];
   samples.forEach(s => {
     const m = buildMail_(s);
-    MailApp.sendEmail(TEST_TO, '【テスト】' + m.subject, m.text, { htmlBody: m.html, name: MAIL_FROM_NAME });
+    sendWithRetry_(TEST_TO, '【テスト】' + m.subject, m);
   });
   console.log('テスト送信: ' + samples.length + '通 → ' + TEST_TO);
+}
+
+/** 送信できない原因の切り分け：残り送信数を出し、短い文面 → 本文のみ → HTML 付きの順に TEST_TO へ送る */
+function diagnoseMail() {
+  console.log('Gmail の残り送信可能数: ' + MailApp.getRemainingDailyQuota() + '通');
+  const m = buildMail_({ program: 'kanrishi', group: 'ticket', no: 'K-001', name: 'テスト' });
+  const tries = [
+    ['短い文面', () => MailApp.sendEmail(TEST_TO, '【診断1】送信テスト', '送信テストです。')],
+    ['案内の本文のみ', () => MailApp.sendEmail(TEST_TO, '【診断2】' + m.subject, m.text, { name: MAIL_FROM_NAME })],
+    ['案内の HTML 付き', () => MailApp.sendEmail(TEST_TO, '【診断3】' + m.subject, m.text, { htmlBody: m.html, name: MAIL_FROM_NAME })],
+  ];
+  tries.forEach(([label, send]) => {
+    try {
+      send();
+      console.log(label + ': OK');
+    } catch (err) {
+      console.log(label + ': 失敗 ' + String(err.message || err));
+    }
+  });
 }
 
 /** 送り先の一覧と件数をログに出す（送信しない） */
@@ -110,7 +129,7 @@ function sendInvites() {
       const m = buildMail_(r);
       let result = SENT;
       try {
-        MailApp.sendEmail(r.email, m.subject, m.text, { htmlBody: m.html, name: MAIL_FROM_NAME });
+        sendWithRetry_(r.email, m.subject, m);
         sent++;
       } catch (err) {
         result = '送信失敗: ' + String(err.message || err);
@@ -220,6 +239,19 @@ function buildMail_(r) {
 }
 
 // ====== 補助 ======
+
+/** Gmail の一時的な送信エラー（Please try again later）に備え、待ってから最大2回まで送り直す */
+function sendWithRetry_(to, subject, m) {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      MailApp.sendEmail(to, subject, m.text, { htmlBody: m.html, name: MAIL_FROM_NAME });
+      return;
+    } catch (err) {
+      if (attempt >= 2) throw err;
+      Utilities.sleep(3000 * (attempt + 1));
+    }
+  }
+}
 
 function groupLabel_(r) {
   return r.group === 'ticket' ? '整理券' : r.listName;

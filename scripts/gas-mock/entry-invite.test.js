@@ -26,12 +26,13 @@ const sheets = {
 const ss = { getSheetByName: n => sheets[n] || null, insertSheet: n => (sheets[n] = makeSheet()) };
 const mails = [];
 let quota = 100;
+let flaky = 0;
 const logs = [];
 const g = {
   SpreadsheetApp: { openById: () => ss },
   LockService: { getScriptLock: () => ({ tryLock: () => true, releaseLock() {} }) },
-  MailApp: { sendEmail: (to, subject, text, opt) => { mails.push({ to, subject, text, html: opt.htmlBody }); quota--; }, getRemainingDailyQuota: () => quota },
-  Utilities: { formatDate: () => '2026-10-08 13:00:00' },
+  MailApp: { sendEmail: (to, subject, text, opt) => { if (to === 'suzuki@example.jp' && !flaky++) throw new Error('Error sending email. Please try again later.'); mails.push({ to, subject, text, html: opt.htmlBody }); quota--; }, getRemainingDailyQuota: () => quota },
+  Utilities: { formatDate: () => '2026-10-08 13:00:00', sleep() {} },
   console: { log: s => logs.push(s) },
 };
 const src = fs.readFileSync(__dirname + '/../../google-apps-script/entry-invite.gs', 'utf8');
@@ -49,7 +50,7 @@ ok('preview: count', logs.at(-1).startsWith('送信予定 4通'));
 
 api.sendInvites();
 const to = mails.map(m => m.to + ' ' + m.subject.slice(0, 30));
-ok('sent 4', mails.length === 4);
+ok('sent 4 (suzuki succeeded on retry)', mails.length === 4 && flaky === 2);
 ok('yamada kanrishi gets ticket version only once', mails.filter(m => m.to === 'yamada@example.jp' && m.subject.includes('管理士')).length === 1
   && mails.find(m => m.to === 'yamada@example.jp' && m.subject.includes('管理士')).text.includes('整理番号 K-001'));
 ok('ticket link prefilled', mails[0].text.includes('kanrishi-apply/?ticket=K-001'));
