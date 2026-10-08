@@ -468,6 +468,29 @@ body{font-size:calc(16px*var(--tsc))}
 .newsband-body p:last-child{margin-bottom:0}
 .newsband-body .newsband-strong{color:var(--navy);font-weight:700}
 .cta-note{margin-top:18px;font-size:13.5px;line-height:1.8;opacity:.85}
+
+/* ===== APPLY（受講・研修のお申し込み） ===== */
+.apply{background:var(--bg);padding:80px 0}
+.apply .head-center{margin-bottom:44px}
+.apply-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.apply-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:var(--radius);padding:34px 32px;box-shadow:var(--shadow)}
+.apply-card.org{border-top-color:var(--navy)}
+.apply-for{display:inline-block;align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--teal);padding:4px 12px;border-radius:999px;margin-bottom:14px}
+.apply-card.org .apply-for{background:var(--navy)}
+.apply-card h3{font-size:22px;font-weight:900;line-height:1.45;color:var(--navy-deep)}
+.apply-price{margin-top:10px;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:30px;line-height:1.2;color:var(--navy)}
+.apply-price span{font-size:14px;font-weight:700;color:var(--muted);margin-left:4px}
+.apply-card ul{list-style:none;margin:18px 0 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.apply-card li{position:relative;padding-left:22px;font-size:14.5px;color:var(--muted)}
+.apply-card li::before{content:"";position:absolute;left:0;top:12px;width:12px;height:2px;background:var(--teal)}
+.apply-card li b{color:var(--ink)}
+.apply-card .btn{justify-content:center}
+.apply-card.org .btn-primary{background:var(--navy);box-shadow:0 16px 34px -14px rgba(11,59,102,.9)}
+@media(max-width:900px){
+  .apply{padding:64px 0}
+  .apply-grid{grid-template-columns:1fr;gap:20px}
+  .apply-card{padding:28px 22px}
+}
 @media(max-width:760px){
   .newsband{padding:20px 0}
   .newsband-inner{flex-direction:column;gap:14px;padding:20px 20px}
@@ -497,6 +520,7 @@ body{font-size:calc(16px*var(--tsc))}
   <a href="#flow">認定制度</a>
   <a href="#individual">個人認定</a>
   <a href="#members">理事紹介</a>
+  <a href="#apply">お申し込み</a>
   <a href="#contact" class="nav-cta">お問い合わせ</a>
 </nav>
 <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
@@ -519,8 +543,8 @@ body{font-size:calc(16px*var(--tsc))}
       <h1 data-hero>医療の現場に、<br><span class="accent">正しいAIを。</span></h1>
       <p class="sub" data-hero>医療・福祉分野におけるAIの適正かつ安全な活用を推進。安全性とコンプライアンスを軸に、研修・個人認定・組織単位の法人認定を通じて、職員一人ひとりと組織全体のAI活用を支えます。</p>
       <div class="hero-cta" data-hero>
-        <a href="#business" class="btn btn-primary">事業内容を見る <span class="arrow">→</span></a>
-        <a href="#contact" class="btn btn-ghost">お問い合わせ</a>
+        <a href="#apply" class="btn btn-primary">お申し込み（10月8日受付開始） <span class="arrow">→</span></a>
+        <a href="#business" class="btn btn-ghost">事業内容を見る</a>
       </div>
     </div>
   </div>
@@ -533,12 +557,47 @@ body{font-size:calc(16px*var(--tsc))}
     <div class="newsband-inner">
       <div class="newsband-label">
         <span class="newsband-tag">NEWS</span>
-        <span class="newsband-date">2026.10.04</span>
+        <span class="newsband-date">2026.10.08</span>
       </div>
       <div class="newsband-body">
-        <h3>日本レセプト学会 学術研究会にて、病院向けAI研修の整理券を配布いたします</h3>
-        <p>2026年10月4日（日）、昭和女子大学にて開催される日本レセプト学会 学術研究会の会場において、当協会の病院向けAI研修の整理券を配布いたします。</p>
-        <p><span class="newsband-strong">整理券に関するお問い合わせの受付は、2026年10月8日（木）より開始いたします。</span><br>それ以前にお送りいただいたお問い合わせにつきましても、10月8日以降に順次ご返信いたします。</p>
+        <h3>医療AIガバナンス管理士・医療機関向けAI研修のお申し込み受付を開始しました</h3>
+        <p>2026年10月8日（木）より、個人の方向けの「医療AIガバナンス管理士」と、医療機関向けAI研修のお申し込みを受け付けています。10月4日の日本レセプト学会 学術研究会で整理券を受け取った方は、お申し込み時に整理番号をご入力ください。</p>
+        <p><span class="newsband-strong">整理券に関するお問い合わせも、10月8日（木）より受け付けています。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPLY（受講・研修のお申し込み） ============ -->
+<section class="apply" id="apply">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">APPLICATION</span>
+      <h2 class="sec-title">お申し込み</h2>
+      <p class="sec-lead">2026年10月8日（木）より受付を開始しました。個人の方と医療機関の方で、お申し込みページが分かれています。</p>
+    </div>
+    <div class="apply-grid">
+      <div class="apply-card reveal">
+        <span class="apply-for">個人の方</span>
+        <h3>医療AIガバナンス管理士</h3>
+        <p class="apply-price">38,000<span>円（税別）</span></p>
+        <ul>
+          <li><b>講習会は2027年2月開催（90分）</b></li>
+          <li>受講後に理解度テストと提出物をご提出いただき、認定します</li>
+          <li>お振込先は申込後にメールでご案内。<b>10月20日〜31日</b>にお振り込みください</li>
+        </ul>
+        <a href="kanrishi-apply/" class="btn btn-primary">管理士の受講を申し込む <span class="arrow">→</span></a>
+      </div>
+      <div class="apply-card org reveal d1">
+        <span class="apply-for">医療機関の方</span>
+        <h3>医療機関向けAI研修</h3>
+        <p class="apply-price">600,000<span>円（税別）</span></p>
+        <ul>
+          <li>ご請求・お振込先は申込後にメールでご案内します</li>
+          <li><b>ご入金確認後、担当者が研修の打ち合わせ</b>を行い、概要をご説明します</li>
+          <li>打ち合わせ後、研修用ポータルサイトのURLをお送りします</li>
+        </ul>
+        <a href="hospital-apply/" class="btn btn-primary">医療機関の研修を申し込む <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -875,7 +934,7 @@ body{font-size:calc(16px*var(--tsc))}
         <li><b>今年度は講習で認定。</b> 所定の研修を受講した方に付与し、翌年からは試験認定に移行します。</li>
         <li><b>成果を、目に見える形で。</b> 認定書をオンラインで発行。個人の学びと判断力を証明します。</li>
       </ul>
-      <span class="btn btn-primary is-soon">受講・お申し込みについて｜準備中</span>
+      <a href="kanrishi-apply/" class="btn btn-primary" style="background:var(--teal);color:#fff">受講を申し込む（10月8日受付開始） <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -1013,6 +1072,7 @@ body{font-size:calc(16px*var(--tsc))}
           <li><a href="#flow">認定制度</a></li>
           <li><a href="#individual">個人認定</a></li>
           <li><a href="#members">理事紹介</a></li>
+          <li><a href="#apply">お申し込み</a></li>
           <li><a href="#contact">お問い合わせ</a></li>
         </ul>
       </div>

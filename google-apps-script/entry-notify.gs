@@ -1,7 +1,7 @@
 /**
- * entry-notify.gs — 10/4 申込の担当者通知（1分ごとにシートを見て、新しい申込をメールで知らせる）
+ * entry-notify.gs — 申込の担当者通知（1分ごとにシートを見て、新しい申込をメールで知らせる）
  *
- * 受付用の Apps Script（entry-ticket・entry-waitlist）とは別のプロジェクトで動かす。シートは読むだけで書き込まない。
+ * 受付用の Apps Script（entry-ticket・entry-waitlist・entry-apply）とは別のプロジェクトで動かす。シートは読むだけで書き込まない。
  * Apps Script が書き込んだ行ではシートの変更トリガーが動かないため、時間主導トリガーで定期的に確認する。
  * 手順: docs/entry-notify.md
  *
@@ -13,7 +13,7 @@ const SPREADSHEET_ID = '190L3DfU8S-xpa9-EEyv0FgkUQ8vD6fEgL0lt2rbcVfc';
 const NOTIFY_TO_FALLBACK = 'info@iha-as.com';
 const CHECK_EVERY_MINUTES = 1;
 
-/** 監視するタブ。列の並び（番号／確認コード／状態／受付日時／氏名／所属施設／メールアドレス）は6タブ共通 */
+/** 監視するタブ。列の並び（番号／確認コード／状態／受付日時／氏名／所属施設／メールアドレス）は全タブ共通 */
 const TABS = [
   { name: '1004_整理券', label: '配布資料用 病院向け 整理券' },
   { name: '1004_キャンセル待ち', label: '配布資料用 病院向け キャンセル待ち' },
@@ -21,6 +21,8 @@ const TABS = [
   { name: '1004_管理士_キャンセル待ち', label: '配布資料用 管理士 キャンセル待ち' },
   { name: '1004_投影_病院向け_ウェイティング', label: '投影用 病院向け ウェイティングリスト' },
   { name: '1004_投影_管理士_ウェイティング', label: '投影用 管理士 ウェイティングリスト' },
+  { name: '申込_管理士', label: '受講申込 医療AIガバナンス管理士' },
+  { name: '申込_医療機関', label: '研修申込 医療機関向け' },
 ];
 const COL = { no: 0, code: 1, receivedAt: 3, name: 4, facility: 5, email: 6 };
 
@@ -87,7 +89,7 @@ function sendNotify_(fresh, totals) {
     ? '【申込通知】' + first.tab.label + ' ' + first.row[COL.no] + ' / ' + first.row[COL.name]
     : '【申込通知】新しい申込 ' + fresh.length + '件';
   const body =
-    '10/4 学術研究会の QR コードから、新しい申込がありました。\n\n' +
+    '新しい申込がありました。\n\n' +
     fresh.map(({ tab, row }) =>
       '■ ' + tab.label + '　' + row[COL.no] + '（確認コード ' + row[COL.code] + '）\n' +
       '  受付日時：' + row[COL.receivedAt] + '\n' +
@@ -99,5 +101,5 @@ function sendNotify_(fresh, totals) {
     '現在の件数\n' + totals.join('\n') + '\n\n' +
     '※ スプレッドシート: https://docs.google.com/spreadsheets/d/' + SPREADSHEET_ID + '/edit\n';
 
-  MailApp.sendEmail(recipients.join(','), subject, body, { name: '10/4 申込通知' });
+  MailApp.sendEmail(recipients.join(','), subject, body, { name: '申込通知' });
 }
